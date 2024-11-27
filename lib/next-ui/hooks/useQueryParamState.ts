@@ -10,7 +10,7 @@ const parseValue = <T>(value: any): T => {
   }
 }
 
-export const useQueryParamState = <T extends number | string>(
+export const useQueryParamState = <T extends number | string | boolean>(
   key: string,
   defaultValue: T,
 ) => {
