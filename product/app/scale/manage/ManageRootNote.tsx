@@ -1,7 +1,7 @@
 import { range } from '@lib/utils/array/range'
 import { useRootNote } from '../state/rootNote'
 import { ExpandableSelector } from '@lib/ui/select/ExpandableSelector'
-import { chromaticNotesNames } from '@product/core/note'
+import { chromaticNotesNames, chromaticNotesNumber } from '@product/core/note'
 
 export const ManageRootNote = () => {
   const [value, setValue] = useRootNote()
@@ -10,7 +10,7 @@ export const ManageRootNote = () => {
     <ExpandableSelector
       value={value}
       onChange={setValue}
-      options={range(chromaticNotesNames.length)}
+      options={range(chromaticNotesNumber)}
       getOptionKey={(index) => chromaticNotesNames[index]}
     />
   )

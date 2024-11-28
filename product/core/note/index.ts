@@ -16,3 +16,5 @@ export const chromaticNotesNames = scalePatterns.minor.reduce(
   },
   [] as string[],
 )
+
+export const chromaticNotesNumber = chromaticNotesNames.length
