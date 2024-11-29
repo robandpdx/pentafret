@@ -5,10 +5,16 @@ import { fretboardConfig } from './config'
 import { getColor } from '@lib/ui/theme/getters'
 import { range } from '@lib/utils/array/range'
 import { String } from './String'
-import { stringsCount, visibleFrets } from '../state/guitar'
+import { stringsCount, tuning, visibleFrets } from '../state/guitar'
 import { Fret } from './Fret'
 import { getFretMarkers } from '@product/core/guitar/fretMarkers'
 import { FretMarkerItem } from './FretMarkerItem'
+import { chromaticNotesNumber } from '@product/core/note'
+import { getScaleNotes } from '@product/core/scale/getScaleNotes'
+import { useScale } from '../state/scale'
+import { useRootNote } from '../state/rootNote'
+import { scalePatterns } from '@product/core/scale'
+import { Note } from './Note'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -26,6 +32,14 @@ const Nut = styled.div`
 `
 
 export const Fretboard = () => {
+  const [scale] = useScale()
+  const [rootNote] = useRootNote()
+
+  const scaleNotes = getScaleNotes({
+    pattern: scalePatterns[scale],
+    rootNote,
+  })
+
   return (
     <ElementSizeAware
       render={({ setElement, size }) => (
@@ -42,6 +56,23 @@ export const Fretboard = () => {
               {getFretMarkers(visibleFrets).map((value) => (
                 <FretMarkerItem key={value.index} value={value} />
               ))}
+              {range(stringsCount).map((string) => {
+                const openNote = tuning[string]
+                return range(visibleFrets + 1).map((index) => {
+                  const note = (openNote + index) % chromaticNotesNumber
+                  const fret = index === 0 ? null : index - 1
+
+                  if (scaleNotes.includes(note)) {
+                    return (
+                      <Note
+                        key={`${string}-${note}`}
+                        string={string}
+                        fret={fret}
+                      />
+                    )
+                  }
+                })
+              })}
             </Neck>
           )}
         </div>

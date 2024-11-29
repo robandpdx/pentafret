@@ -3,8 +3,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import styled from 'styled-components'
 import { PositionAbsolutelyCenterHorizontally } from '@lib/ui/layout/PositionAbsolutelyCenterHorizontally'
 import { toPercents } from '@lib/utils/toPercents'
-import { fretboardConfig } from './config'
-import { stringsCount } from '../state/guitar'
+import { getStringPosition } from './utils/getStringPosition'
 
 const Container = styled.div`
   background: ${getColor('textSupporting')};
@@ -14,10 +13,7 @@ const Container = styled.div`
 export const String = ({ index }: ComponentWithIndexProps) => {
   return (
     <PositionAbsolutelyCenterHorizontally
-      top={toPercents(
-        (index / (stringsCount - 1)) * (1 - fretboardConfig.stringsOffset * 2) +
-          fretboardConfig.stringsOffset,
-      )}
+      top={toPercents(getStringPosition(index))}
       fullWidth
     >
       <Container style={{ height: index + 1 }} key={index} />
