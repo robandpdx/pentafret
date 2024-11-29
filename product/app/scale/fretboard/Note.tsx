@@ -8,20 +8,26 @@ import styled from 'styled-components'
 import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByCenter'
-import { getColor } from '@lib/ui/theme/getters'
+import { matchColor } from '@lib/ui/theme/getters'
+import { ComponentWithKindProps } from '@lib/ui/props'
 
-type NoteProps = {
+type NoteKind = 'regular' | 'secondary'
+
+type NoteProps = Partial<ComponentWithKindProps<NoteKind>> & {
   string: number
   fret: number | null
 }
 
-const Container = styled.div`
+const Container = styled.div<ComponentWithKindProps<NoteKind>>`
   ${round}
   ${sameDimensions(fretboardConfig.noteSize)}
-  background: ${getColor('primary')};
+  background: ${matchColor('kind', {
+    regular: 'primary',
+    secondary: 'foregroundExtra',
+  })};
 `
 
-export const Note = ({ string, fret }: NoteProps) => {
+export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
   const top = toPercents(getStringPosition(string))
   const left = `calc(${toPercents(
     fret === null
@@ -31,7 +37,7 @@ export const Note = ({ string, fret }: NoteProps) => {
 
   return (
     <PositionAbsolutelyByCenter top={top} left={left}>
-      <Container />
+      <Container kind={kind} />
     </PositionAbsolutelyByCenter>
   )
 }

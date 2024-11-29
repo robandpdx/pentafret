@@ -13,8 +13,9 @@ import { chromaticNotesNumber } from '@product/core/note'
 import { getScaleNotes } from '@product/core/scale/getScaleNotes'
 import { useScale } from '../state/scale'
 import { useRootNote } from '../state/rootNote'
-import { scalePatterns } from '@product/core/scale'
+import { pentatonicPatterns, scalePatterns } from '@product/core/scale'
 import { Note } from './Note'
+import { usePentatonic } from '../state/pentatonic'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -39,6 +40,13 @@ export const Fretboard = () => {
     pattern: scalePatterns[scale],
     rootNote,
   })
+
+  const pentatonicNotes = getScaleNotes({
+    pattern: pentatonicPatterns[scale],
+    rootNote,
+  })
+
+  const [pentatonic] = usePentatonic()
 
   return (
     <ElementSizeAware
@@ -68,6 +76,13 @@ export const Fretboard = () => {
                         key={`${string}-${index}`}
                         string={string}
                         fret={fret}
+                        kind={
+                          pentatonic
+                            ? pentatonicNotes.includes(note)
+                              ? 'regular'
+                              : 'secondary'
+                            : 'regular'
+                        }
                       />
                     )
                   }

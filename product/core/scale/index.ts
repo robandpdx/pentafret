@@ -34,3 +34,14 @@ export const scaleNames: Record<Scale, string> = {
   harmonicMinor: 'Harmonic Minor',
   melodicMinor: 'Melodic Minor',
 }
+
+export const pentatonicPatterns: Record<Scale, ScalePattern> = {
+  major: [2, 2, 3, 2, 3],
+  minor: [3, 2, 2, 3, 2],
+  blues: [3, 2, 1, 3, 2],
+  dorian: [2, 3, 2, 2, 3],
+  mixolydian: [2, 2, 3, 2, 3],
+  phrygian: [1, 3, 2, 3, 2],
+  harmonicMinor: [2, 1, 3, 2, 3],
+  melodicMinor: [2, 3, 2, 2, 3],
+}
