@@ -65,12 +65,14 @@ export const Fretboard = () => {
                   if (scaleNotes.includes(note)) {
                     return (
                       <Note
-                        key={`${string}-${note}`}
+                        key={`${string}-${index}`}
                         string={string}
                         fret={fret}
                       />
                     )
                   }
+
+                  return null
                 })
               })}
             </Neck>
