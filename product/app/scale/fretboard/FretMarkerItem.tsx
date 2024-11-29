@@ -7,11 +7,13 @@ import styled from 'styled-components'
 import { fretboardConfig } from './config'
 import { PositionAbsolutelyCenterVertically } from '@lib/ui/layout/PositionAbsolutelyCenterVertically'
 import { toPercents } from '@lib/utils/toPercents'
-import { visibleFretCount } from '../state/guitar'
 import { Match } from '@lib/ui/base/Match'
 import { Center } from '@lib/ui/layout/Center'
 import { vStack } from '@lib/ui/css/stack'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
+import { getIntervalCenter } from '@lib/utils/interval/getIntervalCenter'
+import { getFretPosition } from '@product/core/guitar/getFretPosition'
+import { totalFrets, visibleFrets } from '../state/guitar'
 
 const Dot = styled.div`
   ${round};
@@ -33,7 +35,15 @@ export const FretMarkerItem = ({
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight
-      left={toPercents((value.index + 0.5) / visibleFretCount)}
+      left={toPercents(
+        getIntervalCenter(
+          getFretPosition({
+            index: value.index,
+            visibleFrets,
+            totalFrets,
+          }),
+        ),
+      )}
     >
       <Match
         value={value.type}
