@@ -1,4 +1,3 @@
-import { ElementSizeAware } from '@lib/ui/base/ElementSizeAware'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import styled from 'styled-components'
 import { fretboardConfig } from './config'
@@ -58,56 +57,48 @@ export const Fretboard = () => {
   const [pentatonic] = usePentatonic()
 
   return (
-    <ElementSizeAware
-      render={({ setElement, size }) => (
-        <div ref={setElement}>
-          {size && size.width && (
-            <Neck>
-              <OpenNotes />
-              <Nut />
-              <Frets>
-                {range(visibleFrets).map((index) => (
-                  <Fret key={index} index={index} />
-                ))}
-                {getFretMarkers(visibleFrets).map((value) => (
-                  <FretMarkerItem key={value.index} value={value} />
-                ))}
+    <Neck>
+      <OpenNotes />
+      <Nut />
+      <Frets>
+        {range(visibleFrets).map((index) => (
+          <Fret key={index} index={index} />
+        ))}
+        {getFretMarkers(visibleFrets).map((value) => (
+          <FretMarkerItem key={value.index} value={value} />
+        ))}
 
-                {range(stringsCount).map((index) => (
-                  <String key={index} index={index} />
-                ))}
-                {range(stringsCount).map((string) => {
-                  const openNote = tuning[string]
-                  return range(visibleFrets + 1).map((index) => {
-                    const note = (openNote + index) % chromaticNotesNumber
-                    const fret = index === 0 ? null : index - 1
+        {range(stringsCount).map((index) => (
+          <String key={index} index={index} />
+        ))}
+        {range(stringsCount).map((string) => {
+          const openNote = tuning[string]
+          return range(visibleFrets + 1).map((index) => {
+            const note = (openNote + index) % chromaticNotesNumber
+            const fret = index === 0 ? null : index - 1
 
-                    if (scaleNotes.includes(note)) {
-                      return (
-                        <Note
-                          key={`${string}-${index}`}
-                          string={string}
-                          fret={fret}
-                          value={note}
-                          kind={
-                            pentatonic
-                              ? pentatonicNotes.includes(note)
-                                ? 'regular'
-                                : 'secondary'
-                              : 'regular'
-                          }
-                        />
-                      )
-                    }
+            if (scaleNotes.includes(note)) {
+              return (
+                <Note
+                  key={`${string}-${index}`}
+                  string={string}
+                  fret={fret}
+                  value={note}
+                  kind={
+                    pentatonic
+                      ? pentatonicNotes.includes(note)
+                        ? 'regular'
+                        : 'secondary'
+                      : 'regular'
+                  }
+                />
+              )
+            }
 
-                    return null
-                  })
-                })}
-              </Frets>
-            </Neck>
-          )}
-        </div>
-      )}
-    />
+            return null
+          })
+        })}
+      </Frets>
+    </Neck>
   )
 }
