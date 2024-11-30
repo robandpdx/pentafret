@@ -6,6 +6,7 @@ import { HStack, VStack } from '@lib/ui/css/stack'
 import { ManageScale } from './manage/ManageScale'
 import { ManagePentatonic } from './manage/ManagePentatonic'
 import { Fretboard } from './fretboard/Fretboard'
+import { ScalePageTitle } from './ScalePageTitle'
 
 const Container = styled.div`
   ${centeredContentColumn({
@@ -18,12 +19,13 @@ const Container = styled.div`
 export const ScalePage = () => {
   return (
     <Container>
-      <VStack gap={40}>
+      <VStack gap={60}>
         <HStack alignItems="center" gap={16} fullWidth justifyContent="center">
           <ManageRootNote />
           <ManageScale />
           <ManagePentatonic />
         </HStack>
+        <ScalePageTitle />
         <Fretboard />
       </VStack>
     </Container>
