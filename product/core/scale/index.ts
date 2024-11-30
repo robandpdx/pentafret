@@ -7,8 +7,8 @@ export const scales = [
   'dorian',
   'mixolydian',
   'phrygian',
-  'harmonicMinor',
-  'melodicMinor',
+  'harmonic-minor',
+  'melodic-minor',
 ] as const
 
 export type Scale = (typeof scales)[number]
@@ -20,8 +20,8 @@ export const scalePatterns: Record<Scale, ScalePattern> = {
   dorian: [2, 1, 2, 2, 2, 1, 2],
   mixolydian: [2, 2, 1, 2, 2, 1, 2],
   phrygian: [1, 2, 2, 2, 1, 2, 2],
-  harmonicMinor: [2, 1, 2, 2, 1, 3, 1],
-  melodicMinor: [2, 1, 2, 2, 2, 2, 1],
+  ['harmonic-minor']: [2, 1, 2, 2, 1, 3, 1],
+  ['melodic-minor']: [2, 1, 2, 2, 2, 2, 1],
 }
 
 export const scaleNames: Record<Scale, string> = {
@@ -31,8 +31,8 @@ export const scaleNames: Record<Scale, string> = {
   dorian: 'Dorian',
   mixolydian: 'Mixolydian',
   phrygian: 'Phrygian',
-  harmonicMinor: 'Harmonic Minor',
-  melodicMinor: 'Melodic Minor',
+  ['harmonic-minor']: 'Harmonic Minor',
+  ['melodic-minor']: 'Melodic Minor',
 }
 
 export const pentatonicPatterns: Record<Scale, ScalePattern> = {
@@ -42,8 +42,8 @@ export const pentatonicPatterns: Record<Scale, ScalePattern> = {
   dorian: [2, 3, 2, 2, 3],
   mixolydian: [2, 2, 3, 2, 3],
   phrygian: [1, 3, 2, 3, 2],
-  harmonicMinor: [2, 1, 3, 2, 3],
-  melodicMinor: [2, 3, 2, 2, 3],
+  ['harmonic-minor']: [2, 1, 3, 2, 3],
+  ['melodic-minor']: [2, 3, 2, 2, 3],
 }
 
 export const scaleTypes = ['scale', 'pentatonic'] as const

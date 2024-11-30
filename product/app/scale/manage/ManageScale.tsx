@@ -1,14 +1,15 @@
 import { ExpandableSelector } from '@lib/ui/select/ExpandableSelector'
-import { useScale } from '../state/scale'
+import { useChangeScale, useScale } from '../state/scale'
 import { scaleNames, scales } from '@product/core/scale'
 
 export const ManageScale = () => {
-  const [value, setValue] = useScale()
+  const { scale } = useScale()
+  const setValue = useChangeScale()
 
   return (
     <ExpandableSelector
-      value={value}
-      onChange={setValue}
+      value={scale}
+      onChange={(scale) => setValue({ scale })}
       options={scales}
       getOptionKey={(scale) => scaleNames[scale]}
     />

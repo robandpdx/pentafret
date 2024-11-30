@@ -11,11 +11,9 @@ import { FretMarkerItem } from './FretMarkerItem'
 import { chromaticNotesNumber } from '@product/core/note'
 import { getScaleNotes } from '@product/core/scale/getScaleNotes'
 import { useScale } from '../state/scale'
-import { useRootNote } from '../state/rootNote'
 import { pentatonicPatterns, scalePatterns } from '@product/core/scale'
 import { Note } from './Note'
 import { hStack } from '@lib/ui/css/stack'
-import { useScaleType } from '../state/scaleType'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -41,8 +39,7 @@ const Nut = styled.div`
 `
 
 export const Fretboard = () => {
-  const [scale] = useScale()
-  const [rootNote] = useRootNote()
+  const { scale, rootNote, scaleType } = useScale()
 
   const scaleNotes = getScaleNotes({
     pattern: scalePatterns[scale],
@@ -53,8 +50,6 @@ export const Fretboard = () => {
     pattern: pentatonicPatterns[scale],
     rootNote,
   })
-
-  const [scaleType] = useScaleType()
 
   return (
     <Neck>

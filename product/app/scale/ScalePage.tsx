@@ -7,6 +7,8 @@ import { ManageScale } from './manage/ManageScale'
 import { Fretboard } from './fretboard/Fretboard'
 import { ScalePageTitle } from './ScalePageTitle'
 import { ManageScaleType } from './manage/ManageScaleType'
+import { ScaleProvider, ScaleState } from './state/scale'
+import { ComponentWithValueProps } from '@lib/ui/props'
 
 const Container = styled.div`
   ${centeredContentColumn({
@@ -16,18 +18,25 @@ const Container = styled.div`
   ${verticalPadding(80)}
 `
 
-export const ScalePage = () => {
+export const ScalePage = ({ value }: ComponentWithValueProps<ScaleState>) => {
   return (
-    <Container>
-      <VStack gap={60}>
-        <HStack alignItems="center" gap={16} fullWidth justifyContent="center">
-          <ManageRootNote />
-          <ManageScale />
-          <ManageScaleType />
-        </HStack>
-        <ScalePageTitle />
-        <Fretboard />
-      </VStack>
-    </Container>
+    <ScaleProvider value={value}>
+      <Container>
+        <VStack gap={60}>
+          <HStack
+            alignItems="center"
+            gap={16}
+            fullWidth
+            justifyContent="center"
+          >
+            <ManageRootNote />
+            <ManageScale />
+            <ManageScaleType />
+          </HStack>
+          <ScalePageTitle />
+          <Fretboard />
+        </VStack>
+      </Container>
+    </ScaleProvider>
   )
 }
