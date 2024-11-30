@@ -18,7 +18,7 @@ import { totalFrets, visibleFrets } from '../state/guitar'
 const Dot = styled.div`
   ${round};
   ${sameDimensions(fretboardConfig.height * 0.12)};
-  background: ${getColor('mist')};
+  background: ${getColor('textShy')};
 `
 
 const DoubleMarkerContainer = styled.div`

@@ -32,7 +32,6 @@ const OpenNotes = styled.div`
 const Frets = styled.div`
   position: relative;
   flex: 1;
-  background: blue;
   background: ${getColor('foreground')};
 `
 
@@ -89,6 +88,7 @@ export const Fretboard = () => {
                           key={`${string}-${index}`}
                           string={string}
                           fret={fret}
+                          value={note}
                           kind={
                             pentatonic
                               ? pentatonicNotes.includes(note)
