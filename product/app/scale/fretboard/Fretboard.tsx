@@ -14,8 +14,8 @@ import { useScale } from '../state/scale'
 import { useRootNote } from '../state/rootNote'
 import { pentatonicPatterns, scalePatterns } from '@product/core/scale'
 import { Note } from './Note'
-import { usePentatonic } from '../state/pentatonic'
 import { hStack } from '@lib/ui/css/stack'
+import { useScaleType } from '../state/scaleType'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -54,7 +54,7 @@ export const Fretboard = () => {
     rootNote,
   })
 
-  const [pentatonic] = usePentatonic()
+  const [scaleType] = useScaleType()
 
   return (
     <Neck>
@@ -78,19 +78,16 @@ export const Fretboard = () => {
             const fret = index === 0 ? null : index - 1
 
             if (scaleNotes.includes(note)) {
+              const isSecondaryNote =
+                scaleType === 'pentatonic' && !pentatonicNotes.includes(note)
+
               return (
                 <Note
                   key={`${string}-${index}`}
                   string={string}
                   fret={fret}
                   value={note}
-                  kind={
-                    pentatonic
-                      ? pentatonicNotes.includes(note)
-                        ? 'regular'
-                        : 'secondary'
-                      : 'regular'
-                  }
+                  kind={isSecondaryNote ? 'secondary' : 'regular'}
                 />
               )
             }
