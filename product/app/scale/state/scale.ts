@@ -10,6 +10,9 @@ export type ScaleState = {
   rootNote: number
 }
 
+export const makeScalePath = ({ scaleType, scale, rootNote }: ScaleState) =>
+  `/${scaleType}/${toUriNote(rootNote)}/${scale}`
+
 export const { useValue: useScale, provider: ScaleProvider } =
   getValueProviderSetup<ScaleState>('Scale')
 
@@ -20,9 +23,7 @@ export const useChangeScale = () => {
 
   return useCallback(
     (params: Partial<ScaleState>) => {
-      const { scaleType, scale, rootNote } = { ...value, ...params }
-
-      push(`/${scaleType}/${toUriNote(rootNote)}/${scale}`)
+      push(makeScalePath({ ...value, ...params }))
     },
     [push, value],
   )
