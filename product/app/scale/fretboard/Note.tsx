@@ -8,11 +8,10 @@ import styled, { useTheme } from 'styled-components'
 import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByCenter'
-import { getColor } from '@lib/ui/theme/getters'
+import { getColor, matchColor } from '@lib/ui/theme/getters'
 import { ComponentWithKindProps, ComponentWithValueProps } from '@lib/ui/props'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { chromaticNotesNames } from '@product/core/note'
-import { Text } from '@lib/ui/text'
 
 type NoteKind = 'regular' | 'secondary'
 
@@ -25,16 +24,23 @@ type NoteProps = Partial<ComponentWithKindProps<NoteKind>> &
 const Container = styled.div<ComponentWithKindProps<NoteKind>>`
   ${round}
   ${sameDimensions(fretboardConfig.noteSize)}
-  background: ${getColor('background')};
-  border: 1px solid;
-  ${centerContent}
+  background: ${matchColor('kind', {
+    regular: 'background',
+    secondary: 'foreground',
+  })};
+  border: 1px solid ${getColor('mistExtra')};
+  color: ${matchColor('kind', {
+    regular: 'contrast',
+    secondary: 'textShy',
+  })};
+  ${centerContent};
 `
 
 export const Note = ({ string, fret, kind = 'regular', value }: NoteProps) => {
   const top = toPercents(getStringPosition(string))
 
   const {
-    colors: { getLabelColor, mistExtra },
+    colors: { getLabelColor },
   } = useTheme()
 
   const left = `calc(${
@@ -48,17 +54,16 @@ export const Note = ({ string, fret, kind = 'regular', value }: NoteProps) => {
   return (
     <PositionAbsolutelyByCenter top={top} left={left}>
       <Container
-        style={{
-          borderColor: (kind === 'regular'
-            ? getLabelColor(value)
-            : mistExtra
-          ).toCssValue(),
-        }}
+        style={
+          kind === 'regular'
+            ? {
+                borderColor: getLabelColor(value).toCssValue(),
+              }
+            : undefined
+        }
         kind={kind}
       >
-        <Text color={kind === 'regular' ? 'contrast' : 'shy'}>
-          {chromaticNotesNames[value]}
-        </Text>
+        {chromaticNotesNames[value]}
       </Container>
     </PositionAbsolutelyByCenter>
   )
