@@ -16,20 +16,30 @@ import { useRootNote } from '../state/rootNote'
 import { pentatonicPatterns, scalePatterns } from '@product/core/scale'
 import { Note } from './Note'
 import { usePentatonic } from '../state/pentatonic'
+import { hStack } from '@lib/ui/css/stack'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
-  background: ${getColor('foreground')};
   position: relative;
+
+  ${hStack()};
+`
+
+const OpenNotes = styled.div`
+  width: ${toSizeUnit(fretboardConfig.openNotesSectionWidth)};
+`
+
+const Frets = styled.div`
+  position: relative;
+  flex: 1;
+  background: blue;
+  background: ${getColor('foreground')};
 `
 
 const Nut = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
   width: ${toSizeUnit(fretboardConfig.nutWidth)};
   background: ${getColor('textShy')};
-  position: absolute;
-  left: 0;
-  top: 0;
 `
 
 export const Fretboard = () => {
@@ -54,42 +64,46 @@ export const Fretboard = () => {
         <div ref={setElement}>
           {size && size.width && (
             <Neck>
+              <OpenNotes />
               <Nut />
-              {range(stringsCount).map((index) => (
-                <String key={index} index={index} />
-              ))}
-              {range(visibleFrets).map((index) => (
-                <Fret key={index} index={index} />
-              ))}
-              {getFretMarkers(visibleFrets).map((value) => (
-                <FretMarkerItem key={value.index} value={value} />
-              ))}
-              {range(stringsCount).map((string) => {
-                const openNote = tuning[string]
-                return range(visibleFrets + 1).map((index) => {
-                  const note = (openNote + index) % chromaticNotesNumber
-                  const fret = index === 0 ? null : index - 1
+              <Frets>
+                {range(visibleFrets).map((index) => (
+                  <Fret key={index} index={index} />
+                ))}
+                {getFretMarkers(visibleFrets).map((value) => (
+                  <FretMarkerItem key={value.index} value={value} />
+                ))}
 
-                  if (scaleNotes.includes(note)) {
-                    return (
-                      <Note
-                        key={`${string}-${index}`}
-                        string={string}
-                        fret={fret}
-                        kind={
-                          pentatonic
-                            ? pentatonicNotes.includes(note)
-                              ? 'regular'
-                              : 'secondary'
-                            : 'regular'
-                        }
-                      />
-                    )
-                  }
+                {range(stringsCount).map((index) => (
+                  <String key={index} index={index} />
+                ))}
+                {range(stringsCount).map((string) => {
+                  const openNote = tuning[string]
+                  return range(visibleFrets + 1).map((index) => {
+                    const note = (openNote + index) % chromaticNotesNumber
+                    const fret = index === 0 ? null : index - 1
 
-                  return null
-                })
-              })}
+                    if (scaleNotes.includes(note)) {
+                      return (
+                        <Note
+                          key={`${string}-${index}`}
+                          string={string}
+                          fret={fret}
+                          kind={
+                            pentatonic
+                              ? pentatonicNotes.includes(note)
+                                ? 'regular'
+                                : 'secondary'
+                              : 'regular'
+                          }
+                        />
+                      )
+                    }
+
+                    return null
+                  })
+                })}
+              </Frets>
             </Neck>
           )}
         </div>

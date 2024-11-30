@@ -4,10 +4,18 @@ import styled from 'styled-components'
 import { PositionAbsolutelyCenterHorizontally } from '@lib/ui/layout/PositionAbsolutelyCenterHorizontally'
 import { toPercents } from '@lib/utils/toPercents'
 import { getStringPosition } from './utils/getStringPosition'
+import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
+import { fretboardConfig } from './config'
+import { LinesFiller } from '@lib/ui/visual/LinesFiller'
+import { stringsThickness } from '../state/guitar'
 
 const Container = styled.div`
   background: ${getColor('textSupporting')};
-  width: 100%;
+  width: calc(100% + ${toSizeUnit(fretboardConfig.nutWidth)});
+  margin-left: ${toSizeUnit(-fretboardConfig.nutWidth)};
+  position: relative;
+
+  color: ${getColor('background')};
 `
 
 export const String = ({ index }: ComponentWithIndexProps) => {
@@ -16,7 +24,14 @@ export const String = ({ index }: ComponentWithIndexProps) => {
       top={toPercents(getStringPosition(index))}
       fullWidth
     >
-      <Container style={{ height: index + 1 }} key={index} />
+      <Container
+        style={{
+          height: fretboardConfig.thickestStringWidth * stringsThickness[index],
+        }}
+        key={index}
+      >
+        {index > 2 && <LinesFiller lineWidth={1} density={0.2} />}
+      </Container>
     </PositionAbsolutelyCenterHorizontally>
   )
 }

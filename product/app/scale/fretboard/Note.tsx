@@ -29,11 +29,14 @@ const Container = styled.div<ComponentWithKindProps<NoteKind>>`
 
 export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
   const top = toPercents(getStringPosition(string))
-  const left = `calc(${toPercents(
+
+  const left = `calc(${
     fret === null
-      ? 0
-      : getFretPosition({ totalFrets, visibleFrets, index: fret }).end,
-  )} - ${toSizeUnit(fretboardConfig.noteSize / 2)})`
+      ? toSizeUnit(-fretboardConfig.nutWidth)
+      : toPercents(
+          getFretPosition({ totalFrets, visibleFrets, index: fret }).end,
+        )
+  } - ${toSizeUnit(fretboardConfig.noteSize / 2 + fretboardConfig.noteFretOffset)})`
 
   return (
     <PositionAbsolutelyByCenter top={top} left={left}>
