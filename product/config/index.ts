@@ -1,3 +1,3 @@
-export const productName = 'Radzionkit'
+export const productName = 'Pentafret'
 export const productIconUrl =
-  'https://kit.radzion.com/images/icon/favicon-196.png'
+  'https://pentafret.com/images/icon/favicon-196.png'

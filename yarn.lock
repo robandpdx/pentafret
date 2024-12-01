@@ -6664,6 +6664,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pentafret@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "pentafret@workspace:."
+  dependencies:
+    "@types/react": "npm:^18.2.45"
+    "@types/react-dom": "npm:^18.2.18"
+    "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
+    "@typescript-eslint/parser": "npm:^6.15.0"
+    eslint: "npm:^8.56.0"
+    eslint-plugin-react-hooks: "npm:^4.6.2"
+    husky: "npm:^8.0.3"
+    lint-staged: "npm:^15.2.0"
+    prettier: "npm:^3.1.1"
+    syncpack: "npm:^12.0.1"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "picocolors@npm:^1.0.0, picocolors@npm:^1.1.0":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
@@ -6887,24 +6905,6 @@ __metadata:
   checksum: 10/5c7c75f1c696750f619b165cc9957382f919e4207dabf04597a64f0298861391cdc5ee91a1dde1a5d460ecf7ee1af7fc36fef6d155bef2be66f05d43fd63d4f0
   languageName: node
   linkType: hard
-
-"radzionkit@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "radzionkit@workspace:."
-  dependencies:
-    "@types/react": "npm:^18.2.45"
-    "@types/react-dom": "npm:^18.2.18"
-    "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
-    "@typescript-eslint/parser": "npm:^6.15.0"
-    eslint: "npm:^8.56.0"
-    eslint-plugin-react-hooks: "npm:^4.6.2"
-    husky: "npm:^8.0.3"
-    lint-staged: "npm:^15.2.0"
-    prettier: "npm:^3.1.1"
-    syncpack: "npm:^12.0.1"
-    typescript: "npm:^5.3.3"
-  languageName: unknown
-  linkType: soft
 
 "react-clientside-effect@npm:^1.2.6":
   version: 1.2.6

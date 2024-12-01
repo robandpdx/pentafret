@@ -73,6 +73,64 @@ resource "aws_s3_bucket_website_configuration" "frontend" {
   error_document {
     key = "index.html"
   }
+
+  routing_rules = jsonencode([
+      {
+        Condition: {
+          KeyPrefixEquals: "history"
+        },
+        Redirect: {
+          Protocol: "https",
+          HostName: "georgiancitizen.com",
+          ReplaceKeyWith: "en/history",
+          HttpRedirectCode: "301"
+        }
+      },
+      {
+        Condition: {
+          KeyPrefixEquals: "history/test"
+        },
+        Redirect: {
+          Protocol: "https",
+          HostName: "georgiancitizen.com",
+          ReplaceKeyWith: "en/history/test",
+          HttpRedirectCode: "301"
+        }
+      },
+      {
+        Condition: {
+          KeyPrefixEquals: "language"
+        },
+        Redirect: {
+          Protocol: "https",
+          HostName: "georgiancitizen.com",
+          ReplaceKeyWith: "en/language",
+          HttpRedirectCode: "301"
+        }
+      },
+      {
+        Condition: {
+          KeyPrefixEquals: "law"
+        },
+        Redirect: {
+          Protocol: "https",
+          HostName: "georgiancitizen.com",
+          ReplaceKeyWith: "en/law",
+          HttpRedirectCode: "301"
+        }
+      },
+      {
+        Condition: {
+          KeyPrefixEquals: "language/test"
+        },
+        Redirect: {
+          Protocol: "https",
+          HostName: "georgiancitizen.com",
+          ReplaceKeyWith: "en/language/test",
+          HttpRedirectCode: "301"
+        }
+      },
+    ])
 }
 
 resource "aws_cloudfront_distribution" "frontend" {

@@ -8,11 +8,7 @@ class MyDocument extends StyledComponentsDocument {
     return (
       <Html lang="en">
         <Head>
-          <DocumentMetaTags
-            twitterId="@radzionc"
-            image="images/banner.png"
-            language="en"
-          />
+          <DocumentMetaTags language="en" />
           <IconMetaTags />
         </Head>
         <body>
