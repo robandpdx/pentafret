@@ -13,7 +13,7 @@ import { vStack } from '@lib/ui/css/stack'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { getIntervalCenter } from '@lib/utils/interval/getIntervalCenter'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
-import { totalFrets, visibleFrets } from '../state/guitar'
+import { visibleFrets, totalFrets } from '../../guitar/config'
 
 const Dot = styled.div`
   ${round};

@@ -9,6 +9,8 @@ Below the controls, you will see the fretboard with the notes of the selected sc
 
 The url pattern is `/[scaleType]/[rootNote]/[scale]`. For example, `/pentatonic/e/minor` will show the pentatonic scale with E as the root note in the minor scale.
 
+On the index page `/`, the app will shows all the notes on the fretboard.
+
 # Tech Stack
 
 The app code is within a TypeScript monorepo. The app is built with NextJS. It doesn't have server-side rendering, and instead uses static site generation.

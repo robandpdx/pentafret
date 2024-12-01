@@ -18,3 +18,6 @@ export const chromaticNotesNames = scalePatterns.minor.reduce(
 )
 
 export const chromaticNotesNumber = chromaticNotesNames.length
+
+export const isNaturalNote = (note: number) =>
+  chromaticNotesNames[note].length === 1

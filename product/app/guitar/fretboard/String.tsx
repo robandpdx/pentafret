@@ -7,7 +7,7 @@ import { getStringPosition } from './utils/getStringPosition'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { fretboardConfig } from './config'
 import { LinesFiller } from '@lib/ui/visual/LinesFiller'
-import { stringsThickness } from '../state/guitar'
+import { stringsThickness } from '../../guitar/config'
 
 const Container = styled.div`
   background: ${getColor('textSupporting')};

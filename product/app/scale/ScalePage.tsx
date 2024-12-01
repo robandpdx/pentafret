@@ -4,11 +4,11 @@ import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { ManageRootNote } from './manage/ManageRootNote'
 import { HStack, VStack } from '@lib/ui/css/stack'
 import { ManageScale } from './manage/ManageScale'
-import { Fretboard } from './fretboard/Fretboard'
 import { ScalePageTitle } from './ScalePageTitle'
 import { ManageScaleType } from './manage/ManageScaleType'
 import { ScaleProvider, ScaleState } from './state/scale'
 import { ComponentWithValueProps } from '@lib/ui/props'
+import { ScalePageContent } from './ScalePageContent'
 
 const Container = styled.div`
   ${centeredContentColumn({
@@ -34,7 +34,7 @@ export const ScalePage = ({ value }: ComponentWithValueProps<ScaleState>) => {
             <ManageScaleType />
           </HStack>
           <ScalePageTitle />
-          <Fretboard />
+          <ScalePageContent />
         </VStack>
       </Container>
     </ScaleProvider>

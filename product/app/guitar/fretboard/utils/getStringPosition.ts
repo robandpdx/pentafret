@@ -1,4 +1,4 @@
-import { stringsCount } from '../../state/guitar'
+import { stringsCount } from '../../../guitar/config'
 import { fretboardConfig } from '../config'
 
 export const getStringPosition = (string: number) =>

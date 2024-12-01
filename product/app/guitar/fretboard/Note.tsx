@@ -1,7 +1,6 @@
 import { toPercents } from '@lib/utils/toPercents'
 import { getStringPosition } from './utils/getStringPosition'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
-import { totalFrets, visibleFrets } from '../state/guitar'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { fretboardConfig } from './config'
 import styled, { useTheme } from 'styled-components'
@@ -12,6 +11,7 @@ import { getColor, matchColor } from '@lib/ui/theme/getters'
 import { ComponentWithKindProps, ComponentWithValueProps } from '@lib/ui/props'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { chromaticNotesNames } from '@product/core/note'
+import { totalFrets, visibleFrets } from '../../guitar/config'
 
 type NoteKind = 'regular' | 'secondary'
 
