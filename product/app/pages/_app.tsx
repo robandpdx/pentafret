@@ -10,6 +10,7 @@ import {
   usePersistentState,
   PersistentStateKey,
 } from '../state/persistentState'
+import { WebsiteLayout } from '../layout/WebsiteLayout'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,7 +36,7 @@ function MyApp({ Component, pageProps }: MyAppProps) {
     <QueryClientProvider client={queryClient}>
       <DarkLightThemeProvider value={theme} onChange={setTheme}>
         <GlobalStyle fontFamily={inter.style.fontFamily} />
-        {component}
+        <WebsiteLayout>{component}</WebsiteLayout>
       </DarkLightThemeProvider>
     </QueryClientProvider>
   )
