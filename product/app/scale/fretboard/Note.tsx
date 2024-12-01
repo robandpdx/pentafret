@@ -31,9 +31,13 @@ const Container = styled.div<ComponentWithKindProps<NoteKind>>`
   border: 1px solid ${getColor('mistExtra')};
   color: ${matchColor('kind', {
     regular: 'contrast',
-    secondary: 'textShy',
+    secondary: 'transparent',
   })};
   ${centerContent};
+
+  &:hover {
+    color: ${getColor('contrast')};
+  }
 `
 
 export const Note = ({ string, fret, kind = 'regular', value }: NoteProps) => {
