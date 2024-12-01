@@ -13,6 +13,7 @@ export const ManageRootNote = () => {
       onChange={(rootNote) => setValue({ rootNote })}
       options={range(chromaticNotesNumber)}
       getOptionKey={(index) => chromaticNotesNames[index]}
+      ariaLabel="Root note"
     />
   )
 }

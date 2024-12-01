@@ -12,6 +12,7 @@ export const ManageScale = () => {
       onChange={(scale) => setValue({ scale })}
       options={scales}
       getOptionKey={(scale) => scaleNames[scale]}
+      ariaLabel="Scale"
     />
   )
 }

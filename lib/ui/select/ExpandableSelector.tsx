@@ -19,6 +19,7 @@ export type ExpandableSelectorProp<T> = UIComponentProps & {
   openerContent?: React.ReactNode
   showToggle?: boolean
   returnFocus?: boolean
+  ariaLabel?: string
 }
 
 export function ExpandableSelector<T>({
@@ -32,6 +33,7 @@ export function ExpandableSelector<T>({
   openerContent,
   showToggle = true,
   returnFocus = true,
+  ariaLabel,
   ...rest
 }: ExpandableSelectorProp<T>) {
   const {
@@ -56,6 +58,7 @@ export function ExpandableSelector<T>({
       <ExpandableSelectorContainer
         isDisabled={isDisabled}
         isActive={isOpen}
+        aria-label={ariaLabel}
         {...referenceProps}
         {...rest}
       >
