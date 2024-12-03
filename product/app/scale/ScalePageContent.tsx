@@ -10,15 +10,15 @@ import { useScale } from './state/scale'
 export const ScalePageContent = () => {
   const { scale, rootNote, scaleType } = useScale()
 
-  const scaleNotes = getScaleNotes({
-    pattern: scalePatterns[scale],
+  const pattern = (
+    scaleType === 'pentatonic' ? pentatonicPatterns : scalePatterns
+  )[scale]
+
+  const notes = getScaleNotes({
+    pattern,
     rootNote,
   })
 
-  const pentatonicNotes = getScaleNotes({
-    pattern: pentatonicPatterns[scale],
-    rootNote,
-  })
   return (
     <Fretboard>
       {range(stringsCount).map((string) => {
@@ -27,17 +27,13 @@ export const ScalePageContent = () => {
           const note = (openNote + index) % chromaticNotesNumber
           const fret = index === 0 ? null : index - 1
 
-          if (scaleNotes.includes(note)) {
-            const isSecondaryNote =
-              scaleType === 'pentatonic' && !pentatonicNotes.includes(note)
-
+          if (notes.includes(note)) {
             return (
               <Note
                 key={`${string}-${index}`}
                 string={string}
                 fret={fret}
                 value={note}
-                kind={isSecondaryNote ? 'secondary' : 'regular'}
               />
             )
           }

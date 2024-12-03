@@ -26,12 +26,12 @@ const Container = styled.div<ComponentWithKindProps<NoteKind>>`
   ${sameDimensions(fretboardConfig.noteSize)}
   background: ${matchColor('kind', {
     regular: 'background',
-    secondary: 'foreground',
+    secondary: 'background',
   })};
   border: 1px solid ${getColor('mistExtra')};
   color: ${matchColor('kind', {
     regular: 'contrast',
-    secondary: 'textShy',
+    secondary: 'textSupporting',
   })};
   ${centerContent};
 `
