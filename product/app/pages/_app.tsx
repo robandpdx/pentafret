@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app'
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 import { GlobalStyle } from '@lib/ui/css/GlobalStyle'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Inter } from 'next/font/google'
 import { ThemePreference } from '@lib/ui/theme/ThemePreference'
 import { DarkLightThemeProvider } from '@lib/ui/theme/DarkLightThemeProvider'
@@ -22,8 +21,6 @@ interface MyAppProps extends AppProps {
 }
 
 function MyApp({ Component, pageProps }: MyAppProps) {
-  const [queryClient] = useState(() => new QueryClient())
-
   const getLayout = Component.getLayout || ((page: ReactNode) => page)
   const component = getLayout(<Component {...pageProps} />)
 
@@ -33,12 +30,10 @@ function MyApp({ Component, pageProps }: MyAppProps) {
   )
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <DarkLightThemeProvider value={theme} onChange={setTheme}>
-        <GlobalStyle fontFamily={inter.style.fontFamily} />
-        <WebsiteLayout>{component}</WebsiteLayout>
-      </DarkLightThemeProvider>
-    </QueryClientProvider>
+    <DarkLightThemeProvider value={theme} onChange={setTheme}>
+      <GlobalStyle fontFamily={inter.style.fontFamily} />
+      <WebsiteLayout>{component}</WebsiteLayout>
+    </DarkLightThemeProvider>
   )
 }
 
