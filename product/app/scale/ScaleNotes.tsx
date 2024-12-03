@@ -7,7 +7,7 @@ import { scalePatterns, pentatonicPatterns } from '@product/core/scale'
 import { getScaleNotes } from '@product/core/scale/getScaleNotes'
 import { useScale } from './state/scale'
 
-export const ScalePageContent = () => {
+export const ScaleNotes = () => {
   const { scale, rootNote, scaleType } = useScale()
 
   const pattern = (

@@ -48,3 +48,5 @@ export const pentatonicPatterns: Record<Scale, ScalePattern> = {
 
 export const scaleTypes = ['scale', 'pentatonic'] as const
 export type ScaleType = (typeof scaleTypes)[number]
+
+export const pentatonicNotesNumber = 5

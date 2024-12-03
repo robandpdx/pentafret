@@ -8,7 +8,8 @@ import { ScalePageTitle } from './ScalePageTitle'
 import { ManageScaleType } from './manage/ManageScaleType'
 import { ScaleProvider, ScaleState } from './state/scale'
 import { ComponentWithValueProps } from '@lib/ui/props'
-import { ScalePageContent } from './ScalePageContent'
+import { ScaleNotes } from './ScaleNotes'
+import { PentatonicPatterns } from './patterns/PentatonicPatterns'
 
 const Container = styled.div`
   ${centeredContentColumn({
@@ -22,19 +23,22 @@ export const ScalePage = ({ value }: ComponentWithValueProps<ScaleState>) => {
   return (
     <ScaleProvider value={value}>
       <Container>
-        <VStack gap={60}>
-          <HStack
-            alignItems="center"
-            gap={16}
-            fullWidth
-            justifyContent="center"
-          >
-            <ManageRootNote />
-            <ManageScale />
-            <ManageScaleType />
-          </HStack>
-          <ScalePageTitle />
-          <ScalePageContent />
+        <VStack gap={120}>
+          <VStack gap={60}>
+            <HStack
+              alignItems="center"
+              gap={16}
+              fullWidth
+              justifyContent="center"
+            >
+              <ManageRootNote />
+              <ManageScale />
+              <ManageScaleType />
+            </HStack>
+            <ScalePageTitle />
+            <ScaleNotes />
+          </VStack>
+          {value.scaleType === 'pentatonic' && <PentatonicPatterns />}
         </VStack>
       </Container>
     </ScaleProvider>
