@@ -8,6 +8,8 @@ import { stringsCount, tuning, visibleFrets } from '../../guitar/config'
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
 import { Note } from '../../guitar/fretboard/Note'
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { VStack } from '@lib/ui/css/stack'
+import { Text } from '@lib/ui/text'
 
 export const PentatonicPattern = ({ index }: ComponentWithIndexProps) => {
   const { scale, rootNote } = useScale()
@@ -19,33 +21,40 @@ export const PentatonicPattern = ({ index }: ComponentWithIndexProps) => {
     rootNote,
   })
 
+  const title = `Pentatonic Pattern #${index + 1}`
+
   return (
-    <Fretboard>
-      {range(stringsCount).map((string) => {
-        const openNote = tuning[string]
+    <VStack gap={24}>
+      <Text centerHorizontally color="contrast" as="h3" weight="600" size={16}>
+        {title}
+      </Text>
+      <Fretboard>
+        {range(stringsCount).map((string) => {
+          const openNote = tuning[string]
 
-        const stringNotes = withoutUndefined(
-          range(visibleFrets + 1).map((index) => {
-            const note = (openNote + index) % chromaticNotesNumber
-            const fret = index === 0 ? null : index - 1
+          const stringNotes = withoutUndefined(
+            range(visibleFrets + 1).map((index) => {
+              const note = (openNote + index) % chromaticNotesNumber
+              const fret = index === 0 ? null : index - 1
 
-            if (!notes.includes(note)) return
+              if (!notes.includes(note)) return
 
-            return { note, fret }
-          }),
-        ).slice(index, index + 2)
+              return { note, fret }
+            }),
+          ).slice(index, index + 2)
 
-        return stringNotes.map(({ note, fret }) => {
-          return (
-            <Note
-              key={`${string}-${index}`}
-              string={string}
-              fret={fret}
-              value={note}
-            />
-          )
-        })
-      })}
-    </Fretboard>
+          return stringNotes.map(({ note, fret }) => {
+            return (
+              <Note
+                key={`${string}-${index}`}
+                string={string}
+                fret={fret}
+                value={note}
+              />
+            )
+          })
+        })}
+      </Fretboard>
+    </VStack>
   )
 }
