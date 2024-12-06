@@ -10,7 +10,9 @@ export const ManageRootNote = () => {
   return (
     <ExpandableSelector
       value={rootNote}
-      onChange={(rootNote) => setValue({ rootNote })}
+      onChange={(rootNote) => {
+        setValue({ rootNote })
+      }}
       options={range(chromaticNotesNumber)}
       getOptionKey={(index) => chromaticNotesNames[index]}
       ariaLabel="Root note"

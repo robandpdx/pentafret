@@ -34,6 +34,7 @@ export const ScaleNotes = () => {
                 string={string}
                 fret={fret}
                 value={note}
+                kind={rootNote === note ? 'primary' : 'regular'}
               />
             )
           }

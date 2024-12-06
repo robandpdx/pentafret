@@ -50,6 +50,7 @@ export const PentatonicPattern = ({ index }: ComponentWithIndexProps) => {
                 string={string}
                 fret={fret}
                 value={note}
+                kind={rootNote === note ? 'primary' : 'regular'}
               />
             )
           })

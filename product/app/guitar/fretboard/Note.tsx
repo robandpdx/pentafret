@@ -3,17 +3,22 @@ import { getStringPosition } from './utils/getStringPosition'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { fretboardConfig } from './config'
-import styled, { useTheme } from 'styled-components'
+import styled, { css, useTheme } from 'styled-components'
 import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByCenter'
-import { getColor, matchColor } from '@lib/ui/theme/getters'
-import { ComponentWithKindProps, ComponentWithValueProps } from '@lib/ui/props'
+import { getColor } from '@lib/ui/theme/getters'
+import {
+  ComponentWithKindProps,
+  ComponentWithValueProps,
+  StyledComponentWithColorProps,
+} from '@lib/ui/props'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { chromaticNotesNames } from '@product/core/note'
 import { totalFrets, visibleFrets } from '../../guitar/config'
+import { match } from '@lib/utils/match'
 
-type NoteKind = 'regular' | 'secondary'
+type NoteKind = 'regular' | 'secondary' | 'primary'
 
 type NoteProps = Partial<ComponentWithKindProps<NoteKind>> &
   ComponentWithValueProps<number> & {
@@ -21,19 +26,35 @@ type NoteProps = Partial<ComponentWithKindProps<NoteKind>> &
     fret: number | null
   }
 
-const Container = styled.div<ComponentWithKindProps<NoteKind>>`
+const Container = styled.div<
+  ComponentWithKindProps<NoteKind> & StyledComponentWithColorProps
+>`
   ${round}
   ${sameDimensions(fretboardConfig.noteSize)}
-  background: ${matchColor('kind', {
-    regular: 'background',
-    secondary: 'background',
-  })};
-  border: 1px solid ${getColor('mistExtra')};
-  color: ${matchColor('kind', {
-    regular: 'contrast',
-    secondary: 'textSupporting',
-  })};
+
+  border: 1px solid transparent;
   ${centerContent};
+
+  ${({ kind, $color, theme: { colors } }) =>
+    match(kind, {
+      regular: () => css`
+        border-color: ${$color.toCssValue()};
+        background: ${getColor('background')};
+        color: ${getColor('contrast')};
+      `,
+      secondary: () => css`
+        background: ${getColor('foreground')};
+        border-color: ${getColor('mistExtra')};
+        color: ${getColor('textSupporting')};
+      `,
+      primary: () => css`
+        background: ${$color.toCssValue()};
+        color: ${$color
+          .getHighestContrast(colors.background, colors.text)
+          .toCssValue()};
+        font-weight: 600;
+      `,
+    })}
 `
 
 export const Note = ({ string, fret, kind = 'regular', value }: NoteProps) => {
@@ -53,16 +74,7 @@ export const Note = ({ string, fret, kind = 'regular', value }: NoteProps) => {
 
   return (
     <PositionAbsolutelyByCenter top={top} left={left}>
-      <Container
-        style={
-          kind === 'regular'
-            ? {
-                borderColor: getLabelColor(value).toCssValue(),
-              }
-            : undefined
-        }
-        kind={kind}
-      >
+      <Container $color={getLabelColor(value)} kind={kind}>
         {chromaticNotesNames[value]}
       </Container>
     </PositionAbsolutelyByCenter>
