@@ -1,25 +1,15 @@
-import styled from 'styled-components'
-import { centeredContentColumn } from '@lib/ui/css/centeredContentColumn'
-import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { VStack } from '@lib/ui/css/stack'
 import { NotesPageTitle } from './NotesPageTitle'
 import { NotesPageContent } from './NotesPageContent'
-
-const Container = styled.div`
-  ${centeredContentColumn({
-    contentMaxWidth: 1600,
-  })}
-
-  ${verticalPadding(80)}
-`
+import { PageContainer } from '../layout/PageContainer'
 
 export const NotesPage = () => {
   return (
-    <Container>
+    <PageContainer>
       <VStack gap={80}>
         <NotesPageTitle />
         <NotesPageContent />
       </VStack>
-    </Container>
+    </PageContainer>
   )
 }

@@ -10,6 +10,7 @@ import { FretMarkerItem } from './FretMarkerItem'
 import { hStack } from '@lib/ui/css/stack'
 import { stringsCount, visibleFrets } from '../../guitar/config'
 import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { Nut } from './Nut'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -26,12 +27,6 @@ const Frets = styled.div`
   position: relative;
   flex: 1;
   background: ${getColor('foreground')};
-`
-
-const Nut = styled.div`
-  height: ${toSizeUnit(fretboardConfig.height)};
-  width: ${toSizeUnit(fretboardConfig.nutWidth)};
-  background: ${getColor('textShy')};
 `
 
 export const Fretboard = ({ children }: ComponentWithChildrenProps) => {
