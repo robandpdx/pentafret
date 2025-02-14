@@ -1,4 +1,3 @@
-import { ComponentWithValueProps } from '@lib/ui/props'
 import { FretMarker } from '@product/core/guitar/fretMarkers'
 import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
@@ -14,6 +13,7 @@ import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { getIntervalCenter } from '@lib/utils/interval/getIntervalCenter'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
 import { visibleFrets, totalFrets } from '../../guitar/config'
+import { ValueProp } from '@lib/ui/props'
 
 const Dot = styled.div`
   ${round};
@@ -29,9 +29,7 @@ const DoubleMarkerContainer = styled.div`
   ${verticalPadding(fretboardConfig.height * 0.08)};
 `
 
-export const FretMarkerItem = ({
-  value,
-}: ComponentWithValueProps<FretMarker>) => {
+export const FretMarkerItem = ({ value }: ValueProp<FretMarker>) => {
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight

@@ -1,4 +1,4 @@
-import { ComponentWithIndexProps } from '@lib/ui/props'
+import { IndexProp } from '@lib/ui/props'
 import { PositionAbsolutelyCenterVertically } from '@lib/ui/layout/PositionAbsolutelyCenterVertically'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
@@ -12,7 +12,7 @@ const Container = styled.div`
   width: 1px;
 `
 
-export const Fret = ({ index }: ComponentWithIndexProps) => {
+export const Fret = ({ index }: IndexProp) => {
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight

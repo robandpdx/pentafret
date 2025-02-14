@@ -8,11 +8,7 @@ import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByCenter'
 import { getColor } from '@lib/ui/theme/getters'
-import {
-  ComponentWithKindProps,
-  ComponentWithValueProps,
-  StyledComponentWithColorProps,
-} from '@lib/ui/props'
+import { KindProp, StyledColorProp, ValueProp } from '@lib/ui/props'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { chromaticNotesNames } from '@product/core/note'
 import { totalFrets, visibleFrets } from '../../guitar/config'
@@ -20,15 +16,13 @@ import { match } from '@lib/utils/match'
 
 type NoteKind = 'regular' | 'secondary' | 'primary'
 
-type NoteProps = Partial<ComponentWithKindProps<NoteKind>> &
-  ComponentWithValueProps<number> & {
+type NoteProps = Partial<KindProp<NoteKind>> &
+  ValueProp<number> & {
     string: number
     fret: number | null
   }
 
-const Container = styled.div<
-  ComponentWithKindProps<NoteKind> & StyledComponentWithColorProps
->`
+const Container = styled.div<KindProp<NoteKind> & StyledColorProp>`
   ${round}
   ${sameDimensions(fretboardConfig.noteSize)}
 

@@ -1,14 +1,17 @@
 import { FloatingOptionsContainer } from '../floating/FloatingOptionsContainer'
 import { useFloatingOptions } from '../floating/useFloatingOptions'
-import { UIComponentProps } from '../props'
 import { OptionItem } from './OptionItem'
 import { ExpandableSelectorToggle } from './ExpandableSelectorToggle'
 import { FloatingFocusManager } from '@floating-ui/react'
 import { OptionContent } from './OptionContent'
 import { ExpandableSelectorContainer } from './ExpandableSelectorContainer'
 import { WithSelectionMark } from './WithSelectionMark'
+import { ComponentProps } from 'react'
 
-export type ExpandableSelectorProp<T> = UIComponentProps & {
+export type ExpandableSelectorProp<T> = Omit<
+  ComponentProps<typeof ExpandableSelectorContainer>,
+  'onChange'
+> & {
   value: T | null
   onChange: (value: T) => void
   isDisabled?: boolean
@@ -19,7 +22,6 @@ export type ExpandableSelectorProp<T> = UIComponentProps & {
   openerContent?: React.ReactNode
   showToggle?: boolean
   returnFocus?: boolean
-  ariaLabel?: string
 }
 
 export function ExpandableSelector<T>({
@@ -33,7 +35,6 @@ export function ExpandableSelector<T>({
   openerContent,
   showToggle = true,
   returnFocus = true,
-  ariaLabel,
   ...rest
 }: ExpandableSelectorProp<T>) {
   const {
@@ -58,7 +59,6 @@ export function ExpandableSelector<T>({
       <ExpandableSelectorContainer
         isDisabled={isDisabled}
         isActive={isOpen}
-        aria-label={ariaLabel}
         {...referenceProps}
         {...rest}
       >

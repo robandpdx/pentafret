@@ -1,9 +1,7 @@
-import { forwardRef } from 'react'
+import { ComponentProps, ReactNode, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { ClosableComponentProps, ComponentWithChildrenProps } from '../../props'
 import { takeWholeSpace } from '../../css/takeWholeSpace'
 import { HStack, VStack } from '@lib/ui/css/stack'
-import { ReactNode, useEffect, useState } from 'react'
 import { useIsScreenWidthLessThan } from '../../hooks/useIsScreenWidthLessThan'
 import { centeredContentColumn } from '../../css/centeredContentColumn'
 import { websiteConfig } from '../config'
@@ -13,17 +11,18 @@ import { CloseIcon } from '../../icons/CloseIcon'
 import { MenuIcon } from '../../icons/MenuIcon'
 import { toSizeUnit } from '../../css/toSizeUnit'
 import { verticalPadding } from '../../css/verticalPadding'
-
-type WebsiteNavigationProps = ComponentWithChildrenProps & {
-  logo: ReactNode
-  renderTopbarItems: () => ReactNode
-  renderOverlayItems: (props: ClosableComponentProps) => ReactNode
-  footer?: ReactNode
-}
+import { OnCloseProp } from '../../props'
 
 const Wrapper = styled(VStack)`
   ${takeWholeSpace};
 `
+
+type WebsiteNavigationProps = ComponentProps<typeof Wrapper> & {
+  logo: ReactNode
+  renderTopbarItems?: () => ReactNode
+  renderOverlayItems?: (props: OnCloseProp) => ReactNode
+  footer?: ReactNode
+}
 
 const Container = styled(VStack)`
   max-height: 100%;
@@ -59,10 +58,14 @@ const Content = styled.div`
   flex: 1;
 `
 
-export const WebsiteNavigation = forwardRef<
-  HTMLDivElement,
-  WebsiteNavigationProps
->(({ children, logo, renderOverlayItems, renderTopbarItems, footer }, ref) => {
+export function WebsiteNavigation({
+  children,
+  logo,
+  renderOverlayItems,
+  renderTopbarItems,
+  footer,
+  ...rest
+}: WebsiteNavigationProps) {
   const isSmallScreen = useIsScreenWidthLessThan(800)
   const [isOverlayOpen, setIsOverlayOpen] = useState(false)
 
@@ -74,7 +77,7 @@ export const WebsiteNavigation = forwardRef<
 
   return (
     <>
-      <Wrapper>
+      <Wrapper {...rest}>
         <Header>
           <HStack fullWidth alignItems="center" gap={40}>
             {logo}
@@ -82,27 +85,29 @@ export const WebsiteNavigation = forwardRef<
               {isSmallScreen ? (
                 <>
                   <div />
-                  <IconButton
-                    size="l"
-                    onClick={() => setIsOverlayOpen(!isOverlayOpen)}
-                    title={
-                      isOverlayOpen ? 'Close navigation' : 'Open navigation'
-                    }
-                    icon={isOverlayOpen ? <CloseIcon /> : <MenuIcon />}
-                  />
+                  {renderOverlayItems && (
+                    <IconButton
+                      size="l"
+                      onClick={() => setIsOverlayOpen(!isOverlayOpen)}
+                      title={
+                        isOverlayOpen ? 'Close navigation' : 'Open navigation'
+                      }
+                      icon={isOverlayOpen ? <CloseIcon /> : <MenuIcon />}
+                    />
+                  )}
                 </>
               ) : (
-                <TobbarContent>{renderTopbarItems()}</TobbarContent>
+                <TobbarContent>{renderTopbarItems?.()}</TobbarContent>
               )}
             </TobbarContent>
           </HStack>
         </Header>
-        <Container ref={ref}>
+        <Container>
           <Content>{children}</Content>
           {footer}
         </Container>
       </Wrapper>
-      {isOverlayOpen && (
+      {isOverlayOpen && renderOverlayItems && (
         <Overlay>
           {renderOverlayItems({
             onClose: () => setIsOverlayOpen(false),
@@ -111,4 +116,4 @@ export const WebsiteNavigation = forwardRef<
       )}
     </>
   )
-})
+}

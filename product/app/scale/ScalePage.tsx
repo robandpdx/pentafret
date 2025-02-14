@@ -1,13 +1,13 @@
 import { VStack } from '@lib/ui/css/stack'
 import { ScalePageTitle } from './ScalePageTitle'
 import { ScaleProvider, ScaleState } from './state/scale'
-import { ComponentWithValueProps } from '@lib/ui/props'
 import { ScaleNotes } from './ScaleNotes'
 import { PentatonicPatterns } from './patterns/PentatonicPatterns'
 import { PageContainer } from '../layout/PageContainer'
 import { ScaleManager } from './manage/ScaleManager'
+import { ValueProp } from '@lib/ui/props'
 
-export const ScalePage = ({ value }: ComponentWithValueProps<ScaleState>) => {
+export const ScalePage = ({ value }: ValueProp<ScaleState>) => {
   return (
     <ScaleProvider value={value}>
       <PageContainer>

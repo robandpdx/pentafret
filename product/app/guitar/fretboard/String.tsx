@@ -1,4 +1,4 @@
-import { ComponentWithIndexProps } from '@lib/ui/props'
+import { IndexProp } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import styled, { css } from 'styled-components'
 import { PositionAbsolutelyCenterHorizontally } from '@lib/ui/layout/PositionAbsolutelyCenterHorizontally'
@@ -21,7 +21,7 @@ const Container = styled.div<{ isBassString: boolean }>`
   color: ${getColor('background')};
 `
 
-export const String = ({ index }: ComponentWithIndexProps) => {
+export const String = ({ index }: IndexProp) => {
   const isBassString = index > 2
 
   return (

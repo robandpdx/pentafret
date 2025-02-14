@@ -1,4 +1,4 @@
-import { ComponentWithIndexProps } from '@lib/ui/props'
+import { IndexProp } from '@lib/ui/props'
 import { useScale } from '../state/scale'
 import { pentatonicPatterns } from '@product/core/scale'
 import { getScaleNotes } from '@product/core/scale/getScaleNotes'
@@ -11,7 +11,7 @@ import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 
-export const PentatonicPattern = ({ index }: ComponentWithIndexProps) => {
+export const PentatonicPattern = ({ index }: IndexProp) => {
   const { scale, rootNote } = useScale()
 
   const pattern = pentatonicPatterns[scale]

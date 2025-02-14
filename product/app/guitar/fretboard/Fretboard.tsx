@@ -9,7 +9,7 @@ import { getFretMarkers } from '@product/core/guitar/fretMarkers'
 import { FretMarkerItem } from './FretMarkerItem'
 import { hStack } from '@lib/ui/css/stack'
 import { stringsCount, visibleFrets } from '../../guitar/config'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { Nut } from './Nut'
 
 const Neck = styled.div`
@@ -29,7 +29,7 @@ const Frets = styled.div`
   background: ${getColor('foreground')};
 `
 
-export const Fretboard = ({ children }: ComponentWithChildrenProps) => {
+export const Fretboard = ({ children }: ChildrenProp) => {
   return (
     <Neck>
       <OpenNotes />

@@ -15,7 +15,7 @@ export const ManageRootNote = () => {
       }}
       options={range(chromaticNotesNumber)}
       getOptionKey={(index) => chromaticNotesNames[index]}
-      ariaLabel="Root note"
+      aria-label="Root note"
     />
   )
 }

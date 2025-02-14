@@ -10,7 +10,7 @@ import { Text } from '@lib/ui/text'
 import { InteractiveText } from '@lib/ui/text/InteractiveText'
 import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
-import { ComponentWithChildrenProps } from '@lib/ui/props'
+import { ChildrenProp } from '@lib/ui/props'
 import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
 import { ProductLogo } from '../product/ProductLogo'
@@ -44,7 +44,7 @@ const items = [
   },
 ] as const
 
-export const WebsiteLayout = ({ children }: ComponentWithChildrenProps) => {
+export const WebsiteLayout = ({ children }: ChildrenProp) => {
   const { events } = useRouter()
   const containerRef = useRef<HTMLDivElement>(null)
 
