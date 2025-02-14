@@ -1,22 +1,18 @@
 import { useChangeScale, useScale } from './state/scale'
 import { Button } from '@lib/ui/buttons/Button'
-import { chromaticNotesNumber, chromaticNotesNames } from '@product/core/note'
+import { chromaticNotesNames } from '@product/core/note'
 import { BasicScale, scaleNames } from '@product/core/scale'
-import { match } from '@lib/utils/match'
+import { getBasicPentatonicRelativeNote } from '@product/core/scale/getBasicPentatonicRelativeNote'
 
 export const BasicPentatonicSubtitle = ({ scale }: { scale: BasicScale }) => {
   const { rootNote } = useScale()
 
   const changeScale = useChangeScale()
 
-  const relativeNote =
-    (rootNote +
-      match(scale, {
-        major: () => 3,
-        minor: () => -3,
-      }) +
-      chromaticNotesNumber) %
-    chromaticNotesNumber
+  const relativeNote = getBasicPentatonicRelativeNote({
+    scale,
+    rootNote,
+  })
 
   const relativeNoteName = chromaticNotesNames[relativeNote]
 
