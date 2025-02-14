@@ -1,7 +1,10 @@
 import { ScalePattern } from './ScalePattern'
 
+export const basicScales = ['major', 'minor'] as const
+export type BasicScale = (typeof basicScales)[number]
+
 export const scales = [
-  'major',
+  ...basicScales,
   'minor',
   'blues',
   'dorian',
