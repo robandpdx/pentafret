@@ -1,13 +1,17 @@
 import { range } from '@lib/utils/array/range'
-import { PentatonicPattern } from './PentatonicPattern'
-import { pentatonicNotesNumber, scaleNames } from '@product/core/scale'
+import { BasicPentatonicPattern } from './BasicPentatonicPattern'
+import {
+  BasicScale,
+  pentatonicNotesNumber,
+  scaleNames,
+} from '@product/core/scale'
 import { Text } from '@lib/ui/text'
 import { chromaticNotesNames } from '@product/core/note'
 import { useScale } from '../state/scale'
 import { VStack } from '@lib/ui/css/stack'
 
-export const PentatonicPatterns = () => {
-  const { rootNote, scale } = useScale()
+export const BasicPentatonicPatterns = ({ scale }: { scale: BasicScale }) => {
+  const { rootNote } = useScale()
 
   const noteName = chromaticNotesNames[rootNote]
   const scaleName = scaleNames[scale]
@@ -20,7 +24,7 @@ export const PentatonicPatterns = () => {
         {title}
       </Text>
       {range(pentatonicNotesNumber).map((index) => (
-        <PentatonicPattern key={index} index={index} />
+        <BasicPentatonicPattern key={index} index={index} scale={scale} />
       ))}
     </VStack>
   )

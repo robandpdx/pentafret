@@ -25,7 +25,7 @@ export const ScaleNotes = () => {
         const openNote = tuning[string]
         return range(visibleFrets + 1).map((index) => {
           const note = (openNote + index) % chromaticNotesNumber
-          const fret = index === 0 ? null : index - 1
+          const fret = index - 1
 
           if (notes.includes(note)) {
             return (
@@ -33,7 +33,6 @@ export const ScaleNotes = () => {
                 key={`${string}-${index}`}
                 string={string}
                 fret={fret}
-                value={note}
                 kind={rootNote === note ? 'primary' : 'regular'}
               />
             )

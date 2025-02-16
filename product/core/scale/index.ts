@@ -5,7 +5,6 @@ export type BasicScale = (typeof basicScales)[number]
 
 export const scales = [
   ...basicScales,
-  'minor',
   'blues',
   'dorian',
   'mixolydian',

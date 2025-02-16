@@ -4,9 +4,9 @@ import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 import { toUriNote } from '@product/core/note/uriNote'
 
-export type ScaleState = {
+export type ScaleState<T extends ScaleType = ScaleType> = {
   scale: Scale
-  scaleType: ScaleType
+  scaleType: T
   rootNote: number
 }
 

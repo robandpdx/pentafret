@@ -11,14 +11,13 @@ export const NotesPageContent = () => {
         const openNote = tuning[string]
         return range(visibleFrets + 1).map((index) => {
           const note = (openNote + index) % chromaticNotesNumber
-          const fret = index === 0 ? null : index - 1
+          const fret = index - 1
 
           return (
             <Note
               key={`${string}-${index}`}
               string={string}
               fret={fret}
-              value={note}
               kind={isNaturalNote(note) ? 'regular' : 'secondary'}
             />
           )

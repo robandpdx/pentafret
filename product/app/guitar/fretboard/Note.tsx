@@ -8,19 +8,17 @@ import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByCenter'
 import { getColor } from '@lib/ui/theme/getters'
-import { KindProp, StyledColorProp, ValueProp } from '@lib/ui/props'
+import { KindProp, StyledColorProp } from '@lib/ui/props'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { chromaticNotesNames } from '@product/core/note'
-import { totalFrets, visibleFrets } from '../../guitar/config'
+import { totalFrets, tuning, visibleFrets } from '../../guitar/config'
 import { match } from '@lib/utils/match'
+import { NotePosition } from '@product/core/note/NotePosition'
+import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 
 type NoteKind = 'regular' | 'secondary' | 'primary'
 
-type NoteProps = Partial<KindProp<NoteKind>> &
-  ValueProp<number> & {
-    string: number
-    fret: number | null
-  }
+type NoteProps = Partial<KindProp<NoteKind>> & NotePosition
 
 const Container = styled.div<KindProp<NoteKind> & StyledColorProp>`
   ${round}
@@ -51,15 +49,17 @@ const Container = styled.div<KindProp<NoteKind> & StyledColorProp>`
     })}
 `
 
-export const Note = ({ string, fret, kind = 'regular', value }: NoteProps) => {
+export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
   const top = toPercents(getStringPosition(string))
+
+  const value = getNoteFromPosition({ tuning, position: { string, fret } })
 
   const {
     colors: { getLabelColor },
   } = useTheme()
 
   const left = `calc(${
-    fret === null
+    fret === -1
       ? toSizeUnit(-fretboardConfig.nutWidth)
       : toPercents(
           getFretPosition({ totalFrets, visibleFrets, index: fret }).end,
