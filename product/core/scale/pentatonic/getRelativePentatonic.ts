@@ -1,7 +1,7 @@
 import { match } from '@lib/utils/match'
-import { chromaticNotesNumber } from '../note'
+import { chromaticNotesNumber } from '../../note'
 import { getPairComplement } from '@lib/utils/pair/getPairComplement'
-import { scalePatterns, pentatonicScales, PentatonicScale } from './index'
+import { scalePatterns, pentatonicScales, PentatonicScale } from '../index'
 
 type Pentatonic = {
   scale: PentatonicScale
