@@ -1,7 +1,7 @@
 import { IndexProp } from '@lib/ui/props'
 import { useScale } from '../state/scale'
-import { BasicScale, pentatonicPatterns } from '@product/core/scale'
-import { chromaticNotesNumber } from '@product/core/note'
+import { BasicScale, pentatonicPatterns, scaleNames } from '@product/core/scale'
+import { chromaticNotesNames, chromaticNotesNumber } from '@product/core/note'
 import { stringsCount, tuning } from '../../guitar/config'
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
 import { Note } from '../../guitar/fretboard/Note'
@@ -78,11 +78,14 @@ export const BasicPentatonicPattern = ({
     return result
   }, [patternIndex, pattern, rootNote, scale])
 
-  const title = `Pentatonic Pattern #${patternIndex + 1}`
+  const noteName = chromaticNotesNames[rootNote]
+  const scaleName = scaleNames[scale]
+
+  const title = `${noteName} ${scaleName} Pentatonic Pattern #${patternIndex + 1}`
 
   return (
-    <VStack gap={24}>
-      <Text centerHorizontally color="contrast" as="h3" weight="600" size={16}>
+    <VStack gap={40}>
+      <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
         {title}
       </Text>
       <Fretboard>
