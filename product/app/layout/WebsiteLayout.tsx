@@ -35,11 +35,10 @@ const items = [
     href: '/',
   },
   {
-    name: 'Scales & Pentatonic',
+    name: 'Scales',
     href: makeScalePath({
       rootNote: 7,
       scale: 'minor',
-      scaleType: 'scale',
     }),
   },
 ] as const

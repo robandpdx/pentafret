@@ -1,6 +1,6 @@
 import { IndexProp } from '@lib/ui/props'
 import { useScale } from '../state/scale'
-import { BasicScale, pentatonicPatterns, scaleNames } from '@product/core/scale'
+import { PentatonicScale, scaleNames, scalePatterns } from '@product/core/scale'
 import { chromaticNotesNames, chromaticNotesNumber } from '@product/core/note'
 import { stringsCount, tuning } from '../../guitar/config'
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
@@ -8,7 +8,6 @@ import { Note } from '../../guitar/fretboard/Note'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { match } from '@lib/utils/match'
-import { getRelativeBasicPentatonic } from '@product/core/scale/getRelativeBasicPentatonic'
 import { useMemo } from 'react'
 import { NotePosition } from '@product/core/note/NotePosition'
 import { sum } from '@lib/utils/array/sum'
@@ -16,19 +15,21 @@ import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { getNoteFret } from '@product/core/guitar/getNoteFret'
 import { range } from '@lib/utils/array/range'
 import { getLastItem } from '@lib/utils/array/getLastItem'
+import { getRelativePentatonic } from '@product/core/scale/getRelativePentatonic'
 
-export const BasicPentatonicPattern = ({
+export const PentatonicPattern = ({
   index: patternIndex,
   scale,
-}: IndexProp & { scale: BasicScale }) => {
+}: IndexProp & { scale: PentatonicScale }) => {
   const { rootNote } = useScale()
 
-  const pattern = pentatonicPatterns.minor
+  const pattern = scalePatterns['minor-pentatonic']
 
   const notes = useMemo(() => {
     const minorRootNote = match(scale, {
-      minor: () => rootNote,
-      major: () => getRelativeBasicPentatonic({ scale, rootNote }).rootNote,
+      'minor-pentatonic': () => rootNote,
+      'major-pentatonic': () =>
+        getRelativePentatonic({ scale, rootNote }).rootNote,
     })
 
     const firstNote =

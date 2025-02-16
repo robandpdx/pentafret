@@ -1,10 +1,10 @@
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
 import { useChangeScale, useScale } from './state/scale'
 import { chromaticNotesNames } from '@product/core/note'
-import { BasicScale, scaleNames } from '@product/core/scale'
+import { PentatonicScale, scaleNames } from '@product/core/scale'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
-import { getRelativeBasicPentatonic } from '@product/core/scale/getRelativeBasicPentatonic'
+import { getRelativePentatonic } from '@product/core/scale/getRelativePentatonic'
 
 const Button = styled(UnstyledButton)`
   &:hover {
@@ -12,12 +12,12 @@ const Button = styled(UnstyledButton)`
   }
 `
 
-export const BasicPentatonicSubtitle = ({ scale }: { scale: BasicScale }) => {
+export const PentatonicSubtitle = ({ scale }: { scale: PentatonicScale }) => {
   const { rootNote } = useScale()
 
   const changeScale = useChangeScale()
 
-  const relativePentatonic = getRelativeBasicPentatonic({
+  const relativePentatonic = getRelativePentatonic({
     scale,
     rootNote,
   })

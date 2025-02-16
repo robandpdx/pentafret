@@ -1,17 +1,12 @@
 import { range } from '@lib/utils/array/range'
-import { BasicPentatonicPattern } from './BasicPentatonicPattern'
-import {
-  BasicScale,
-  pentatonicNotesNumber,
-  pentatonicPatterns,
-  scaleNames,
-} from '@product/core/scale'
+import { scaleNames, PentatonicScale, scalePatterns } from '@product/core/scale'
 import { Text } from '@lib/ui/text'
 import { chromaticNotesNames } from '@product/core/note'
 import { useScale } from '../state/scale'
 import { VStack } from '@lib/ui/css/stack'
+import { PentatonicPattern } from './PentatonicPattern'
 
-export const BasicPentatonicPatterns = ({ scale }: { scale: BasicScale }) => {
+export const PentatonicPatterns = ({ scale }: { scale: PentatonicScale }) => {
   const { rootNote } = useScale()
 
   const noteName = chromaticNotesNames[rootNote]
@@ -38,11 +33,11 @@ export const BasicPentatonicPatterns = ({ scale }: { scale: BasicScale }) => {
           color="supporting"
           as="h4"
         >
-          {pentatonicPatterns[scale].length} Essential Shapes for Guitar Solos
+          {scalePatterns[scale].length} Essential Shapes for Guitar Solos
         </Text>
       </VStack>
-      {range(pentatonicNotesNumber).map((index) => (
-        <BasicPentatonicPattern key={index} index={index} scale={scale} />
+      {range(scalePatterns[scale].length).map((index) => (
+        <PentatonicPattern key={index} index={index} scale={scale} />
       ))}
     </VStack>
   )
