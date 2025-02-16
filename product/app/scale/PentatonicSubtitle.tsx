@@ -4,7 +4,7 @@ import { chromaticNotesNames } from '@product/core/note'
 import { PentatonicScale, scaleNames } from '@product/core/scale'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
-import { getRelativePentatonic } from '@product/core/scale/getRelativePentatonic'
+import { getRelativePentatonic } from '@product/core/scale/pentatonic/getRelativePentatonic'
 
 const Button = styled(UnstyledButton)`
   &:hover {
