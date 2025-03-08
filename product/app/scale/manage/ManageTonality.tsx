@@ -1,21 +1,21 @@
 import { GroupedRadioInput } from '@lib/ui/inputs/GroupedRadioInput'
 import { useChangeScale, useScale } from '../state/scale'
-import { scaleNames, scales } from '@product/core/scale'
 import { InputContainer } from '@lib/ui/inputs/InputContainer'
 import { InputLabel } from '@lib/ui/inputs/InputLabel'
+import { tonalityNames, tonalities } from '@product/core/tonality'
 
-export const ManageScale = () => {
-  const { scale } = useScale()
+export const ManageTonality = () => {
+  const { tonality } = useScale()
   const setValue = useChangeScale()
 
   return (
     <InputContainer>
-      <InputLabel>Scale: {scaleNames[scale]}</InputLabel>
+      <InputLabel>Tonality: {tonalityNames[tonality]}</InputLabel>
       <GroupedRadioInput
-        value={scale}
-        onChange={(scale) => setValue({ scale })}
-        options={scales}
-        renderOption={(scale) => scaleNames[scale]}
+        value={tonality}
+        onChange={(tonality) => setValue({ tonality })}
+        options={tonalities}
+        renderOption={(tonality) => tonalityNames[tonality]}
       />
     </InputContainer>
   )

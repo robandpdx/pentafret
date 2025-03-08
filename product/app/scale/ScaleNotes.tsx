@@ -3,14 +3,14 @@ import { chromaticNotesNumber } from '@product/core/note'
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { stringsCount, tuning, visibleFrets } from '../guitar/config'
 import { Note } from '../guitar/fretboard/Note'
-import { scalePatterns } from '@product/core/scale'
 import { getScaleNotes } from '@product/core/scale/getScaleNotes'
 import { useScale } from './state/scale'
+import { scalePatterns } from '@product/core/scale/ScaleType'
 
 export const ScaleNotes = () => {
-  const { scale, rootNote } = useScale()
+  const { type, tonality, rootNote } = useScale()
 
-  const pattern = scalePatterns[scale]
+  const pattern = scalePatterns[type][tonality]
 
   const notes = getScaleNotes({
     pattern,

@@ -1,19 +1,17 @@
-import { scalePatterns } from '@product/core/scale'
-
 import { sum } from '@lib/utils/array/sum'
 import { match } from '@lib/utils/match'
-import { getRelativePentatonic } from '@product/core/scale/pentatonic/getRelativePentatonic'
-import { PentatonicScale } from '@product/core/scale'
 import { getLastItem } from '@lib/utils/array/getLastItem'
 import { range } from '@lib/utils/array/range'
 import { getNoteFret } from '@product/core/guitar/getNoteFret'
 import { chromaticNotesNumber } from '@product/core/note'
 import { NotePosition } from '@product/core/note/NotePosition'
+import { Scale } from '@product/core/scale/Scale'
+import { scalePatterns } from '@product/core/scale/ScaleType'
+import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
 
 type Input = {
   index: number
-  scale: PentatonicScale
-  rootNote: number
+  scale: Scale
   stringsCount: number
   tuning: number[]
 }
@@ -21,20 +19,18 @@ type Input = {
 export const getPentatonicPattern = ({
   index,
   scale,
-  rootNote,
   stringsCount,
   tuning,
 }: Input) => {
-  const pattern = scalePatterns['minor-pentatonic']
+  const minorPattern = scalePatterns.full.minor
 
-  const minorRootNote = match(scale, {
-    'minor-pentatonic': () => rootNote,
-    'major-pentatonic': () =>
-      getRelativePentatonic({ scale, rootNote }).rootNote,
+  const minorRootNote = match(scale.tonality, {
+    minor: () => scale.rootNote,
+    major: () => getPentatonicRelativeTonalityRootNote(scale),
   })
 
   const firstNote =
-    (minorRootNote + sum(pattern.slice(0, index))) % chromaticNotesNumber
+    (minorRootNote + sum(minorPattern.slice(0, index))) % chromaticNotesNumber
 
   const result: NotePosition[] = []
 
@@ -50,7 +46,7 @@ export const getPentatonicPattern = ({
         return getNoteFret({ openNote, note: firstNote })
       }
 
-      const step = pattern[(index + index - 1) % pattern.length]
+      const step = minorPattern[(index + index - 1) % minorPattern.length]
 
       const fret = previousPosition.fret + step
 

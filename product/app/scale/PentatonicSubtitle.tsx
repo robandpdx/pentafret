@@ -1,31 +1,37 @@
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
 import { useChangeScale, useScale } from './state/scale'
 import { chromaticNotesNames } from '@product/core/note'
-import { PentatonicScale, scaleNames } from '@product/core/scale'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
-import { getRelativePentatonic } from '@product/core/scale/pentatonic/getRelativePentatonic'
-
+import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
+import { tonalities } from '@product/core/tonality'
+import { getPairComplement } from '@lib/utils/pair/getPairComplement'
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 const Button = styled(UnstyledButton)`
   &:hover {
     color: ${getColor('textPrimary')};
   }
 `
 
-export const PentatonicSubtitle = ({ scale }: { scale: PentatonicScale }) => {
-  const { rootNote } = useScale()
+export const PentatonicSubtitle = () => {
+  const scale = useScale()
 
   const changeScale = useChangeScale()
 
-  const relativePentatonic = getRelativePentatonic({
-    scale,
-    rootNote,
-  })
+  const relativeRootNote = getPentatonicRelativeTonalityRootNote(scale)
+  const relativeTonality = getPairComplement(tonalities, scale.tonality)
 
   return (
-    <Button onClick={() => changeScale(relativePentatonic)}>
-      (same pattern as {chromaticNotesNames[relativePentatonic.rootNote]}{' '}
-      {scaleNames[relativePentatonic.scale]} pentatonic)
+    <Button
+      onClick={() =>
+        changeScale({
+          ...scale,
+          rootNote: relativeRootNote,
+        })
+      }
+    >
+      (same pattern as {chromaticNotesNames[relativeRootNote]}{' '}
+      {capitalizeFirstLetter(scale.type)} {relativeTonality})
     </Button>
   )
 }

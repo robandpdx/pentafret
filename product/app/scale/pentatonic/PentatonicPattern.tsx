@@ -1,6 +1,5 @@
 import { IndexProp } from '@lib/ui/props'
 import { useScale } from '../state/scale'
-import { PentatonicScale, scaleNames } from '@product/core/scale'
 import { chromaticNotesNames } from '@product/core/note'
 import { stringsCount, tuning } from '../../guitar/config'
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
@@ -9,25 +8,22 @@ import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { getPentatonicPattern } from './getPentatonicPattern'
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 
-export const PentatonicPattern = ({
-  index: patternIndex,
-  scale,
-}: IndexProp & { scale: PentatonicScale }) => {
-  const { rootNote } = useScale()
+export const PentatonicPattern = ({ index: patternIndex }: IndexProp) => {
+  const scale = useScale()
 
   const notes = getPentatonicPattern({
     index: patternIndex,
     scale,
-    rootNote,
     stringsCount,
     tuning,
   })
 
-  const noteName = chromaticNotesNames[rootNote]
-  const scaleName = scaleNames[scale]
+  const noteName = chromaticNotesNames[scale.rootNote]
+  const scaleName = capitalizeFirstLetter(scale.type)
 
-  const title = `${noteName} ${scaleName} Pentatonic Pattern #${patternIndex + 1}`
+  const title = `${noteName} ${scaleName} Scale Pattern #${patternIndex + 1}`
 
   return (
     <VStack gap={40}>
@@ -42,7 +38,7 @@ export const PentatonicPattern = ({
             <Note
               key={`${position.string}-${position.fret}`}
               {...position}
-              kind={rootNote === note ? 'primary' : 'regular'}
+              kind={scale.rootNote === note ? 'primary' : 'regular'}
             />
           )
         })}
