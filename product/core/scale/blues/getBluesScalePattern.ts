@@ -5,6 +5,7 @@ import { Scale } from '../Scale'
 import { scalePatterns } from '../ScaleType'
 import { NotePosition } from '../../note/NotePosition'
 import { getNoteFromPosition } from '../../note/getNoteFromPosition'
+import { normalizeFretPositions } from '../../note/normalizeFretPositions'
 
 type Input = {
   index: number
@@ -51,4 +52,6 @@ export const getBluesScalePattern = (input: Input) => {
       })
     }
   })
+
+  return normalizeFretPositions(result)
 }

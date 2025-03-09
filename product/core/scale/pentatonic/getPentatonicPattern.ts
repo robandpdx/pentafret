@@ -7,6 +7,7 @@ import { NotePosition } from '@product/core/note/NotePosition'
 import { Scale } from '@product/core/scale/Scale'
 import { scalePatterns } from '@product/core/scale/ScaleType'
 import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
+import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
 
 type Input = {
   index: number
@@ -68,12 +69,5 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
     })
   })
 
-  if (result.some((position) => position.fret < -1)) {
-    return result.map((position) => ({
-      ...position,
-      fret: position.fret + chromaticNotesNumber,
-    }))
-  }
-
-  return result
+  return normalizeFretPositions(result)
 }
