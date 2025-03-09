@@ -2,10 +2,10 @@ import { range } from '@lib/utils/array/range'
 import { chromaticNotesNumber } from '@product/core/note'
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { stringsCount, tuning, visibleFrets } from '../guitar/config'
-import { Note } from '../guitar/fretboard/Note'
 import { getScaleNotes } from '@product/core/scale/getScaleNotes'
 import { useScale } from './state/scale'
 import { scalePatterns } from '@product/core/scale/ScaleType'
+import { ScaleNote } from './ScaleNote'
 
 export const ScaleNotes = () => {
   const { type, tonality, rootNote } = useScale()
@@ -27,11 +27,10 @@ export const ScaleNotes = () => {
 
           if (notes.includes(note)) {
             return (
-              <Note
+              <ScaleNote
                 key={`${string}-${index}`}
                 string={string}
                 fret={fret}
-                kind={rootNote === note ? 'primary' : 'regular'}
               />
             )
           }

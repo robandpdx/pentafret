@@ -1,11 +1,9 @@
-import { difference } from '@lib/utils/array/difference'
-import { getScaleNotes } from '../getScaleNotes'
 import { getPentatonicPattern } from '../pentatonic/getPentatonicPattern'
 import { Scale } from '../Scale'
-import { scalePatterns } from '../ScaleType'
 import { NotePosition } from '../../note/NotePosition'
 import { getNoteFromPosition } from '../../note/getNoteFromPosition'
 import { normalizeFretPositions } from '../../note/normalizeFretPositions'
+import { getBlueNote } from './getBlueNote'
 
 type Input = {
   index: number
@@ -19,17 +17,7 @@ export const getBluesScalePattern = (input: Input) => {
 
   const { scale, tuning } = input
 
-  const pentatonicNotes = getScaleNotes({
-    rootNote: scale.rootNote,
-    pattern: scalePatterns.pentatonic[scale.tonality],
-  })
-
-  const bluesNotes = getScaleNotes({
-    rootNote: scale.rootNote,
-    pattern: scalePatterns.blues[scale.tonality],
-  })
-
-  const [blueNote] = difference(pentatonicNotes, bluesNotes)
+  const blueNote = getBlueNote(scale)
 
   const result: NotePosition[] = []
 

@@ -2,12 +2,11 @@ import { IndexProp } from '@lib/ui/props'
 import { useScale } from '../../state/scale'
 import { stringsCount, tuning } from '../../../guitar/config'
 import { Fretboard } from '../../../guitar/fretboard/Fretboard'
-import { Note } from '../../../guitar/fretboard/Note'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
-import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
+import { ScaleNote } from '../../ScaleNote'
 
 export const PentatonicPattern = ({ index }: IndexProp) => {
   const scale = useScale()
@@ -30,13 +29,10 @@ export const PentatonicPattern = ({ index }: IndexProp) => {
       </Text>
       <Fretboard>
         {notes.map((position) => {
-          const note = getNoteFromPosition({ tuning, position })
-
           return (
-            <Note
+            <ScaleNote
               key={`${position.string}-${position.fret}`}
               {...position}
-              kind={scale.rootNote === note ? 'primary' : 'regular'}
             />
           )
         })}
