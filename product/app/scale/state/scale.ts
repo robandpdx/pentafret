@@ -1,19 +1,14 @@
 import { getValueProviderSetup } from '@lib/ui/state/getValueProviderSetup'
-import { Scale } from '@product/core/scale'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 import { toUriNote } from '@product/core/note/uriNote'
+import { Scale } from '@product/core/scale/Scale'
 
-export type ScaleState = {
-  scale: Scale
-  rootNote: number
-}
-
-export const makeScalePath = ({ scale, rootNote }: ScaleState) =>
-  `/${toUriNote(rootNote)}/${scale}`
+export const makeScalePath = ({ type, tonality, rootNote }: Scale) =>
+  `/scale/${toUriNote(rootNote)}/${type}/${tonality}`
 
 export const { useValue: useScale, provider: ScaleProvider } =
-  getValueProviderSetup<ScaleState>('Scale')
+  getValueProviderSetup<Scale>('Scale')
 
 export const useChangeScale = () => {
   const value = useScale()
@@ -21,7 +16,7 @@ export const useChangeScale = () => {
   const { push } = useRouter()
 
   return useCallback(
-    (params: Partial<ScaleState>) => {
+    (params: Partial<Scale>) => {
       push(makeScalePath({ ...value, ...params }))
     },
     [push, value],

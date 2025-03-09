@@ -38,7 +38,8 @@ const items = [
     name: 'Scales',
     href: makeScalePath({
       rootNote: 7,
-      scale: 'minor-pentatonic',
+      type: 'pentatonic',
+      tonality: 'minor',
     }),
   },
 ] as const

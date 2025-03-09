@@ -1,18 +1,17 @@
 import { range } from '@lib/utils/array/range'
-import { scaleNames, PentatonicScale, scalePatterns } from '@product/core/scale'
+import { scalePatternsNumber } from '@product/core/scale/ScaleType'
 import { Text } from '@lib/ui/text'
-import { chromaticNotesNames } from '@product/core/note'
-import { useScale } from '../state/scale'
 import { VStack } from '@lib/ui/css/stack'
 import { PentatonicPattern } from './PentatonicPattern'
+import { getScaleName } from '@product/core/scale/getScaleName'
+import { useScale } from '../state/scale'
 
-export const PentatonicPatterns = ({ scale }: { scale: PentatonicScale }) => {
-  const { rootNote } = useScale()
+export const PentatonicPatterns = () => {
+  const scale = useScale()
 
-  const noteName = chromaticNotesNames[rootNote]
-  const scaleName = scaleNames[scale]
+  const scaleName = getScaleName(scale)
 
-  const title = `${noteName} ${scaleName} Pentatonic Patterns`
+  const title = `${scaleName} Patterns`
 
   return (
     <VStack gap={60}>
@@ -33,11 +32,11 @@ export const PentatonicPatterns = ({ scale }: { scale: PentatonicScale }) => {
           color="supporting"
           as="h4"
         >
-          {scalePatterns[scale].length} Essential Shapes for Guitar Solos
+          {scalePatternsNumber} Essential Shapes for Guitar Solos
         </Text>
       </VStack>
-      {range(scalePatterns[scale].length).map((index) => (
-        <PentatonicPattern key={index} index={index} scale={scale} />
+      {range(scalePatternsNumber).map((index) => (
+        <PentatonicPattern key={index} index={index} />
       ))}
     </VStack>
   )

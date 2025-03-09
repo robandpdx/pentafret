@@ -1,8 +1,8 @@
-import { scalePatterns } from '../scale'
+import { scalePatterns } from '../scale/ScaleType'
 
 export const naturalNotesNames = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
-export const chromaticNotesNames = scalePatterns.minor.reduce(
+export const chromaticNotesNames = scalePatterns.full.minor.reduce(
   (acc, step, index) => {
     const note = naturalNotesNames[index]
 

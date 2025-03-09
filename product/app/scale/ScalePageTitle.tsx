@@ -1,11 +1,10 @@
 import { text, Text } from '@lib/ui/text'
-import { useScale } from './state/scale'
-import { chromaticNotesNames } from '@product/core/note'
-import { scaleNames } from '@product/core/scale'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { VStack } from '@lib/ui/css/stack'
 import styled from 'styled-components'
 import { ScalePageSubtitle } from './ScalePageSubtitle'
+import { getScaleName } from '@product/core/scale/getScaleName'
+import { useScale } from './state/scale'
 
 const Placeholder = styled.div`
   min-height: 1em;
@@ -19,13 +18,12 @@ const Placeholder = styled.div`
 `
 
 export const ScalePageTitle = () => {
-  const { scale, rootNote } = useScale()
+  const scale = useScale()
 
-  const noteName = chromaticNotesNames[rootNote]
-  const scaleName = scaleNames[scale]
+  const name = getScaleName(scale)
 
-  const title = `${noteName} ${scaleName} on Guitar`
-  const description = `Learn how to play the ${noteName} ${scaleName} on the guitar. Explore notes on the fretboard and discover pentatonic and full scale patterns.`
+  const title = `${name} on Guitar`
+  const description = `Learn how to play the ${name} on the guitar. Explore notes on the fretboard and discover pentatonic and full scale patterns.`
 
   return (
     <>

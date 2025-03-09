@@ -1,17 +1,11 @@
 import { useScale } from './state/scale'
 
-import { isOneOf } from '@lib/utils/array/isOneOf'
 import { PentatonicSubtitle } from './PentatonicSubtitle'
-import { pentatonicScales } from '@product/core/scale'
 
 export const ScalePageSubtitle = () => {
-  const { scale } = useScale()
+  const { type } = useScale()
 
-  const pentatonicScale = isOneOf(scale, pentatonicScales)
+  if (type !== 'pentatonic') return null
 
-  if (!pentatonicScale) {
-    return null
-  }
-
-  return <PentatonicSubtitle scale={pentatonicScale} />
+  return <PentatonicSubtitle />
 }
