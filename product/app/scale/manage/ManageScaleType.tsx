@@ -11,7 +11,7 @@ export const ManageScaleType = () => {
 
   return (
     <InputContainer>
-      <InputLabel>Scale: {capitalizeFirstLetter(type)}</InputLabel>
+      <InputLabel>Scale: {capitalizeFirstLetter(type)} scale</InputLabel>
       <GroupedRadioInput
         value={type}
         onChange={(type) => setValue({ type })}

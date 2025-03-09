@@ -22,7 +22,7 @@ export const getPentatonicPattern = ({
   stringsCount,
   tuning,
 }: Input) => {
-  const minorPattern = scalePatterns.full.minor
+  const pattern = scalePatterns.pentatonic.minor
 
   const minorRootNote = match(scale.tonality, {
     minor: () => scale.rootNote,
@@ -30,7 +30,7 @@ export const getPentatonicPattern = ({
   })
 
   const firstNote =
-    (minorRootNote + sum(minorPattern.slice(0, index))) % chromaticNotesNumber
+    (minorRootNote + sum(pattern.slice(0, index))) % chromaticNotesNumber
 
   const result: NotePosition[] = []
 
@@ -46,7 +46,7 @@ export const getPentatonicPattern = ({
         return getNoteFret({ openNote, note: firstNote })
       }
 
-      const step = minorPattern[(index + index - 1) % minorPattern.length]
+      const step = pattern[(index + index - 1) % pattern.length]
 
       const fret = previousPosition.fret + step
 

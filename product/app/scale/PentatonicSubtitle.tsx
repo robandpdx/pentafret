@@ -1,12 +1,12 @@
 import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
 import { useChangeScale, useScale } from './state/scale'
-import { chromaticNotesNames } from '@product/core/note'
 import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
 import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
 import { tonalities } from '@product/core/tonality'
 import { getPairComplement } from '@lib/utils/pair/getPairComplement'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { getScaleName } from '@product/core/scale/getScaleName'
+
 const Button = styled(UnstyledButton)`
   &:hover {
     color: ${getColor('textPrimary')};
@@ -30,8 +30,13 @@ export const PentatonicSubtitle = () => {
         })
       }
     >
-      (same pattern as {chromaticNotesNames[relativeRootNote]}{' '}
-      {capitalizeFirstLetter(scale.type)} {relativeTonality})
+      (same notes as in{' '}
+      {getScaleName({
+        type: scale.type,
+        rootNote: relativeRootNote,
+        tonality: relativeTonality,
+      })}
+      )
     </Button>
   )
 }

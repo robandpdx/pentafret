@@ -1,18 +1,17 @@
 import { range } from '@lib/utils/array/range'
 import { scalePatternsNumber } from '@product/core/scale/ScaleType'
 import { Text } from '@lib/ui/text'
-import { chromaticNotesNames } from '@product/core/note'
-import { useScale } from '../state/scale'
 import { VStack } from '@lib/ui/css/stack'
 import { PentatonicPattern } from './PentatonicPattern'
-import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { getScaleName } from '@product/core/scale/getScaleName'
+import { useScale } from '../state/scale'
+
 export const PentatonicPatterns = () => {
-  const { rootNote, type } = useScale()
+  const scale = useScale()
 
-  const noteName = chromaticNotesNames[rootNote]
-  const scaleName = capitalizeFirstLetter(type)
+  const scaleName = getScaleName(scale)
 
-  const title = `${noteName} ${scaleName} Scale Patterns`
+  const title = `${scaleName} Patterns`
 
   return (
     <VStack gap={60}>
