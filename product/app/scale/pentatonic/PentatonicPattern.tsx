@@ -6,7 +6,7 @@ import { Note } from '../../guitar/fretboard/Note'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
-import { getPentatonicPattern } from './getPentatonicPattern'
+import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
 
 export const PentatonicPattern = ({ index }: IndexProp) => {
