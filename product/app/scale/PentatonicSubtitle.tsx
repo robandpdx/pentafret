@@ -20,23 +20,15 @@ export const PentatonicSubtitle = () => {
 
   const relativeRootNote = getPentatonicRelativeTonalityRootNote(scale)
   const relativeTonality = getPairComplement(tonalities, scale.tonality)
+  const relativeScale = {
+    ...scale,
+    rootNote: relativeRootNote,
+    tonality: relativeTonality,
+  }
 
   return (
-    <Button
-      onClick={() =>
-        changeScale({
-          ...scale,
-          rootNote: relativeRootNote,
-        })
-      }
-    >
-      (same notes as in{' '}
-      {getScaleName({
-        type: scale.type,
-        rootNote: relativeRootNote,
-        tonality: relativeTonality,
-      })}
-      )
+    <Button onClick={() => changeScale(relativeScale)}>
+      (same notes as in {getScaleName(relativeScale)})
     </Button>
   )
 }
