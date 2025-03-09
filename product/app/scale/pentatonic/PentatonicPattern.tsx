@@ -9,11 +9,11 @@ import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { getPentatonicPattern } from './getPentatonicPattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
 
-export const PentatonicPattern = ({ index: patternIndex }: IndexProp) => {
+export const PentatonicPattern = ({ index }: IndexProp) => {
   const scale = useScale()
 
   const notes = getPentatonicPattern({
-    index: patternIndex,
+    index,
     scale,
     stringsCount,
     tuning,
@@ -21,7 +21,7 @@ export const PentatonicPattern = ({ index: patternIndex }: IndexProp) => {
 
   const scaleName = getScaleName(scale)
 
-  const title = `${scaleName} Pattern #${patternIndex + 1}`
+  const title = `${scaleName} Pattern #${index + 1}`
 
   return (
     <VStack gap={40}>

@@ -1,5 +1,4 @@
 import { sum } from '@lib/utils/array/sum'
-import { match } from '@lib/utils/match'
 import { getLastItem } from '@lib/utils/array/getLastItem'
 import { range } from '@lib/utils/array/range'
 import { getNoteFret } from '@product/core/guitar/getNoteFret'
@@ -16,26 +15,30 @@ type Input = {
   tuning: number[]
 }
 
-export const getPentatonicPattern = ({
-  index,
-  scale,
-  stringsCount,
-  tuning,
-}: Input) => {
-  const pattern = scalePatterns.pentatonic.minor
+const notesPerString = 2
 
-  const minorRootNote = match(scale.tonality, {
-    minor: () => scale.rootNote,
-    major: () => getPentatonicRelativeTonalityRootNote(scale),
-  })
+export const getPentatonicPattern = (input: Input): NotePosition[] => {
+  if (input.scale.tonality === 'major') {
+    return getPentatonicPattern({
+      ...input,
+      scale: {
+        ...input.scale,
+        tonality: 'minor',
+        rootNote: getPentatonicRelativeTonalityRootNote(input.scale),
+      },
+    })
+  }
+
+  const { index, scale, stringsCount, tuning } = input
+  const pattern = scalePatterns[scale.type][scale.tonality]
 
   const firstNote =
-    (minorRootNote + sum(pattern.slice(0, index))) % chromaticNotesNumber
+    (scale.rootNote + sum(pattern.slice(0, index))) % chromaticNotesNumber
 
   const result: NotePosition[] = []
 
-  range(stringsCount * 2).forEach((index) => {
-    const string = stringsCount - Math.floor(index / 2) - 1
+  range(stringsCount * notesPerString).forEach((noteIndex) => {
+    const string = stringsCount - Math.floor(noteIndex / notesPerString) - 1
 
     const openNote = tuning[string]
 
@@ -46,11 +49,11 @@ export const getPentatonicPattern = ({
         return getNoteFret({ openNote, note: firstNote })
       }
 
-      const step = pattern[(index + index - 1) % pattern.length]
+      const step = pattern[(noteIndex + index - 1) % pattern.length]
 
       const fret = previousPosition.fret + step
 
-      if (index % 2 === 0) {
+      if (noteIndex % 2 === 0) {
         const shift = string === 1 ? 4 : 5
 
         return fret - shift
