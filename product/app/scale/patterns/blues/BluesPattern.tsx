@@ -2,17 +2,16 @@ import { IndexProp } from '@lib/ui/props'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
-import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
 import { stringsCount, tuning } from '../../../guitar/config'
 import { Fretboard } from '../../../guitar/fretboard/Fretboard'
 import { Note } from '../../../guitar/fretboard/Note'
 import { useScale } from '../../state/scale'
-
+import { getBluesScalePattern } from '@product/core/scale/blues/getBluesScalePattern'
 export const BluesPattern = ({ index }: IndexProp) => {
   const scale = useScale()
 
-  const notes = getPentatonicPattern({
+  const notes = getBluesScalePattern({
     index,
     scale,
     stringsCount,
