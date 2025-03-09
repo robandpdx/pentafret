@@ -1,17 +1,31 @@
-You will be helping me with tasks related to this product. Read more about it below and reply with "Yes" if you understand the product.
+# Pages
 
-This app allows you to view scales and pentatonics on a guitar fretboard. At the top of the page, there are three controls:
-* **Root Note:** Select the root note of the scale. Options include all 12 notes.
-* **Scale:** Select the scale. Options include Major, Minor, Blues, Dorian, Mixolydian, Phrygian, Harmonic Minor, or Melodic Minor.
-* **Scale Type:** Choose whether to view the whole scale or just the pentatonic version.
+## Notes (/)
 
-Below the controls, you will see the fretboard with the notes of the selected scale. The fretboard consists of 15 frets with open notes and 6 strings. Each note is outlined with a distinct color and labeled with the note name inside the circle.
+The home page displays all the notes on the guitar fretboard.
 
-When either major or minor pentatonic scale is selected, the app also displays 5 standard pentatonic patterns. Each pattern is shown on a dedicated fretboard, progressing from the first to the fifth pattern. The first pattern starts from the root note in case of minor pentatonic scale, and from the next note of the pentatonic scale in case of major pentatonic scale. E.g. in G minor pentatonic will have the same shape as a A# major pentatonic and will start from the third fret, but the highlighted root note will be different.
+## Scales (/scales/[scaleType]/[rootNote]/[tonality])
 
-The URL pattern is `/[scaleType]/[rootNote]/[scale]`. For example, `/pentatonic/e/minor` displays the pentatonic scale with E as the root note in the minor scale.
+At the top of the scale page, the user can select a scale, which consists of the following controls:
+* Root note: Select the root note of the scale. Options include all 12 notes.
+* Scale type: Full scale, pentatonic, or blues scale.
+* Tonality: Major or Minor.
 
-On the index page `/`, the app shows all the notes on the fretboard.
+Below the controls, the fretboard displays the notes of the selected scale. The root note is highlighted in a different color. When the user selects a blues scale, the app also highlights a "blue note" in a distinct color on the fretboard.
+
+The title of the page displays the full name of the scale, e.g., "E Minor Pentatonic Scale".
+
+The subtitle is present for the following scale types:
+* Pentatonic: A clickable link to the relative pentatonic scale, e.g., for E minor, it will say "same notes as in G Major Pentatonic Scale" and vice-versa. When clicking on the link, the app will navigate to the relative pentatonic scale.
+* Blues: Says that it has the same notes as pentatonic plus a "blue note", e.g., for E Minor Blues Scale, it will say "E Minor Pentatonic Scale + A# (blue note)".
+
+For pentatonic and blues scales, the app also displays 5 standard patterns. Each pattern is shown on a dedicated fretboard, progressing from the first to the fifth pattern. The first pattern starts from the root note in the case of a minor pentatonic scale, and from the next note of the pentatonic scale in the case of a major pentatonic scale. E.g., G minor pentatonic will have the same shape as an A# major pentatonic and will start from the third fret, but the highlighted root note will be different.
+
+# Notes
+
+* The fretboard always displays 15 frets, plus open notes.
+* The app uses 6 strings and standard tuning.
+* The app is available at https://pentafret.com
 
 # Tech Stack
 

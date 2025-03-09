@@ -1,22 +1,17 @@
-import { IndexProp } from '@lib/ui/props'
-import { useScale } from '../../state/scale'
-import { stringsCount, tuning } from '../../../guitar/config'
-import { Fretboard } from '../../../guitar/fretboard/Fretboard'
 import { VStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
-import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
+import { IndexProp, ValueProp } from '@lib/ui/props'
+import { NotePosition } from '@product/core/note/NotePosition'
 import { getScaleName } from '@product/core/scale/getScaleName'
-import { ScaleNote } from '../../ScaleNote'
+import { Fretboard } from '../../guitar/fretboard/Fretboard'
+import { ScaleNote } from '../ScaleNote'
+import { useScale } from '../state/scale'
+import { Text } from '@lib/ui/text'
 
-export const PentatonicPattern = ({ index }: IndexProp) => {
+export const ScalePattern = ({
+  value,
+  index,
+}: ValueProp<NotePosition[]> & IndexProp) => {
   const scale = useScale()
-
-  const notes = getPentatonicPattern({
-    index,
-    scale,
-    stringsCount,
-    tuning,
-  })
 
   const scaleName = getScaleName(scale)
 
@@ -28,7 +23,7 @@ export const PentatonicPattern = ({ index }: IndexProp) => {
         {title}
       </Text>
       <Fretboard>
-        {notes.map((position) => {
+        {value.map((position) => {
           return (
             <ScaleNote
               key={`${position.string}-${position.fret}`}
