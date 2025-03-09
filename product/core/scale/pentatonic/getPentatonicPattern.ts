@@ -10,7 +10,7 @@ import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/penta
 
 type Input = {
   index: number
-  scale: Scale
+  scale: Omit<Scale, 'type'>
   stringsCount: number
   tuning: number[]
 }
@@ -30,7 +30,7 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
   }
 
   const { index, scale, stringsCount, tuning } = input
-  const pattern = scalePatterns[scale.type][scale.tonality]
+  const pattern = scalePatterns.pentatonic[scale.tonality]
 
   const firstNote =
     (scale.rootNote + sum(pattern.slice(0, index))) % chromaticNotesNumber

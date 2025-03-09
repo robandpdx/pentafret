@@ -4,7 +4,7 @@ import { Text } from '@lib/ui/text'
 import { VStack } from '@lib/ui/css/stack'
 import { PentatonicPattern } from './PentatonicPattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
-import { useScale } from '../state/scale'
+import { useScale } from '../../state/scale'
 
 export const PentatonicPatterns = () => {
   const scale = useScale()
