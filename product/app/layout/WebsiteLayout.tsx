@@ -35,6 +35,10 @@ const items = [
     href: '/',
   },
   {
+    name: 'CAGED',
+    href: '/caged',
+  },
+  {
     name: 'Scales',
     href: makeScalePath({
       rootNote: 7,

@@ -10,7 +10,7 @@ import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByC
 import { KindProp } from '@lib/ui/props'
 import { centerContent } from '@lib/ui/css/centerContent'
 import { chromaticNotesNames } from '@product/core/note'
-import { totalFrets, tuning, visibleFrets } from '../../guitar/config'
+import { totalFrets, tuning } from '../../guitar/config'
 import { match } from '@lib/utils/match'
 import { NotePosition } from '@product/core/note/NotePosition'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
@@ -18,7 +18,10 @@ import { getColor } from '@lib/ui/theme/getters'
 
 export type NoteKind = 'regular' | 'primary' | 'blue'
 
-export type NoteProps = Partial<KindProp<NoteKind>> & NotePosition
+export type NoteProps = Partial<KindProp<NoteKind>> &
+  NotePosition & {
+    visibleFrets: number
+  }
 
 const Container = styled.div<KindProp<NoteKind>>`
   ${round}
@@ -52,7 +55,12 @@ const Container = styled.div<KindProp<NoteKind>>`
   }}
 `
 
-export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
+export const Note = ({
+  string,
+  fret,
+  kind = 'regular',
+  visibleFrets,
+}: NoteProps) => {
   const top = toPercents(getStringPosition(string))
 
   const value = getNoteFromPosition({ tuning, position: { string, fret } })
