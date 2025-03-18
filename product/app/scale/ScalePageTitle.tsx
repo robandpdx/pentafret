@@ -1,10 +1,11 @@
-import { text, Text } from '@lib/ui/text'
+import { text } from '@lib/ui/text'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { VStack } from '@lib/ui/css/stack'
 import styled from 'styled-components'
 import { ScalePageSubtitle } from './ScalePageSubtitle'
 import { getScaleName } from '@product/core/scale/getScaleName'
 import { useScale } from './state/scale'
+import { PageTitle } from '../ui/PageTitle'
 
 const Placeholder = styled.div`
   min-height: 1em;
@@ -28,15 +29,7 @@ export const ScalePageTitle = () => {
   return (
     <>
       <VStack alignItems="center" gap={8}>
-        <Text
-          centerHorizontally
-          weight={800}
-          size={32}
-          color="contrast"
-          as="h1"
-        >
-          {title}
-        </Text>
+        <PageTitle>{title}</PageTitle>
         <Placeholder>
           <ScalePageSubtitle />
         </Placeholder>

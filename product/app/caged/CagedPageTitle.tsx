@@ -1,5 +1,5 @@
-import { Text } from '@lib/ui/text'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
+import { PageTitle } from '../ui/PageTitle'
 
 export const CagedPageTitle = () => {
   const pageTitle = 'CAGED Open Forms on Guitar'
@@ -9,9 +9,7 @@ export const CagedPageTitle = () => {
 
   return (
     <>
-      <Text centerHorizontally weight={800} size={32} color="contrast" as="h1">
-        {pageTitle}
-      </Text>
+      <PageTitle>{pageTitle}</PageTitle>
       <PageMetaTags title={title} description={description} />
     </>
   )

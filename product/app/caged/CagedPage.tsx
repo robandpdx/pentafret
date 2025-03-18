@@ -12,7 +12,7 @@ export const CagedPage = () => {
           <CagedPageTitle />
           <HStack
             fullWidth
-            gap={40}
+            gap={60}
             alignItems="center"
             justifyContent="center"
             wrap="wrap"
