@@ -1,7 +1,9 @@
-import { EagerQuery, Query } from '../Query'
-import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
 import { isEmpty } from '@lib/utils/array/isEmpty'
+import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { attempt } from '@lib/utils/attempt'
 import { useMemo } from 'react'
+
+import { EagerQuery, Query } from '../Query'
 
 type ToEagerQueryInput<T, R, E = unknown> = {
   queries: Query<T, E>[]
@@ -26,23 +28,15 @@ export function useQueriesToEagerQuery<T, R, E = unknown>({
       }
     }
 
-    try {
-      const resolvedQueries = withoutUndefined(
-        queries.map((query) => query.data),
-      )
-      return {
-        isPending,
-        isLoading,
-        errors,
-        data: isEmpty(resolvedQueries) ? undefined : joinData(resolvedQueries),
-      }
-    } catch (error: any) {
-      return {
-        isPending,
-        isLoading,
-        errors: [...errors, error],
-        data: undefined,
-      }
+    const resolvedQueries = withoutUndefined(queries.map((query) => query.data))
+
+    const { data, error } = attempt<R, E>(() => joinData(resolvedQueries))
+
+    return {
+      isPending,
+      isLoading,
+      errors: error ? [...errors, error] : errors,
+      data,
     }
   }, [joinData, queries])
 }

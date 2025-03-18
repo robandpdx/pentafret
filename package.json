@@ -1,24 +1,24 @@
 {
   "name": "pentafret",
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.7.0",
   "version": "0.0.1",
   "private": true,
   "workspaces": [
     "./**"
   ],
   "devDependencies": {
-    "@eslint/compat": "^1.2.6",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.24.0",
-    "@typescript-eslint/parser": "^8.24.0",
-    "eslint": "^9.20.1",
-    "eslint-plugin-react-hooks": "^5.1.0",
+    "@eslint/compat": "^1.2.7",
+    "@types/react": "^19.0.11",
+    "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.1",
-    "syncpack": "^13.0.2",
-    "typescript": "^5.7.3"
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "syncpack": "^13.0.3",
+    "typescript": "^5.8.2"
   },
   "scripts": {
     "postinstall": "husky install",
