@@ -1,4 +1,4 @@
-import { VStack } from '@lib/ui/css/stack'
+import { HStack, VStack } from '@lib/ui/css/stack'
 import { PageContainer } from '../layout/PageContainer'
 import { CagedPageTitle } from './CagedPageTitle'
 import { cagedChords } from '@product/core/chords/caged'
@@ -10,9 +10,17 @@ export const CagedPage = () => {
       <VStack gap={120}>
         <VStack gap={60}>
           <CagedPageTitle />
-          {cagedChords.map((chord) => (
-            <CagedChordItem key={chord} value={chord} />
-          ))}
+          <HStack
+            fullWidth
+            gap={40}
+            alignItems="center"
+            justifyContent="center"
+            wrap="wrap"
+          >
+            {cagedChords.map((chord) => (
+              <CagedChordItem key={chord} value={chord} />
+            ))}
+          </HStack>
         </VStack>
       </VStack>
     </PageContainer>

@@ -12,7 +12,7 @@ import { vStack } from '@lib/ui/css/stack'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { getIntervalCenter } from '@lib/utils/interval/getIntervalCenter'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
-import { visibleFrets, totalFrets } from '../../guitar/config'
+import { totalFrets } from '../../guitar/config'
 import { ValueProp } from '@lib/ui/props'
 
 const Dot = styled.div`
@@ -29,7 +29,14 @@ const DoubleMarkerContainer = styled.div`
   ${verticalPadding(fretboardConfig.height * 0.08)};
 `
 
-export const FretMarkerItem = ({ value }: ValueProp<FretMarker>) => {
+type FretMarkerItemProps = ValueProp<FretMarker> & {
+  visibleFrets: number
+}
+
+export const FretMarkerItem = ({
+  value,
+  visibleFrets,
+}: FretMarkerItemProps) => {
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight

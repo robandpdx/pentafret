@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { getColor } from '@lib/ui/theme/getters'
 import { toPercents } from '@lib/utils/toPercents'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
-import { totalFrets, visibleFrets } from '../../guitar/config'
+import { totalFrets } from '../../guitar/config'
 
 const Container = styled.div`
   background: ${getColor('textShy')};
@@ -12,7 +12,11 @@ const Container = styled.div`
   width: 1px;
 `
 
-export const Fret = ({ index }: IndexProp) => {
+type FretProps = IndexProp & {
+  visibleFrets: number
+}
+
+export const Fret = ({ index, visibleFrets }: FretProps) => {
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight
