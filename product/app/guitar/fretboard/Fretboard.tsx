@@ -11,6 +11,7 @@ import { hStack } from '@lib/ui/css/stack'
 import { stringsCount } from '../../guitar/config'
 import { ChildrenProp } from '@lib/ui/props'
 import { Nut } from './Nut'
+import { VisibleFretsProvider } from './state/visibleFrets'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -53,7 +54,9 @@ export const Fretboard = ({ children, visibleFrets }: FretboardProps) => {
         {range(stringsCount).map((index) => (
           <String key={index} index={index} />
         ))}
-        {children}
+        <VisibleFretsProvider value={visibleFrets}>
+          {children}
+        </VisibleFretsProvider>
       </Frets>
     </Neck>
   )

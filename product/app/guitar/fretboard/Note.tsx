@@ -15,13 +15,11 @@ import { match } from '@lib/utils/match'
 import { NotePosition } from '@product/core/note/NotePosition'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { getColor } from '@lib/ui/theme/getters'
+import { useVisibleFrets } from './state/visibleFrets'
 
 export type NoteKind = 'regular' | 'primary' | 'blue'
 
-export type NoteProps = Partial<KindProp<NoteKind>> &
-  NotePosition & {
-    visibleFrets: number
-  }
+export type NoteProps = Partial<KindProp<NoteKind>> & NotePosition
 
 const Container = styled.div<KindProp<NoteKind>>`
   ${round}
@@ -55,12 +53,9 @@ const Container = styled.div<KindProp<NoteKind>>`
   }}
 `
 
-export const Note = ({
-  string,
-  fret,
-  kind = 'regular',
-  visibleFrets,
-}: NoteProps) => {
+export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
+  const visibleFrets = useVisibleFrets()
+
   const top = toPercents(getStringPosition(string))
 
   const value = getNoteFromPosition({ tuning, position: { string, fret } })

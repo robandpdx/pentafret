@@ -32,7 +32,6 @@ export const ScaleNotes = () => {
                 key={`${string}-${index}`}
                 string={string}
                 fret={fret}
-                visibleFrets={scaleConfig.visibleFrets}
               />
             )
           }

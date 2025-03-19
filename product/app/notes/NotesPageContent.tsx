@@ -11,14 +11,7 @@ export const NotesPageContent = () => {
         return range(scaleConfig.visibleFrets + 1).map((index) => {
           const fret = index - 1
 
-          return (
-            <Note
-              key={`${string}-${index}`}
-              string={string}
-              fret={fret}
-              visibleFrets={scaleConfig.visibleFrets}
-            />
-          )
+          return <Note key={`${string}-${index}`} string={string} fret={fret} />
         })
       })}
     </Fretboard>

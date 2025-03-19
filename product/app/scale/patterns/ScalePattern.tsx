@@ -29,7 +29,6 @@ export const ScalePattern = ({
             <ScaleNote
               key={`${position.string}-${position.fret}`}
               {...position}
-              visibleFrets={scaleConfig.visibleFrets}
             />
           )
         })}

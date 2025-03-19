@@ -35,7 +35,6 @@ export const CagedChordItem = ({ value }: ValueProp<CagedChord>) => {
             string={position.string}
             fret={position.fret}
             kind={position.string === lowestBassString ? 'primary' : 'regular'}
-            visibleFrets={cagedConfig.visibleFrets}
           />
         ))}
       </Fretboard>
