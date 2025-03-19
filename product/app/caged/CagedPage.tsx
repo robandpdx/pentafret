@@ -7,21 +7,19 @@ import { CagedChordItem } from './CagedChordItem'
 export const CagedPage = () => {
   return (
     <PageContainer>
-      <VStack gap={120}>
-        <VStack gap={60}>
-          <CagedPageTitle />
-          <HStack
-            fullWidth
-            gap={60}
-            alignItems="center"
-            justifyContent="center"
-            wrap="wrap"
-          >
-            {cagedChords.map((chord) => (
-              <CagedChordItem key={chord} value={chord} />
-            ))}
-          </HStack>
-        </VStack>
+      <VStack gap={60}>
+        <CagedPageTitle />
+        <HStack
+          fullWidth
+          gap={60}
+          alignItems="center"
+          justifyContent="center"
+          wrap="wrap"
+        >
+          {cagedChords.map((chord) => (
+            <CagedChordItem key={chord} value={chord} />
+          ))}
+        </HStack>
       </VStack>
     </PageContainer>
   )
