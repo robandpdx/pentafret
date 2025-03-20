@@ -1,5 +1,9 @@
 import { NotePosition } from '../note/NotePosition'
 
+export const cagedViews = ['chord', 'arpeggio'] as const
+
+export type CagedView = (typeof cagedViews)[number]
+
 export const cagedChords = ['c', 'a', 'g', 'e', 'd'] as const
 
 export type CagedChord = (typeof cagedChords)[number]
@@ -40,5 +44,45 @@ export const openCagedChords: Record<CagedChord, NotePosition[]> = {
     { string: 1, fret: 2 },
     { string: 2, fret: 1 },
     { string: 3, fret: -1 },
+  ],
+}
+
+export const cagedArpeggios: Record<CagedChord, NotePosition[]> = {
+  c: [
+    { string: 1, fret: -1 },
+    { string: 2, fret: 1 },
+    { string: 3, fret: -1 },
+    { string: 4, fret: 2 },
+    { string: 5, fret: 3 },
+  ],
+  a: [
+    { string: 0, fret: -1 },
+    { string: 1, fret: -1 },
+    { string: 2, fret: 2 },
+    { string: 3, fret: 2 },
+    { string: 4, fret: -1 },
+  ],
+  g: [
+    { string: 0, fret: 3 },
+    { string: 1, fret: -1 },
+    { string: 2, fret: -1 },
+    { string: 3, fret: -1 },
+    { string: 4, fret: 2 },
+    { string: 5, fret: 3 },
+  ],
+  e: [
+    { string: 0, fret: -1 },
+    { string: 1, fret: -1 },
+    { string: 2, fret: 1 },
+    { string: 3, fret: 2 },
+    { string: 4, fret: 2 },
+    { string: 5, fret: -1 },
+  ],
+  d: [
+    { string: 0, fret: 2 },
+    { string: 1, fret: 3 },
+    { string: 2, fret: 2 },
+    { string: 3, fret: -1 },
+    { string: 4, fret: -1 },
   ],
 }

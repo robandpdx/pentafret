@@ -1,11 +1,16 @@
 import { ValueProp } from '@lib/ui/props'
-import { CagedChord, openCagedChords } from '@product/core/chords/caged'
+import {
+  cagedArpeggios,
+  CagedChord,
+  openCagedChords,
+} from '@product/core/chords/caged'
 import { vStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { Note } from '../guitar/fretboard/Note'
 import { cagedConfig } from './config'
 import styled from 'styled-components'
+import { useCaged } from './state/caged'
 
 const Container = styled.div`
   ${vStack({
@@ -16,8 +21,14 @@ const Container = styled.div`
   max-width: 400px;
 `
 
-export const CagedChordItem = ({ value }: ValueProp<CagedChord>) => {
-  const positions = openCagedChords[value]
+const positionsRecord = {
+  chord: openCagedChords,
+  arpeggio: cagedArpeggios,
+}
+
+export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
+  const { view } = useCaged()
+  const positions = positionsRecord[view][value]
 
   const lowestBassString = Math.max(
     ...positions.map((position) => position.string),
@@ -26,7 +37,7 @@ export const CagedChordItem = ({ value }: ValueProp<CagedChord>) => {
   return (
     <Container>
       <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
-        {value.toUpperCase()} major chord
+        {value.toUpperCase()} major {view}
       </Text>
       <Fretboard visibleFrets={cagedConfig.visibleFrets}>
         {positions.map((position) => (

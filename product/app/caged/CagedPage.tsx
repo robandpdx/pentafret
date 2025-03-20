@@ -1,26 +1,34 @@
 import { HStack, VStack } from '@lib/ui/css/stack'
 import { PageContainer } from '../layout/PageContainer'
 import { CagedPageTitle } from './CagedPageTitle'
-import { cagedChords } from '@product/core/chords/caged'
-import { CagedChordItem } from './CagedChordItem'
+import { cagedChords, CagedView } from '@product/core/chords/caged'
+import { CagedProvider } from './state/caged'
+import { ValueProp } from '@lib/ui/props'
+import { CagedManager } from './manage/CagedManager'
+import { CagedItem } from './CagedItem'
 
-export const CagedPage = () => {
+type CagedPageProps = ValueProp<{ view: CagedView }>
+
+export const CagedPage = ({ value }: CagedPageProps) => {
   return (
-    <PageContainer>
-      <VStack gap={60}>
-        <CagedPageTitle />
-        <HStack
-          fullWidth
-          gap={60}
-          alignItems="center"
-          justifyContent="center"
-          wrap="wrap"
-        >
-          {cagedChords.map((chord) => (
-            <CagedChordItem key={chord} value={chord} />
-          ))}
-        </HStack>
-      </VStack>
-    </PageContainer>
+    <CagedProvider value={value}>
+      <PageContainer>
+        <VStack gap={60}>
+          <CagedManager />
+          <CagedPageTitle />
+          <HStack
+            fullWidth
+            gap={60}
+            alignItems="center"
+            justifyContent="center"
+            wrap="wrap"
+          >
+            {cagedChords.map((chord) => (
+              <CagedItem key={chord} value={chord} />
+            ))}
+          </HStack>
+        </VStack>
+      </PageContainer>
+    </CagedProvider>
   )
 }

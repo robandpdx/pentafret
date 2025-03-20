@@ -22,6 +22,7 @@ import {
 } from '@product/config'
 import { makeScalePath } from '../scale/state/scale'
 import { Button } from '@lib/ui/buttons/Button'
+import { makeCagedPath } from '../caged/state/caged'
 
 const LogoWrapper = styled(Link)`
   ${interactive};
@@ -36,7 +37,7 @@ const items = [
   },
   {
     name: 'CAGED',
-    href: '/caged',
+    href: makeCagedPath({ view: 'chord' }),
   },
   {
     name: 'Scales',
