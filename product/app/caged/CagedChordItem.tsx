@@ -26,7 +26,7 @@ export const CagedChordItem = ({ value }: ValueProp<CagedChord>) => {
   return (
     <Container>
       <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
-        Open {value.toUpperCase()} chord
+        {value.toUpperCase()} major chord
       </Text>
       <Fretboard visibleFrets={cagedConfig.visibleFrets}>
         {positions.map((position) => (
