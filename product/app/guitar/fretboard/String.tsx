@@ -7,16 +7,24 @@ import { getStringPosition } from './utils/getStringPosition'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { fretboardConfig } from './config'
 import { stringsThickness } from '../../guitar/config'
+import { useVisibleFrets } from './state/visibleFrets'
 
-const Container = styled.div<{ isBassString: boolean }>`
+const Container = styled.div<{ isBassString: boolean; showNut: boolean }>`
   background: ${({ isBassString }) =>
     isBassString
       ? css`repeating-linear-gradient(135deg, ${getColor('background')}, ${getColor('background')} 1.5px, ${getColor('textSupporting')} 1.5px, ${getColor('textSupporting')} 3px)`
       : css`
           ${getColor('textSupporting')}
         `};
-  width: calc(100% + ${toSizeUnit(fretboardConfig.nutWidth)});
-  margin-left: ${toSizeUnit(-fretboardConfig.nutWidth)};
+  ${({ showNut }) =>
+    showNut
+      ? css`
+          width: calc(100% + ${toSizeUnit(fretboardConfig.nutWidth)});
+          margin-left: ${toSizeUnit(-fretboardConfig.nutWidth)};
+        `
+      : css`
+          width: 100%;
+        `}
   position: relative;
   color: ${getColor('background')};
 `
@@ -24,12 +32,17 @@ const Container = styled.div<{ isBassString: boolean }>`
 export const String = ({ index }: IndexProp) => {
   const isBassString = index > 2
 
+  const visibleFrets = useVisibleFrets()
+
+  const showNut = visibleFrets.start < 1
+
   return (
     <PositionAbsolutelyCenterHorizontally
       top={toPercents(getStringPosition(index))}
       fullWidth
     >
       <Container
+        showNut={showNut}
         isBassString={isBassString}
         style={{
           height: fretboardConfig.thickestStringWidth * stringsThickness[index],

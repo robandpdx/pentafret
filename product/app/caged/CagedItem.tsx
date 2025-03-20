@@ -8,7 +8,6 @@ import { vStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { Note } from '../guitar/fretboard/Note'
-import { cagedConfig } from './config'
 import styled from 'styled-components'
 import { useCaged } from './state/caged'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
@@ -43,12 +42,24 @@ export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
       .map((position) => position.string),
   )
 
+  const firstVisibleFret = Math.min(
+    ...positions.map((position) => position.fret),
+  )
+
   return (
     <Container>
       <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
         {value.toUpperCase()} major {view}
       </Text>
-      <Fretboard visibleFrets={cagedConfig.visibleFrets}>
+      <Fretboard
+        visibleFrets={{
+          start: firstVisibleFret,
+          end: Math.max(
+            ...positions.map((position) => position.fret),
+            firstVisibleFret + 4,
+          ),
+        }}
+      >
         {positions.map((position) => (
           <Note
             key={`${position.string}-${position.fret}`}

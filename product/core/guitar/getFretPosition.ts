@@ -2,7 +2,7 @@ import { Interval } from '@lib/utils/interval/Interval'
 
 type Input = {
   index: number
-  visibleFrets: number
+  visibleFrets: Interval
   totalFrets: number
 }
 
@@ -17,8 +17,8 @@ export const getFretPosition = ({
 
   const totalFretboardLength = fretPosition(totalFrets)
 
-  const startFretPos = fretPosition(0)
-  const endFretPos = fretPosition(visibleFrets)
+  const startFretPos = fretPosition(visibleFrets.start + 1)
+  const endFretPos = fretPosition(visibleFrets.end + 1)
 
   const normalizedStartPos = startFretPos / totalFretboardLength
   const normalizedEndPos = endFretPos / totalFretboardLength

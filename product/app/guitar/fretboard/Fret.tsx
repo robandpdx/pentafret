@@ -5,6 +5,7 @@ import { getColor } from '@lib/ui/theme/getters'
 import { toPercents } from '@lib/utils/toPercents'
 import { getFretPosition } from '@product/core/guitar/getFretPosition'
 import { totalFrets } from '../../guitar/config'
+import { useVisibleFrets } from './state/visibleFrets'
 
 const Container = styled.div`
   background: ${getColor('textShy')};
@@ -12,11 +13,8 @@ const Container = styled.div`
   width: 1px;
 `
 
-type FretProps = IndexProp & {
-  visibleFrets: number
-}
-
-export const Fret = ({ index, visibleFrets }: FretProps) => {
+export const Fret = ({ index }: IndexProp) => {
+  const visibleFrets = useVisibleFrets()
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight

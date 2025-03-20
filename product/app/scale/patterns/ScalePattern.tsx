@@ -6,7 +6,6 @@ import { Fretboard } from '../../guitar/fretboard/Fretboard'
 import { ScaleNote } from '../ScaleNote'
 import { useScale } from '../state/scale'
 import { Text } from '@lib/ui/text'
-import { scaleConfig } from '../config'
 
 export const ScalePattern = ({
   value,
@@ -23,7 +22,7 @@ export const ScalePattern = ({
       <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
         {title}
       </Text>
-      <Fretboard visibleFrets={scaleConfig.visibleFrets}>
+      <Fretboard>
         {value.map((position) => {
           return (
             <ScaleNote
