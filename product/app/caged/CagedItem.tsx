@@ -11,6 +11,9 @@ import { Note } from '../guitar/fretboard/Note'
 import { cagedConfig } from './config'
 import styled from 'styled-components'
 import { useCaged } from './state/caged'
+import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
+import { tuning } from '../guitar/config'
+import { chromaticNotesNames } from '@product/core/note'
 
 const Container = styled.div`
   ${vStack({
@@ -31,7 +34,13 @@ export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
   const positions = positionsRecord[view][value]
 
   const lowestBassString = Math.max(
-    ...positions.map((position) => position.string),
+    ...positions
+      .filter(
+        (position) =>
+          getNoteFromPosition({ tuning, position }) ===
+          chromaticNotesNames.indexOf(value.toUpperCase()),
+      )
+      .map((position) => position.string),
   )
 
   return (
