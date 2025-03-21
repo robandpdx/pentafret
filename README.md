@@ -19,8 +19,17 @@ At the top of the scale page, you'll find controls to customize your view:
    - Blues scale
 3. **Tonality**: Select between Major or Minor
 
+Below the controls, the fretboard displays the notes of the selected scale.
+
+#### CAGED Page (/caged/[view])
+The CAGED page offers two views:
+- **Chords**: Displays chord forms for C, A, G, E, and D
+- **Arpeggios**: Shows arpeggio patterns for each form
+
+Each view showcases five sections focusing on a specific fretboard section to illustrate chord or arpeggio shapes.
+
 ### Fretboard Display
-- The app displays a guitar fretboard with 15 frets and 6 strings
+- The app displays a guitar fretboard with 15 frets and 6 strings (plus open notes on the notes and scales pages)
 - Each note in the scale is highlighted with a distinct color and labeled with the note name
 - The root note is highlighted in a different color
 - For blues scales, a "blue note" is highlighted in a distinct color
@@ -41,6 +50,7 @@ For pentatonic and blues scales, the app displays 5 standard patterns:
 - The app supports dynamic URL patterns for easy sharing and navigation:
   - `/scales/[scaleType]/[rootNote]/[tonality]`
   - Example: `/scales/pentatonic/e/minor` shows the E minor pentatonic scale
+  - `/caged/[view]` where view is either `chords` or `arpeggios`
 
 ## Tech Stack
 
