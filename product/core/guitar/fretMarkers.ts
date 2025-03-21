@@ -1,5 +1,6 @@
-import { range } from '@lib/utils/array/range'
 import { chromaticNotesNumber } from '../note'
+import { Interval } from '@lib/utils/interval/Interval'
+import { intervalRange } from '@lib/utils/interval/intervalRange'
 
 export const fretMarkerTypes = ['single', 'double'] as const
 export type FretMarkerType = (typeof fretMarkerTypes)[number]
@@ -9,10 +10,14 @@ export type FretMarker = {
   type: FretMarkerType
 }
 
-export const getFretMarkers = (numberOfFrets: number): FretMarker[] => {
+export const getFretMarkers = (visibleFrets: Interval): FretMarker[] => {
   const markers: FretMarker[] = []
 
-  range(numberOfFrets).forEach((index) => {
+  intervalRange(visibleFrets).forEach((index) => {
+    if (index < 0) {
+      return
+    }
+
     const fretNumber = (index + 1) % chromaticNotesNumber
 
     if ([3, 5, 7, 9, 12].includes(fretNumber)) {

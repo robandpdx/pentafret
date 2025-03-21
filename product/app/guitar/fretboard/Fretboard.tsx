@@ -12,6 +12,8 @@ import { stringsCount } from '../../guitar/config'
 import { ChildrenProp } from '@lib/ui/props'
 import { Nut } from './Nut'
 import { VisibleFretsProvider } from './state/visibleFrets'
+import { Interval } from '@lib/utils/interval/Interval'
+import { intervalRange } from '@lib/utils/interval/intervalRange'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};
@@ -31,33 +33,45 @@ const Frets = styled.div`
 `
 
 type FretboardProps = {
-  visibleFrets: number
+  visibleFrets?: Interval
 } & ChildrenProp
 
-export const Fretboard = ({ children, visibleFrets }: FretboardProps) => {
+export const defaultVisibleFrets: Interval = { start: -1, end: 14 }
+
+export const Fretboard = ({
+  children,
+  visibleFrets = defaultVisibleFrets,
+}: FretboardProps) => {
+  const showNut = visibleFrets.start < 1
+
+  const frets = intervalRange(
+    showNut
+      ? {
+          ...visibleFrets,
+          start: visibleFrets.start + 1,
+        }
+      : visibleFrets,
+  )
+
   return (
     <Neck>
-      <OpenNotes />
-      <Nut />
-      <Frets>
-        {range(visibleFrets).map((index) => (
-          <Fret key={index} index={index} visibleFrets={visibleFrets} />
-        ))}
-        {getFretMarkers(visibleFrets).map((value) => (
-          <FretMarkerItem
-            key={value.index}
-            value={value}
-            visibleFrets={visibleFrets}
-          />
-        ))}
+      <VisibleFretsProvider value={visibleFrets}>
+        {visibleFrets.start < 0 && <OpenNotes />}
+        {showNut && <Nut />}
+        <Frets>
+          {frets.map((index) => (
+            <Fret key={index} index={index} />
+          ))}
+          {getFretMarkers(visibleFrets).map((value) => (
+            <FretMarkerItem key={value.index} value={value} />
+          ))}
 
-        {range(stringsCount).map((index) => (
-          <String key={index} index={index} />
-        ))}
-        <VisibleFretsProvider value={visibleFrets}>
+          {range(stringsCount).map((index) => (
+            <String key={index} index={index} />
+          ))}
           {children}
-        </VisibleFretsProvider>
-      </Frets>
+        </Frets>
+      </VisibleFretsProvider>
     </Neck>
   )
 }
