@@ -1,14 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { CagedPage } from '../../../caged/CagedPage'
-import { cagedViews, CagedView } from '@product/core/chords/caged'
+import { cagedViews } from '@product/core/chords/caged'
+import { CagedState } from '../../../caged/state/caged'
 
 export default CagedPage
 
-type Params = {
-  view: CagedView
-}
-
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
+export const getStaticPaths: GetStaticPaths<CagedState> = async () => {
   const paths = cagedViews.map((view) => ({
     params: {
       view,
@@ -22,7 +19,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { view } = params as Params
+  const { view } = params as CagedState
 
   return {
     props: {
