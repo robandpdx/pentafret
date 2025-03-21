@@ -28,6 +28,8 @@ const positionsRecord = {
   arpeggio: cagedArpeggios,
 }
 
+const minVisibleFrets = 4
+
 export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
   const { view } = useCaged()
   const positions = positionsRecord[view][value]
@@ -56,7 +58,7 @@ export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
           start: firstVisibleFret,
           end: Math.max(
             ...positions.map((position) => position.fret),
-            firstVisibleFret + 4,
+            firstVisibleFret + minVisibleFrets,
           ),
         }}
       >

@@ -1,21 +1,26 @@
-import { Text } from '@lib/ui/text'
 import { VStack } from '@lib/ui/css/stack'
 import { useCaged } from './state/caged'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
+import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { match } from '@lib/utils/match'
+import { PageTitle } from '../ui/PageTitle'
 
 export const CagedPageTitle = () => {
   const { view } = useCaged()
-  const viewTitle = view === 'chord' ? 'Chords' : 'Arpeggios'
-  const title = `CAGED ${viewTitle} on Guitar | Basic Open Position Forms`
-  const description =
-    'Learn the CAGED system on guitar with our interactive guide. Master the five basic chord forms (C, A, G, E, D) in open position to unlock the entire fretboard.'
+  const viewTitle = `${capitalizeFirstLetter(view)}s`
+  const title = `CAGED ${viewTitle} System for Guitar | Master Fretboard Positions`
+  const description = `Interactive guide to the CAGED ${viewTitle.toLowerCase()} system for guitarists. Learn C, A, G, E, D ${match(
+    view,
+    {
+      chord: () => 'chord shapes',
+      arpeggio: () => 'arpeggio patterns',
+    },
+  )} to navigate the entire fretboard and improve your playing.`
 
   return (
     <VStack>
       <PageMetaTags title={title} description={description} />
-      <Text as="h1" color="contrast" size={40} weight="700" centerHorizontally>
-        CAGED {viewTitle}
-      </Text>
+      <PageTitle>CAGED {viewTitle}</PageTitle>
     </VStack>
   )
 }

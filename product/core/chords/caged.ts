@@ -68,13 +68,13 @@ export const cagedArpeggios: Record<CagedChord, NotePosition[]> = {
     { string: 5, fret: 11 },
   ],
   g: [
-    { string: 0, fret: 3 },
+    { string: 0, fret: 2 },
     { string: 1, fret: -1 },
-    { string: 1, fret: 3 },
+    { string: 1, fret: 2 },
     { string: 2, fret: -1 },
     { string: 3, fret: -1 },
-    { string: 4, fret: 2 },
-    { string: 5, fret: 3 },
+    { string: 4, fret: 1 },
+    { string: 5, fret: 2 },
   ],
   e: [
     { string: 0, fret: 11 },
