@@ -15,6 +15,7 @@ const Container = styled.div`
 
 export const Fret = ({ index }: IndexProp) => {
   const visibleFrets = useVisibleFrets()
+
   return (
     <PositionAbsolutelyCenterVertically
       fullHeight

@@ -17,7 +17,7 @@ export const getFretPosition = ({
 
   const totalFretboardLength = fretPosition(totalFrets)
 
-  const startFretPos = fretPosition(visibleFrets.start + 1)
+  const startFretPos = fretPosition(Math.max(visibleFrets.start, 0))
   const endFretPos = fretPosition(visibleFrets.end + 1)
 
   const normalizedStartPos = startFretPos / totalFretboardLength
