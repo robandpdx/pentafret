@@ -22,14 +22,13 @@ export const ScaleNotes = () => {
     <Fretboard>
       {range(stringsCount).map((string) => {
         const openNote = tuning[string]
-        return intervalRange(defaultVisibleFrets).map((index) => {
-          const note = (openNote + index) % chromaticNotesNumber
-          const fret = index - 1
+        return intervalRange(defaultVisibleFrets).map((fret) => {
+          const note = (openNote + fret + 1) % chromaticNotesNumber
 
           if (notes.includes(note)) {
             return (
               <ScaleNote
-                key={`${string}-${index}`}
+                key={`${string}-${fret}`}
                 string={string}
                 fret={fret}
               />
