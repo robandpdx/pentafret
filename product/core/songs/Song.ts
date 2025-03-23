@@ -1,16 +1,15 @@
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
-
-export const songFragmentTypes = ['riff', 'solo', 'verse', 'intro'] as const
-
-export type SongFragmentType = (typeof songFragmentTypes)[number]
-
+import { GuitarTheoryTopic } from './GuitarTheoryTopic'
 export type Song = {
   name: string
   artist: string
-  fragment?: SongFragmentType
+  fragment?: string
 }
 
-export const getSongId = ({ name, artist, fragment }: Song) =>
-  withoutUndefined([name, artist, fragment])
+export const getGuitarTheorySongId = (
+  topic: GuitarTheoryTopic,
+  song: Pick<Song, 'artist' | 'fragment'>,
+) =>
+  withoutUndefined([topic, song.artist, song.fragment])
     .map((s) => s.toLowerCase().replace(/ /g, '-'))
     .join('-')

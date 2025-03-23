@@ -6,94 +6,115 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
     {
       name: 'Susie Q',
       artist: 'Creedence Clearwater Revival',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Green River',
       artist: 'Creedence Clearwater Revival',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Purple Haze',
       artist: 'Jimi Hendrix',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Are You Gonna Go My Way',
       artist: 'Lenny Kravitz',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Voodoo Child (Slight Return)',
       artist: 'Jimi Hendrix',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Back In Black',
       artist: 'AC/DC',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Man in the Box',
       artist: 'Alice In Chains',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Play That Funky Music',
       artist: 'Wild Cherry',
-      fragment: 'verse',
+      fragment: 'Guitar during verse',
     },
     {
       name: 'Paranoid',
       artist: 'Black Sabbath',
-      fragment: 'solo',
+      fragment: 'Guitar solo',
     },
     {
       name: 'Hey Joe',
       artist: 'Jimi Hendrix',
-      fragment: 'solo',
+      fragment: 'Guitar solo',
     },
     {
       name: 'Turn Off the Light',
       artist: 'Nelly Furtado',
-      fragment: 'solo',
+      fragment: 'Guitar solo',
     },
     {
       name: 'Pawn Shop',
       artist: 'Sublime',
-      fragment: 'solo',
+      fragment: 'Guitar solo',
     },
   ],
   'g-major-pentatonic': [
     {
       name: 'Honky Tonk Woman',
       artist: 'The Rolling Stones',
-      fragment: 'intro',
+      fragment: 'Intro guitar lick',
     },
     {
       name: 'Wish You Were Here',
       artist: 'Pink Floyd',
-      fragment: 'intro',
+      fragment: 'Guitar intro',
     },
     {
       name: 'Sweet Home Alabama',
       artist: 'Lynyrd Skynyrd',
-      fragment: 'intro',
-    },
-    {
-      name: 'Sweet Home Alabama',
-      artist: 'Lynyrd Skynyrd',
-      fragment: 'solo',
+      fragment: 'Guitar intro and solos',
     },
     {
       name: 'Centerfold',
       artist: 'The J. Geils Band',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
     },
     {
       name: 'Cannonball',
       artist: 'Duane Eddy',
-      fragment: 'riff',
+      fragment: 'Guitar riff',
+    },
+  ],
+  'g-minor-pentatonic': [
+    {
+      name: 'Money for Nothing',
+      artist: 'Dire Straits',
+      fragment: 'Guitar riff',
+    },
+    {
+      name: 'I Shot the Sheriff',
+      artist: 'Bob Marley/Eric Clapton',
+      fragment: 'Guitar riff at chorus end',
+    },
+    {
+      name: 'Play That Funky Music',
+      artist: 'Wild Cherry',
+      fragment: 'Guitar riff during chorus',
+    },
+    {
+      name: 'Are You Gonna Go My Way',
+      artist: 'Lenny Kravitz',
+      fragment: 'Guitar riff',
+    },
+    {
+      name: 'Lady Marmalade',
+      artist: 'Patti Labelle',
     },
   ],
 }

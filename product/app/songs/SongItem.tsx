@@ -1,6 +1,5 @@
-import { ValueProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
-import { getSongId, Song } from '@product/core/songs/Song'
+import { getGuitarTheorySongId, Song } from '@product/core/songs/Song'
 import styled from 'styled-components'
 import { useCheckedSongs } from './state/checkedSongs'
 import { without } from '@lib/utils/array/without'
@@ -9,6 +8,7 @@ import { InvisibleHTMLCheckbox } from '@lib/ui/inputs/InvisibleHTMLCheckbox'
 import { CheckStatus } from '@lib/ui/checklist/CheckStatus'
 import { useMemo } from 'react'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { GuitarTheoryTopic } from '@product/core/songs/GuitarTheoryTopic'
 
 const boxSize = 28
 
@@ -19,22 +19,27 @@ const Container = styled.div`
   line-height: ${toSizeUnit(boxSize)};
 `
 
-export const SongItem = ({ value }: ValueProp<Song>) => {
+type SongItemProps = {
+  song: Song
+  topic: GuitarTheoryTopic
+}
+
+export const SongItem = ({ song, topic }: SongItemProps) => {
   const [checkedSongs, setCheckedSongs] = useCheckedSongs()
 
-  const songId = getSongId(value)
+  const songId = getGuitarTheorySongId(topic, song)
 
   const isChecked = checkedSongs.includes(songId)
 
   const text = useMemo(() => {
-    const song = `"${value.name}" by ${value.artist}`
+    const songText = `"${song.name}" by ${song.artist}`
 
-    if (value.fragment) {
-      return `${capitalizeFirstLetter(value.fragment)} in ${song}`
+    if (song.fragment) {
+      return `${capitalizeFirstLetter(song.fragment)} in ${songText}`
     }
 
-    return song
-  }, [value.artist, value.fragment, value.name])
+    return songText
+  }, [song.artist, song.fragment, song.name])
 
   return (
     <Container>
