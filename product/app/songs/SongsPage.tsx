@@ -10,7 +10,7 @@ import { getGuitarTheorySongId } from '@product/core/songs/Song'
 
 export const SongsPage = () => {
   return (
-    <PageContainer contentMaxWidth={800}>
+    <PageContainer contentMaxWidth={640}>
       <VStack gap={60}>
         <SongsPageTitle />
         {toEntries(songs).map(({ key: topic, value: songs }) => (
