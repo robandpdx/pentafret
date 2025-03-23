@@ -47,6 +47,10 @@ const items = [
       tonality: 'minor',
     }),
   },
+  {
+    name: 'Songs',
+    href: '/songs',
+  },
 ] as const
 
 export const WebsiteLayout = ({ children }: ChildrenProp) => {
