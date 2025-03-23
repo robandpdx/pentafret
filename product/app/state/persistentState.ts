@@ -4,10 +4,7 @@ import { createPersistentStateHook } from '@lib/ui/state/createPersistentStateHo
 import { createPersistentStateManager } from '@lib/ui/state/createPersistentStateManager'
 
 export enum PersistentStateKey {
-  ThemePreference = 'themePreference',
-  Promotion = 'promotion',
-  ShowOnceEducation = 'showOnceEducation',
-  HabitsEducationWasAt = 'habitsEducationWasAt',
+  CheckedSongs = 'checkedSongs',
 }
 
 const persistentStorage =
