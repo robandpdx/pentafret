@@ -106,5 +106,10 @@ export const songsByTopic: Record<SongTopic, Song[]> = {
 
 export const songTopicNames: Record<SongTopic, string> = {
   'e-minor-pentatonic': 'E Minor Pentatonic Scale',
-  'g-major-pentatonic': 'G Major Pentatonic Scale',
+  'g-major-pentatonic': 'G Major Pentatonic Scale+',
 }
+
+export const getSongPartId = (
+  { name, artist }: Pick<Song, 'name' | 'artist'>,
+  part: SongPart,
+) => [name, artist, part].join('-')
