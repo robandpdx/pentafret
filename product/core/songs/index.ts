@@ -1218,4 +1218,532 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
       fragment: 'Guitar 0:20',
     },
   ],
+  'major-chords-1-4-5': [
+    {
+      name: 'Achy Breaky Heart',
+      artist: 'Billy Ray Cyrus',
+      fragment: 'Whole Song! I V (A)',
+    },
+    {
+      name: 'Sweet Home Alabama',
+      artist: 'Lynyrd Skynyrd',
+      fragment: 'Nearly Whole Song! V IV I (G)',
+    },
+    {
+      name: 'All Summer Long',
+      artist: 'Kid Rock',
+      fragment: 'Whole Song! V IV I (G)',
+    },
+    {
+      name: 'Werewolves of London',
+      artist: 'Warren Zevon',
+      fragment: 'Whole Song! V IV I (G)',
+    },
+    {
+      name: 'Magic Carpet Ride',
+      artist: 'Steppenwolf',
+      fragment: 'Verse V IV I (G)',
+    },
+    {
+      name: 'Seven Bridges Road',
+      artist: 'The Eagles',
+      fragment: 'Verse/Chorus V IV I (G)',
+    },
+    {
+      name: 'Taking Care of Business',
+      artist: 'Bachman-Turner Overdrive',
+      fragment: 'Verse/Chorus V IV I (F)',
+    },
+    {
+      name: 'Brown Eyed Girl',
+      artist: 'Van Morrison',
+      fragment: 'Verse I IV I V (G)',
+    },
+    {
+      name: 'Hang on Sloopy',
+      artist: 'The McCoys',
+      fragment: 'Whole Song! I IV V IV (G)',
+    },
+    {
+      name: 'Stir It Up',
+      artist: 'Bob Marley',
+      fragment: 'Whole Song! I IV V (A)',
+    },
+    {
+      name: 'What I Like About You',
+      artist: 'The Romantics',
+      fragment: 'Nearly Whole Song! V I IV I (A)',
+    },
+    {
+      name: 'Brimful of Asha',
+      artist: 'Corner Shop',
+      fragment: 'Verse/Chorus I V IV (A)',
+    },
+    {
+      name: 'Wild Thing',
+      artist: 'The Troggs',
+      fragment: 'Chorus I IV V IV (A)',
+    },
+    {
+      name: 'Walking On Sunshine',
+      artist: 'Katrina & The Waves',
+      fragment: 'Verse I IV V IV (Bb)',
+    },
+    {
+      name: 'Twist and Shout',
+      artist: 'The Isley Brothers',
+      fragment: 'Whole Song! I IV V (F)',
+    },
+    {
+      name: 'Are You Jimmy Ray?',
+      artist: 'Jimmy Ray',
+      fragment: 'Verse/Chorus V IV I IV (F)',
+    },
+    {
+      name: 'Give Me One Reason',
+      artist: 'Tracy Chapman',
+      fragment: 'Verse I IV V (F#)',
+    },
+    {
+      name: 'Me and Bobby McGee',
+      artist: '',
+      fragment: '(G, B)',
+    },
+    {
+      name: 'Bye Bye Love',
+      artist: 'The Everly Brothers excluding intro',
+      fragment: '(A)',
+    },
+    {
+      name: 'When The Sun Goes Down',
+      artist: 'Kenny Chesney',
+      fragment: '(A)',
+    },
+    {
+      name: 'Barbara Ann',
+      artist: 'The Beach Boys',
+      fragment: '(B)',
+    },
+    {
+      name: 'Mr.Tambourine Man',
+      artist: 'Bob Dylan',
+      fragment: '(F)',
+    },
+    {
+      name: 'Volcano',
+      artist: 'Jimmy Buffet',
+      fragment: '(F)',
+    },
+    {
+      name: 'The Joker',
+      artist: 'Steve Miller Band',
+      fragment: '(F)',
+    },
+    {
+      name: "Why Don't You Get a Job?",
+      artist: 'The Offspring',
+      fragment: '(F)',
+    },
+    {
+      name: 'Walk of Life',
+      artist: 'Dire Straits',
+      fragment: '(E)',
+    },
+    {
+      name: 'I Wanna Be Sedated',
+      artist: 'The Ramones',
+      fragment: '(E)',
+    },
+    {
+      name: "I Love Rock 'N Roll",
+      artist: 'Joan Jett & The Blackhearts',
+      fragment: '(E)',
+    },
+    {
+      name: 'I Wanna Be Sedated',
+      artist: 'The Ramones',
+      fragment: '(E, F#)',
+    },
+  ],
+  'minor-chords-2-3-6': [
+    {
+      name: "I'm Yours",
+      artist: 'Jason Mraz',
+      fragment: 'I V vi IV (B)',
+    },
+    {
+      name: 'Country Roads',
+      artist: 'John Denver',
+      fragment: 'Chorus I V vi IV (A)',
+    },
+    {
+      name: 'You Are God Alone',
+      artist: 'Billy Foote & Cindy Foote',
+      fragment: 'Chorus I V vi IV (Ab)',
+    },
+    {
+      name: 'Glycerine',
+      artist: 'Bush',
+      fragment: 'I V vi IV (F)',
+    },
+    {
+      name: 'Hurts So Good',
+      artist: 'John Mellencamp',
+      fragment: 'Verse I V vi IV (A)',
+    },
+    {
+      name: 'Love the Lord',
+      artist: 'Lincoln Brewster',
+      fragment: 'Verse I V vi iii IV, IV V I (G)',
+    },
+    {
+      name: "What's Up?",
+      artist: '4 Non Blondes',
+      fragment: 'I ii (A)',
+    },
+    {
+      name: 'My Own Worst Enemy',
+      artist: 'Lit',
+      fragment: 'Chorus I ii IV V (E)',
+    },
+    {
+      name: 'Online Songs',
+      artist: 'Blink 182',
+      fragment: 'Intro/Verse I I ii IV V (A)',
+    },
+    {
+      name: 'Closing Time',
+      artist: 'Semisonic',
+      fragment: 'I V ii IV (G)',
+    },
+    {
+      name: 'Earth Angel (Will You Be Mine)',
+      artist: 'The Penguins',
+      fragment: 'I vi IV V (Bb)',
+    },
+    {
+      name: 'Every Breath You Take',
+      artist: 'The Police',
+      fragment: 'I vi IV V (Ab)',
+    },
+    {
+      name: 'Stand by Me',
+      artist: 'Ben E. King',
+      fragment: 'I vi IV V (A)',
+    },
+    {
+      name: 'Hit Me With Your Best Shot',
+      artist: 'Pat Benatar',
+      fragment: 'Chorus I IV vi V, I IV vi V IV V (E)',
+    },
+    {
+      name: 'Layla (acoustic)',
+      artist: 'Eric Clapton',
+      fragment: 'Chorus/Solo vi IV V vi (F)',
+    },
+    {
+      name: "I Won't Back Down",
+      artist: 'Tom Petty',
+      fragment: 'vi V I (G)',
+    },
+    {
+      name: 'Under the Boardwalk',
+      artist: 'The Drifters',
+      fragment: 'Chorus vi V (G)',
+    },
+    {
+      name: 'Heart of Gold',
+      artist: 'Neil Young',
+      fragment: 'Verse vi IV V I (G)',
+    },
+    {
+      name: 'Paranoid',
+      artist: 'Black Sabbath',
+      fragment: 'Verse vi V, I V vi (G)',
+    },
+    {
+      name: 'Island in the Sun',
+      artist: 'Weezer',
+      fragment: 'vi ii V I (G)',
+    },
+    {
+      name: 'Ob-La-Di Ob-La-Da',
+      artist: 'The Beatles',
+      fragment: 'Chorus I V vi I V I (Bb)',
+    },
+    {
+      name: 'Here I Am to Worship',
+      artist: 'Tim Hughes',
+      fragment: 'Verse I V ii, I V IV (E)',
+    },
+    {
+      name: 'Open the Eyes of My Heart',
+      artist: 'Michael W. Smith',
+      fragment: 'Chorus V vi IV V, V vi ii V (E)',
+    },
+    {
+      name: 'Days of Elijah / Kadosh',
+      artist: 'Paul Wilbur',
+      fragment: 'Includes iii (Bb)',
+    },
+    {
+      name: 'Man On the Moon',
+      artist: 'R.E.M.',
+      fragment: 'Includes iii (G)',
+    },
+  ],
+  'major-chords-1-4-5-string-5': [
+    {
+      name: 'Jambalaya (On the Bayou)',
+      artist: 'Hank Williams',
+      fragment: 'IV (C)',
+    },
+    {
+      name: 'You Never Can Tell',
+      artist: 'Chuck Berry',
+      fragment: 'IV (C)',
+    },
+    {
+      name: "Summer of '69",
+      artist: 'Bryan Adams',
+      fragment: 'Verse IV (D)',
+    },
+    {
+      name: "I Still Haven't Found What I'm Looking For",
+      artist: 'U2',
+      fragment: 'Verse I IV (Db)',
+    },
+    {
+      name: 'Life of Illusion',
+      artist: 'Joe Walsh',
+      fragment: 'Verse IV I (D)',
+    },
+    {
+      name: 'Authority Song',
+      artist: 'John Mellencamp',
+      fragment: 'Whole Song! I IV V (D)',
+    },
+    {
+      name: 'Twist and Shout',
+      artist: 'The Beatles',
+      fragment: 'Verse/Chorus I IV V (D)',
+    },
+    {
+      name: 'Hold My Hand',
+      artist: 'Hootie & The Blowfish',
+      fragment: 'Chorus I IV V (B)',
+    },
+    {
+      name: "Good Lovin'",
+      artist: 'The Rascals',
+      fragment: 'Verse/Chorus I IV V IV (D)',
+    },
+    {
+      name: 'Do Ya',
+      artist: 'Electric Light Orchestra',
+      fragment: 'Verse/Chorus IV IV (D)',
+    },
+    {
+      name: 'The First Cut Is the Deepest',
+      artist: 'Sheryl Crow',
+      fragment: 'Verse/Chorus I V IV (D)',
+    },
+    {
+      name: 'I Could Never Take the Place of Your Man',
+      artist: 'Prince',
+      fragment: 'Verse I V IV (C)',
+    },
+    {
+      name: 'Never Let You Go',
+      artist: 'Third Eye Blind',
+      fragment: 'Verse/Chorus I V IV (E)',
+    },
+    {
+      name: "Baba O'Riley",
+      artist: 'The Who',
+      fragment: 'Verse I V IV (F)',
+    },
+    {
+      name: 'Yellow Ledbetter',
+      artist: 'Pearl Jam',
+      fragment: 'Verse I V IV (E)',
+    },
+    {
+      name: 'Crimson and Clover',
+      artist: 'Tommy James & The Shondells',
+      fragment: 'Verse I V IV (B)',
+    },
+    {
+      name: 'Learn to Fly',
+      artist: 'Foo Fighters',
+      fragment: 'Verse I V IV (B)',
+    },
+    {
+      name: 'Bad Moon Rising',
+      artist: 'Creedence Clearwater Revival',
+      fragment: 'Verse I V IV (D)',
+    },
+    {
+      name: 'Helpless',
+      artist: 'Crosby, Stills, Nash & Young',
+      fragment: 'Chorus IV IV (D)',
+    },
+    {
+      name: 'All the Small Things',
+      artist: 'Blink 182',
+      fragment: 'Verse I V IV V (C)',
+    },
+    {
+      name: 'Take the Money and Run',
+      artist: 'Steve Miller Band',
+      fragment: 'Verse/Chorus V IV I (C)',
+    },
+    {
+      name: 'Feliz Navidad',
+      artist: 'Jose Feliciano',
+      fragment: 'Verse IV V I (D)',
+    },
+  ],
+  'minor-chords-2-3-6-string-5': [
+    {
+      name: 'With or Without You',
+      artist: 'U2',
+      fragment: 'Verse/Chorus I V vi IV (D)',
+    },
+    {
+      name: 'Let it Be',
+      artist: 'The Beatles',
+      fragment: 'Verse I V vi IV (C)',
+    },
+    {
+      name: 'Beast of Burden',
+      artist: 'The Rolling Stones',
+      fragment: 'Verse I V vi IV (E)',
+    },
+    {
+      name: 'Blessed Be Your Name',
+      artist: 'Matt Redman',
+      fragment: 'Whole Song! I V vi IV (B)',
+    },
+    {
+      name: "Jessie's Girl",
+      artist: 'Rick Springfield',
+      fragment: 'Verse I V vi, IV V I (D)',
+    },
+    {
+      name: 'You Might Think',
+      artist: 'The Cars',
+      fragment: 'Chorus I IV V vi, I IV V I (D)',
+    },
+    {
+      name: 'Under the Bridge',
+      artist: 'Red Hot Chili Peppers',
+      fragment: 'Verse I V vi iii IV (E)',
+    },
+    {
+      name: 'Unchained Melody',
+      artist: 'The Righteous Brothers',
+      fragment: 'Chorus I vi IV V (C)',
+    },
+    {
+      name: 'Runaround Sue',
+      artist: 'Dion',
+      fragment: 'Verse I vi IV V (D)',
+    },
+    {
+      name: 'Show Me Your Glory',
+      artist: 'Third Day',
+      fragment: 'Chorus I vi IV V (D)',
+    },
+    {
+      name: 'How Great is Our God',
+      artist: 'Chris Tomlin',
+      fragment: 'Chorus I vi IV V (Db)',
+    },
+    {
+      name: "Dy'er Mak'er",
+      artist: 'Led Zeppelin',
+      fragment: 'Verse/Chorus I vi IV V (C)',
+    },
+    {
+      name: 'Two Princes',
+      artist: 'Spin Doctors',
+      fragment: 'Verse I vi V IV (D)',
+    },
+    {
+      name: 'Californication',
+      artist: 'Red Hot Chili Peppers',
+      fragment: 'Verse vi IV (C)',
+    },
+    {
+      name: 'Have You Ever Seen the Rain',
+      artist: 'CCR',
+      fragment: 'Chorus IV V I V vi (C)',
+    },
+    {
+      name: 'Feliz Navidad',
+      artist: 'Jose Feliciano',
+      fragment: 'Chorus IV V I vi (D)',
+    },
+    {
+      name: 'Faith',
+      artist: 'George Michael',
+      fragment: 'Chorus IV I IV I IV I vi ii V (B',
+    },
+    {
+      name: 'Made To Worship',
+      artist: 'Chris Tomlin',
+      fragment: 'Chorus I IV ii V (C)',
+    },
+    {
+      name: 'Everlasting God',
+      artist: 'Lincoln Brewster',
+      fragment: 'Chorus I IV vi IV (B)',
+    },
+    {
+      name: 'Friend of God',
+      artist: 'Israel Houghton',
+      fragment: 'Chorus I vi ii I (D)',
+    },
+    {
+      name: 'Horse with No Name',
+      artist: 'America',
+      fragment: 'Whole Song! ii iii (D)',
+    },
+    {
+      name: 'Losing My Religion',
+      artist: 'R.E.M.',
+      fragment: 'Verse vi iii (C)',
+    },
+    {
+      name: 'Louie, Louie',
+      artist: 'The Kingsmen',
+      fragment: 'Whole Song! V I ii I (D)',
+    },
+    {
+      name: "Don't Fear the Reaper",
+      artist: 'Blue Oyster Cult',
+      fragment: 'Verse vi V IV V (C)',
+    },
+    {
+      name: 'Otherside',
+      artist: 'Red Hot Chili Peppers',
+      fragment: 'Chorus vi IV I V (C)',
+    },
+    {
+      name: 'Maggie May',
+      artist: 'Rod Stewart',
+      fragment: 'Guitar Solos ii V I IV, ii IV I (D)',
+    },
+    {
+      name: 'Lean On Me',
+      artist: 'Bill Withers',
+      fragment: 'Verse I ii iii IV, IV iii ii I (C)',
+    },
+    {
+      name: 'The Thrill Is Gone',
+      artist: 'B.B. King',
+      fragment: 'Verse vi ii vi VI iii vi (D)',
+    },
+  ],
 }

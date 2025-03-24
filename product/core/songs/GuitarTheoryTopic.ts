@@ -15,6 +15,10 @@ export const guitarTheoryTopics = [
   'major-scale-not-all-seven-degrees',
   'major-scale-chromatic-passing-tones',
   'triads',
+  'major-chords-1-4-5',
+  'minor-chords-2-3-6',
+  'major-chords-1-4-5-string-5',
+  'minor-chords-2-3-6-string-5',
 ] as const
 
 export type GuitarTheoryTopic = (typeof guitarTheoryTopics)[number]
@@ -37,4 +41,8 @@ export const guitarTheoryTopicNames: Record<GuitarTheoryTopic, string> = {
   'major-scale-chromatic-passing-tones':
     'Major Scale (Chromatic Passing Tones)',
   triads: 'Triads',
+  'major-chords-1-4-5': 'Songs Based on I IV V',
+  'minor-chords-2-3-6': 'Songs With ii iii vi',
+  'major-chords-1-4-5-string-5': 'Songs I IV V (On String Five)',
+  'minor-chords-2-3-6-string-5': 'Songs With ii iii vi (String 5)',
 }
