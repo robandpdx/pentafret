@@ -716,7 +716,7 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
     {
       name: "Life's Been Good",
       artist: 'Joe Walsh',
-      details: 'Acous. Guitar',
+      details: 'Acoustic. Guitar',
     },
     {
       name: 'Burning Love',
@@ -900,7 +900,7 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
     {
       name: "Life's Been Good",
       artist: 'Joe Walsh',
-      details: 'Acous. Guitar',
+      details: 'Acoustic. Guitar',
     },
     {
       name: 'Two Step',
@@ -1437,7 +1437,7 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
       details: 'Chorus I IV vi V, I IV vi V IV V (E)',
     },
     {
-      name: 'Layla (acoustic)',
+      name: 'Layla (Acoustictic)',
       artist: 'Eric Clapton',
       details: 'Chorus/Solo vi IV V vi (F)',
     },
@@ -2230,6 +2230,1079 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
       name: 'I Wish',
       artist: 'Stevie Wonder',
       details: 'Eb Dorian (Db)',
+    },
+  ],
+  'lydian-mode': [
+    {
+      name: 'Freewill',
+      artist: 'Rush',
+      details: 'F Lydian (C)',
+    },
+    {
+      name: 'Dreams',
+      artist: 'Fleetwood Mac',
+      details: 'F Lydian (C)',
+    },
+    {
+      name: 'Just Remember I Love You',
+      artist: 'Firefall',
+      details: 'F Lydian (C)',
+    },
+    {
+      name: 'Jane Says',
+      artist: "Jane's Addiction",
+      details: 'G Lydian (D)',
+    },
+    {
+      name: 'Hey Jealousy',
+      artist: 'Gin Blossoms',
+      details: 'D Lydian (A)',
+    },
+    {
+      name: 'Landslide',
+      artist: 'Fleetwood Mac',
+      details: 'C Lydian (G)',
+    },
+    {
+      name: 'Man On the Moon',
+      artist: 'R.E.M.',
+      details: 'C Lydian (G)',
+    },
+    {
+      name: 'Here Comes My Girl',
+      artist: 'Tom Petty',
+      details: 'A Lydian (E)',
+    },
+    {
+      name: 'The Simpsons',
+      artist: 'Theme to',
+      details: 'Starts in C Lydian (G)',
+    },
+    {
+      name: 'Maria',
+      artist: 'from West Side Story',
+      details: 'Eb Lydian (Bb)',
+    },
+    {
+      name: 'The Jetsons',
+      artist: 'Theme to',
+      details: 'Starts in E Lydian (B)',
+    },
+  ],
+  'mixolydian-mode': [
+    {
+      name: 'Third Stone from the Sun',
+      artist: 'Jimi Hendrix',
+      details: 'E Mixolydian (A)',
+    },
+    {
+      name: 'What I Like About You',
+      artist: 'The Romantics',
+      details: 'E Mixolydian (A)',
+    },
+    {
+      name: 'Possum Kingdom',
+      artist: 'The Toadies',
+      details: 'E Mixolydian (A)',
+    },
+    {
+      name: 'No Rain',
+      artist: 'Blind Melon',
+      details: 'E Mixolydian (A)',
+    },
+    {
+      name: "I'm So Glad",
+      artist: 'Cream',
+      details: 'E Mixolydian (A)',
+    },
+    {
+      name: 'Norwegian Wood (This Bird Has Flown)',
+      artist: 'The Beatles',
+      details: 'E Mixolydian (A)',
+    },
+    {
+      name: 'Free',
+      artist: 'Phish',
+      details: 'Time Down 1/2 Step E Mixolydian (A)',
+    },
+    {
+      name: 'Seven Bridges Road',
+      artist: 'The Eagles',
+      details: 'D Mixolydian (G)',
+    },
+    {
+      name: 'What I Got',
+      artist: 'Sublime',
+      details: 'D Mixolydian (G)',
+    },
+    {
+      name: "Don't Tell Me",
+      artist: 'Madonna',
+      details: 'D Mixolydian (G)',
+    },
+    {
+      name: 'Cinnamon Girl',
+      artist: 'Neil Young',
+      details: 'D Mixolydian (G)',
+    },
+    {
+      name: 'Flagpole Sitta',
+      artist: 'Harvey Danger',
+      details: 'D Mixolydian (G)',
+    },
+    {
+      name: 'Jessica',
+      artist: 'The Allman Brothers Band',
+      details: 'A Mixolydian (D)',
+    },
+    {
+      name: "Franklin's Tower",
+      artist: 'Grateful Dead',
+      details: 'A Mixolydian (D)',
+    },
+    {
+      name: 'Take a Picture',
+      artist: 'Filter',
+      details: 'A Mixolydian (D)',
+    },
+    {
+      name: 'Louie, Louie',
+      artist: 'The Kingsmen',
+      details: 'A Mixolydian (D)',
+    },
+    {
+      name: 'Tequila',
+      artist: 'The Champs',
+      details: 'F Mixolydian (Bb)',
+    },
+    {
+      name: 'Get Down Tonight',
+      artist: 'KC and The Sunshine Band',
+      details: 'F Mixolydian (Bb)',
+    },
+    {
+      name: '1999',
+      artist: 'Prince',
+      details: 'F Mixolydian (Bb)',
+    },
+    {
+      name: 'Take the Money and Run',
+      artist: 'Steve Miller Band',
+      details: 'G Mixolydian (C)',
+    },
+    {
+      name: 'China Cat Sunflower',
+      artist: 'The Grateful Dead',
+      details: 'G Mixolydian (C)',
+    },
+    {
+      name: 'Lowrider',
+      artist: 'War',
+      details: 'G Mixolydian (C)',
+    },
+    {
+      name: 'Cult of Personality',
+      artist: 'Living Colour',
+      details: 'G Mixolydian (C)',
+    },
+    {
+      name: 'Scarlet Begonias',
+      artist: 'The Grateful Dead',
+      details: 'B Mixolydian (E)',
+    },
+    {
+      name: 'Taking Care of Business',
+      artist: 'Bachman-Turner Overdrive',
+      details: 'G Mixolydian (F)',
+    },
+    {
+      name: 'On Broadway',
+      artist: 'The Drifters',
+      details: 'Ab Mixolydian (Db)',
+    },
+    {
+      name: 'Wrong Way',
+      artist: 'Sublime',
+      details: 'Lots Of Key Changes!',
+    },
+  ],
+  'aeolian-mode': [
+    {
+      name: 'Maria Maria',
+      artist: 'Santana',
+      details: 'A Aeolian (C)',
+    },
+    {
+      name: 'Losing My Religion',
+      artist: 'R.E.M.',
+      details: 'A Aeolian (C)',
+    },
+    {
+      name: 'First Tube',
+      artist: 'Phish',
+      details: 'A Aeolian (C)',
+    },
+    {
+      name: 'Mr. Jones',
+      artist: 'Counting Crows',
+      details: 'A Aeolian (C)',
+    },
+    {
+      name: 'Hash Pipe',
+      artist: 'Weezer',
+      details: 'A Aeolian (C)',
+    },
+    {
+      name: 'Rhiannon',
+      artist: 'Fleetwood Mac',
+      details: 'A Aeolian (C)',
+    },
+    {
+      name: 'Stairway to Heaven',
+      artist: 'Led Zeppelin',
+      details: 'Guitar Solo A Aeolian (C)',
+    },
+    {
+      name: 'Black Magic Woman',
+      artist: 'Santana',
+      details: 'D Aeolian (F)',
+    },
+    {
+      name: 'Layla (Acoustictic)',
+      artist: 'Eric Clapton',
+      details: 'Chorus/Solos D Aeolian (F)',
+    },
+    {
+      name: 'Schism',
+      artist: 'Tool',
+      details: 'D Aeolian (F)',
+    },
+    {
+      name: 'Sultans of Swing',
+      artist: 'Dire Straits',
+      details: 'D Aeolian (F)',
+    },
+    {
+      name: 'Two Step',
+      artist: 'Dave Matthews Band',
+      details: 'D Aeolian (F)',
+    },
+    {
+      name: 'Ariels',
+      artist: 'System of a Down',
+      details: 'C Aeolian (Eb)',
+    },
+    {
+      name: 'Sweet Dreams',
+      artist: 'Marilyn Manson',
+      details: 'C Aeolian (Eb)',
+    },
+    {
+      name: 'You Give Love a Bad Name',
+      artist: 'Bon Jovi',
+      details: 'C Aeolian (Eb)',
+    },
+    {
+      name: 'Smells Like Teen Spirit',
+      artist: 'Nirvana',
+      details: 'F Aeolian (Ab)',
+    },
+    {
+      name: 'ATWA',
+      artist: 'System of a Down',
+      details: 'F Aeolian (Ab)',
+    },
+    {
+      name: 'Black',
+      artist: 'Pearl Jam',
+      details: 'Guitar Solo E Aeolian (G)',
+    },
+    {
+      name: 'Last Resort',
+      artist: 'Papa Roach',
+      details: 'E Aeolian (G)',
+    },
+    {
+      name: 'Paranoid',
+      artist: 'Black Sabbath',
+      details: 'E Aeolian (G)',
+    },
+    {
+      name: 'The Thrill Is Gone',
+      artist: 'B.B. King',
+      details: 'B Aeolian (D)',
+    },
+    {
+      name: 'Fade to Black',
+      artist: 'Metallica',
+      details: 'B Aeolian (D)',
+    },
+    {
+      name: 'Building a Mystery',
+      artist: 'Sarah McLachlan',
+      details: 'B Aeolian (D)',
+    },
+    {
+      name: 'Crazy Train',
+      artist: 'Ozzy Osbourne',
+      details: 'F# Aeolian (A)',
+    },
+    {
+      name: 'I Shot the Sheriff',
+      artist: 'Bob Marley/Eric Clapton',
+      details: 'G Aeolian (Bb)',
+    },
+    {
+      name: 'Thank You',
+      artist: 'Dido',
+      details: 'G# Aeolian (B)',
+    },
+    {
+      name: "The Kids Aren't Alright",
+      artist: 'The Offspring',
+      details: 'Bb Aeolian (Db)',
+    },
+  ],
+  'inverted-power-chords': [
+    {
+      name: 'The Wind Cries Mary',
+      artist: 'Jimi Hendrix',
+      details: 'Intro',
+    },
+    {
+      name: 'Come Out and Play',
+      artist: 'The Offspring',
+      details: 'Intro',
+    },
+    {
+      name: 'Yellow Ledbetter',
+      artist: 'Pearl Jam',
+      details: 'Intro',
+    },
+    {
+      name: 'Smoke on the Water',
+      artist: 'Deep Purple',
+      details: 'Intro',
+    },
+    {
+      name: 'Tomorrow',
+      artist: 'Silverchair',
+      details: 'Chorus',
+    },
+    {
+      name: 'Wish You Were Here',
+      artist: 'Incubus',
+      details: 'Intro & Chorus',
+    },
+    {
+      name: 'Photograph',
+      artist: 'Weezer',
+      details: 'Verse & Chorus',
+    },
+    {
+      name: 'Hash Pipe',
+      artist: 'Weezer',
+      details: 'Chorus & Solo',
+    },
+    {
+      name: 'Glycerine',
+      artist: 'Bush',
+      details: 'Verse',
+    },
+    {
+      name: 'Stellar',
+      artist: 'Incubus',
+      details: 'Intro & Verse',
+    },
+    {
+      name: 'Money for Nothing',
+      artist: 'Dire Straits',
+      details: 'Intro/Verse Riff',
+    },
+    {
+      name: 'Band on the Run',
+      artist: 'Wings',
+      details: 'Intro Lead Guitar',
+    },
+    {
+      name: 'Better Together',
+      artist: 'Jack Johnson',
+      details: 'Guitar Intro',
+    },
+  ],
+  thirds: [
+    {
+      name: 'Brown Eyed Girl',
+      artist: 'Van Morrison',
+      details: 'Electric Guitar Throughout',
+    },
+    {
+      name: 'Blackbird',
+      artist: 'The Beatles',
+      details: 'Acoustictic Guitar Throughout',
+    },
+    {
+      name: 'Two Step',
+      artist: 'Dave Matthews Band',
+      details: 'Acoustic Guitar Throughout',
+    },
+    {
+      name: 'Tripping Billies',
+      artist: 'Dave Matthews Band',
+      details: 'Acoustic Guitar Throughout',
+    },
+    {
+      name: 'Lover Lay Down',
+      artist: 'Dave Matthews Band',
+      details: 'Acoustic Guitar Throughout',
+    },
+    {
+      name: 'Grey Street',
+      artist: 'Dave Matthews Band',
+      details: 'Acoustic Guitar Throughout',
+    },
+    {
+      name: "My Best Friend's Girlfriend",
+      artist: 'The Cars',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Rhiannon',
+      artist: 'Fleetwood Mac',
+      details: 'Guitar Intro',
+    },
+    {
+      name: "The Kids Aren't Alright",
+      artist: 'The Offspring',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'La Bamba',
+      artist: 'Los Lobos',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Peace Train',
+      artist: 'Cat Stevens',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Down Boys',
+      artist: 'Warrant',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Wanted Dead or Alive',
+      artist: 'Bon Jovi',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Heaven',
+      artist: 'Los Lonely Boys',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Patience',
+      artist: 'Guns and Roses',
+      details: 'Guitar 3 Intro',
+    },
+    {
+      name: 'Ex-girlfriend',
+      artist: 'No Doubt',
+      details: 'Nylon String Acoustic Guitar Intro',
+    },
+    {
+      name: 'ATWA',
+      artist: 'System of a Down',
+      details: 'Guitar Intro, Drop-D Tuning',
+    },
+    {
+      name: 'To Be with You',
+      artist: 'Mr. Big',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'Flavor of the Weak',
+      artist: 'American Hi-Fi',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'What I Got',
+      artist: 'Sublime',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'Your Body is a Wonderland',
+      artist: 'John Mayer',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'When the Sun Goes Down',
+      artist: 'Kenny Chesney',
+      details: 'Guitar Riff',
+    },
+    {
+      name: 'Cold Gin',
+      artist: 'Kiss',
+      details: 'Guitar Riff',
+    },
+    {
+      name: 'Walking on the Sun',
+      artist: 'Smash Mouth',
+      details: 'Guitar Riff',
+    },
+    {
+      name: 'Never Let You Go',
+      artist: 'Third Eye Blind',
+      details: 'Guitar Bridge',
+    },
+    {
+      name: 'How Come',
+      artist: 'Ray LaMontagne',
+      details: 'Lead Guitar Chorus',
+    },
+    {
+      name: 'The Ballad of John and Yoko',
+      artist: 'The Beatles',
+      details: 'Lead Guitar Chorus',
+    },
+    {
+      name: 'Stay Together for the Kids',
+      artist: 'Blink 182',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: 'Have You Ever Really Loved a Woman?',
+      artist: 'Bryan Adams',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: "Adam's Song",
+      artist: 'Blink 182',
+      details: 'Guitar Verse',
+    },
+    {
+      name: 'Scar Tissue',
+      artist: 'Red Hot Chili Peppers',
+      details: 'Guitar Intro/Verse',
+    },
+    {
+      name: 'Caught Up In You',
+      artist: '38 Special',
+      details: 'Guitar Intro & Verse',
+    },
+    {
+      name: 'Days of the Week',
+      artist: 'Stone Temple Pilots',
+      details: 'Guitar Verse & Chorus',
+    },
+    {
+      name: 'Fat Lip',
+      artist: 'Sum 41',
+      details: 'Guitar 4 Pre-Chorus',
+    },
+  ],
+  sixths: [
+    {
+      name: 'Jet Airliner',
+      artist: 'Steve Miller Band',
+      details: 'Rhythm Guitar Throughout',
+    },
+    {
+      name: 'Johnny B. Goode',
+      artist: 'Chuck Berry',
+      details: 'Rhythm Guitar Throughout',
+    },
+    {
+      name: 'Love Struck Baby',
+      artist: 'Stevie Ray Vaughan',
+      details: 'Rhythm Guitar Throughout',
+    },
+    {
+      name: 'Life by the Drop',
+      artist: 'Stevie Ray Vaughan',
+      details: 'Rhythm Guitar Throughout',
+    },
+    {
+      name: 'Keep Your Hands to Yourself',
+      artist: 'Georgia Satellites',
+      details: 'Rhythm Guitar Throughout',
+    },
+    {
+      name: 'Taking Care of Business',
+      artist: 'Bachman-Turner Overdrive',
+      details: 'Rhythm Guitar Throughout',
+    },
+    {
+      name: 'Rocky Mountain Way',
+      artist: 'Joe Walsh',
+      details: 'Guitar Intro & Chorus',
+    },
+    {
+      name: "Truckin'",
+      artist: 'The Grateful Dead',
+      details: 'Rhythm Guitar Verse',
+    },
+    {
+      name: 'I Want You to Want Me',
+      artist: 'Cheap Trick',
+      details: 'Rhythm Guitar Chorus',
+    },
+    {
+      name: 'Sweet Home Alabama',
+      artist: 'Lynyrd Skynyrd',
+      details: 'Guitar Chorus',
+    },
+  ],
+  'sixth-and-flat-seventh': [
+    {
+      name: 'Born to Be Wild',
+      artist: 'Steppenwolf',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Rock and Roll',
+      artist: 'Led Zeppelin',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Riding With the King',
+      artist: 'B.B. King & Eric Clapton',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Tell Me',
+      artist: 'Stevie Ray Vaughan',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Once Bitten Twice Shy',
+      artist: 'Great White',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Ice Cream Man',
+      artist: 'Van Halen',
+      details: 'Acoustic Guitar Intro',
+    },
+    {
+      name: 'Custard Pie',
+      artist: 'Led Zeppelin',
+      details: 'Guitar Intro & Verse',
+    },
+    {
+      name: 'Gimme Three Steps',
+      artist: 'Lynyrd Skynyrd',
+      details: 'Guitar Verse',
+    },
+    {
+      name: 'Walk This Way',
+      artist: 'Aerosmith',
+      details: 'Guitar Verse & Chorus',
+    },
+    {
+      name: 'Sunspot Baby',
+      artist: 'Bob Seger and The Silver Bullet Band',
+      details: 'Guitar Chorus',
+    },
+  ],
+  octaves: [
+    {
+      name: 'Fire',
+      artist: 'Jimi Hendrix',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'My Own Worst Enemy',
+      artist: 'Lit',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'In and Out of Love',
+      artist: 'Bon Jovi',
+      details: 'Guitar Intro, Chorus',
+    },
+    {
+      name: '1979',
+      artist: 'The Smashing Pumpkins',
+      details: 'Guitar Intro, Verse',
+    },
+    {
+      name: 'Kashmir',
+      artist: 'Led Zeppelin',
+      details: 'Guitar Riff',
+    },
+    {
+      name: 'Immigrant Song',
+      artist: 'Led Zeppelin',
+      details: 'Guitar Riff',
+    },
+    {
+      name: 'Learn to Fly',
+      artist: 'Foo Fighters',
+      details: 'Guitar Riff A',
+    },
+    {
+      name: 'Flagpole Sitta',
+      artist: 'Harvey Danger',
+      details: 'Guitar Riff A',
+    },
+    {
+      name: 'My Sharona',
+      artist: 'The Knack',
+      details: 'Guitar Riff',
+    },
+    {
+      name: 'Click Click Boom',
+      artist: 'Saliva',
+      details: 'Guitar 3 Bridge',
+    },
+    {
+      name: 'Your Disease',
+      artist: 'Saliva',
+      details: 'Guitar Riff B Bridge',
+    },
+    {
+      name: 'Photograph',
+      artist: 'Weezer',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'Closing Time',
+      artist: 'Semisonic',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'Riviera Paradise',
+      artist: 'Stevie Ray Vaughan & Double Trouble',
+      details: 'Guitar Solo',
+    },
+    {
+      name: 'Flavor of the Weak',
+      artist: 'American Hi-Fi',
+      details: 'Guitar 3 Pre-Chorus',
+    },
+    {
+      name: 'Rock the Party (Off the Hook)',
+      artist: 'P.O.D. (Payable On Death)',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: "Adam's Song",
+      artist: 'Blink 182',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: "I Love Rock 'N Roll",
+      artist: 'Joan Jett & The Blackhearts',
+      details: 'Guitar 3 Outro-Chorus',
+    },
+    {
+      name: 'All the Small Things',
+      artist: 'Blink 182',
+      details: 'Guitar Interlude',
+    },
+    {
+      name: 'Killing in the Name',
+      artist: 'Rage Against the Machine',
+      details: 'Guitar Interlude, Bridge',
+    },
+    {
+      name: 'In Too Deep',
+      artist: 'Sum 41',
+      details: 'Guitar Interlude, Bridge',
+    },
+    {
+      name: 'Wish You Were Here',
+      artist: 'Incubus',
+      details: 'Guitar Interlude, Bridge',
+    },
+    {
+      name: 'Spiders',
+      artist: 'System of a Down',
+      details: 'Guitar Chorus, Interlude, Solo',
+    },
+    {
+      name: 'Third Stone from the Sun',
+      artist: 'Jimi Hendrix',
+      details: 'Guitar Main Melody',
+    },
+  ],
+  'minor-seven': [
+    {
+      name: 'Eye of the Tiger',
+      artist: 'Survivor',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Fly Like an Eagle',
+      artist: 'Steve Miller Band',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Cold Shot',
+      artist: 'Stevie Ray Vaughan',
+      details: 'Guitar Intro Verse/Chorus',
+    },
+    {
+      name: 'Tears in Heaven',
+      artist: 'Eric Clapton',
+      details: 'Guitar Intro/Chorus',
+    },
+    {
+      name: 'Change the World',
+      artist: 'Eric Clapton',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: 'Let It Ride',
+      artist: 'Bachman-Turner Overdrive',
+      details: 'Guitar 2 Intro/Chorus',
+    },
+    {
+      name: "You Ain't Seen Nothin' Yet",
+      artist: 'Bachman-Turner Overdrive',
+      details: 'Guitar Pre-Chorus',
+    },
+    {
+      name: 'Jump, Jive & Wail',
+      artist: 'Brian Setzer Orchestra',
+      details: 'Guitar Second Verse',
+    },
+    {
+      name: 'Oye Como Va',
+      artist: 'Santana',
+      details: 'Guitar 1, Organ Arr. For Guitar',
+    },
+    {
+      name: 'Do Right',
+      artist: "Jimmie's Chicken Shack",
+      details: 'Guitar Throughout',
+    },
+    {
+      name: 'Daughters',
+      artist: 'John Mayer',
+      details: 'Guitar Intro/Verse Bm7',
+    },
+  ],
+  'major-seven': [
+    {
+      name: 'Under the Bridge',
+      artist: 'Red Hot Chili Peppers',
+      details: 'Guitar Verse',
+    },
+    {
+      name: 'Drive',
+      artist: 'Incubus',
+      details: 'Guitar Intro/Verse',
+    },
+    {
+      name: 'Show Me the Way',
+      artist: 'Peter Frampton',
+      details: 'Guitar 1 Intro/Verse',
+    },
+    {
+      name: "You've Got a Friend",
+      artist: 'James Taylor',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: 'Everyday',
+      artist: 'Dave Matthews Band',
+      details: 'Guitar Intro/Verse',
+    },
+    {
+      name: 'That Thing You Do',
+      artist: 'The Oneders',
+      details: 'Guitar Ending',
+    },
+  ],
+  'dominant-seven': [
+    {
+      name: 'Alive',
+      artist: 'Pearl Jam',
+      details: 'Bridge 2:48 Open A7',
+    },
+    {
+      name: 'Black',
+      artist: 'Pearl Jam',
+      details: 'Intro E7',
+    },
+    {
+      name: "Papa's Got a Brand New Bag",
+      artist: 'James Brown',
+      details: 'Verse End E7',
+    },
+    {
+      name: 'Drive',
+      artist: 'Incubus',
+      details: 'Pre-Chorus 0:42',
+    },
+    {
+      name: 'Nothing Else Matters',
+      artist: 'Metallica',
+      details: 'Verse B7',
+    },
+  ],
+  'minor-seven-am-form': [
+    {
+      name: 'Change the World',
+      artist: 'Eric Clapton',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: 'Killing in the Name',
+      artist: 'Rage Against the Machine',
+      details: 'Guitar 2 Bridge',
+    },
+    {
+      name: 'Do Right',
+      artist: "Jimmie's Chicken Shack",
+      details: 'Guitar Throughout',
+    },
+    {
+      name: 'Long Train Running',
+      artist: 'The Doobie Brothers',
+      details: 'Guitar Intro/Verse',
+    },
+    {
+      name: 'Tears in Heaven',
+      artist: 'Eric Clapton',
+      details: 'Guitar Chorus',
+    },
+    {
+      name: 'Let it Ride',
+      artist: 'Bachman-Turner Overdrive',
+      details: 'Guitar Intro/Verse',
+    },
+    {
+      name: 'The Hook',
+      artist: 'Blues Traveler',
+      details: 'Guitar Throughout',
+    },
+    {
+      name: "Say It Ain't So",
+      artist: 'Weezer',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Black Water',
+      artist: 'The Doobie Brothers',
+      details: 'Guitar Intro/Verse',
+    },
+  ],
+  'e-form-major-seven': [
+    {
+      name: 'Space Oddity',
+      artist: 'David Bowie',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Best of My Love',
+      artist: 'The Eagles',
+      details: 'Guitar Intro',
+    },
+    {
+      name: 'Just Remember I Love You',
+      artist: 'Firefall',
+      details: 'Guitar Verse',
+    },
+    {
+      name: "What It's Like",
+      artist: 'Everlast',
+      details: 'Guitar Intro/Verse',
+    },
+    {
+      name: 'Band on the Run',
+      artist: 'Wings',
+      details: 'Guitar Section 3',
+    },
+    {
+      name: 'Stairway to Heaven',
+      artist: 'Led Zeppelin',
+      details: 'Guitar Intro & Throughout',
+    },
+    {
+      name: 'Dreams',
+      artist: 'Fleetwood Mac',
+      details: 'Guitar Throughout',
+    },
+    {
+      name: 'One',
+      artist: 'U2',
+      details: 'Guitar 2 Intro',
+    },
+    {
+      name: 'Californication',
+      artist: 'Red Hot Chili Peppers',
+      details: 'Guitar Verse',
+    },
+    {
+      name: 'Tighten Up, Pt. 1',
+      artist: 'Archie Bell & The Drells',
+      details: 'Guitar F#maj7',
+    },
+  ],
+  'c-form-add-9': [
+    {
+      name: 'Closer to Fine',
+      artist: 'Indigo Girls',
+    },
+    {
+      name: 'Talking About a Revolution',
+      artist: 'Tracy Chapman',
+    },
+    {
+      name: 'Old Apartment',
+      artist: 'Barenaked Ladies',
+    },
+    {
+      name: 'If I Had $1,000,000',
+      artist: 'Barenaked Ladies',
+    },
+    {
+      name: 'Good Riddance (Time of Your Life)',
+      artist: 'Greenday',
+    },
+    {
+      name: 'Sweet Home Alabama',
+      artist: 'Lynyrd Skynyrd',
+    },
+    {
+      name: 'Wonderwall',
+      artist: 'Oasis',
+    },
+    {
+      name: 'Semi-Charmed Life',
+      artist: 'Third Eye Blind',
+    },
+    {
+      name: 'There She Goes',
+      artist: 'Sixpence None the Richer',
+    },
+    {
+      name: 'Breath',
+      artist: 'Faith Hill',
+    },
+    {
+      name: 'Hands Clean',
+      artist: 'Alanis Morissette',
+    },
+    {
+      name: 'Signs',
+      artist: 'Tesla',
+    },
+    {
+      name: 'You and Me',
+      artist: 'Lifehouse',
+    },
+    {
+      name: 'Cover Me',
+      artist: 'Candlebox',
+    },
+    {
+      name: 'Hero',
+      artist: 'Enrique Iglesias',
     },
   ],
 }
