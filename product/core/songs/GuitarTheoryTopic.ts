@@ -3,7 +3,7 @@ export const guitarTheoryTopics = [
   'g-major-pentatonic',
   'g-minor-pentatonic',
   'pentatonic',
-  'blues',
+  'blues-scale',
   'c-form',
   'a-form',
   'g-form',
@@ -19,6 +19,12 @@ export const guitarTheoryTopics = [
   'minor-chords-2-3-6',
   'major-chords-1-4-5-string-5',
   'minor-chords-2-3-6-string-5',
+  'e-major-root',
+  'a-minor-root',
+  'changing-pentatonic-scales',
+  'blues',
+  'ionian-mode',
+  'dorian-mode',
 ] as const
 
 export type GuitarTheoryTopic = (typeof guitarTheoryTopics)[number]
@@ -28,7 +34,7 @@ export const guitarTheoryTopicNames: Record<GuitarTheoryTopic, string> = {
   'g-major-pentatonic': 'G Major Pentatonic Scale',
   'g-minor-pentatonic': 'G Minor Pentatonic Scale',
   pentatonic: 'Pentatonic Scale',
-  blues: 'Blues Scale',
+  'blues-scale': 'Blues Scale',
   'c-form': '“C Form” Barre Chord',
   'a-form': '“A Form” Barre Chord',
   'g-form': '“G Form” Barre Chord',
@@ -45,4 +51,10 @@ export const guitarTheoryTopicNames: Record<GuitarTheoryTopic, string> = {
   'minor-chords-2-3-6': 'Songs With ii iii vi',
   'major-chords-1-4-5-string-5': 'Songs I IV V (On String Five)',
   'minor-chords-2-3-6-string-5': 'Songs With ii iii vi (String 5)',
+  'e-major-root': 'Songs with E Major Root',
+  'a-minor-root': 'Songs with A Minor Root',
+  'changing-pentatonic-scales': 'Changing Pentatonic Scales',
+  blues: 'The “Blues” Approach',
+  'ionian-mode': 'Ionian Mode',
+  'dorian-mode': 'Dorian Mode',
 }

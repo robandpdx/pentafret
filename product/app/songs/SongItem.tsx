@@ -34,12 +34,12 @@ export const SongItem = ({ song, topic }: SongItemProps) => {
   const text = useMemo(() => {
     const songText = `"${song.name}" by ${song.artist}`
 
-    if (song.fragment) {
-      return `${capitalizeFirstLetter(song.fragment)} in ${songText}`
+    if (song.details) {
+      return `${capitalizeFirstLetter(song.details)} in ${songText}`
     }
 
     return songText
-  }, [song.artist, song.fragment, song.name])
+  }, [song.artist, song.details, song.name])
 
   return (
     <Container>

@@ -4,13 +4,13 @@ import { GuitarTheoryTopic } from './GuitarTheoryTopic'
 export type Song = {
   name: string
   artist: string
-  fragment?: string
+  details?: string
 }
 
 export const getGuitarTheorySongId = (
   topic: GuitarTheoryTopic,
-  song: Pick<Song, 'artist' | 'fragment'>,
+  song: Pick<Song, 'artist' | 'details'>,
 ) =>
-  withoutUndefined([topic, song.artist, song.fragment])
+  withoutUndefined([topic, song.artist, song.details])
     .map((s) => s.toLowerCase().replace(/ /g, '-'))
     .join('-')
