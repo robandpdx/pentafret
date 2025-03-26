@@ -1,23 +1,13 @@
 import { Text } from '@lib/ui/text'
 import { getGuitarTheorySongId, Song } from '@product/core/songs/Song'
-import styled from 'styled-components'
 import { useCheckedSongs } from './state/checkedSongs'
 import { without } from '@lib/utils/array/without'
-import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { InvisibleHTMLCheckbox } from '@lib/ui/inputs/InvisibleHTMLCheckbox'
 import { CheckStatus } from '@lib/ui/checklist/CheckStatus'
 import { useMemo } from 'react'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { GuitarTheoryTopic } from '@product/core/songs/GuitarTheoryTopic'
-
-const boxSize = 28
-
-const Container = styled.div`
-  display: grid;
-  gap: 16px;
-  grid-template-columns: ${toSizeUnit(boxSize)} 1fr;
-  line-height: ${toSizeUnit(boxSize)};
-`
+import { SongItemFrame } from './SongItemFrame'
 
 type SongItemProps = {
   song: Song
@@ -42,7 +32,7 @@ export const SongItem = ({ song, topic }: SongItemProps) => {
   }, [song.artist, song.details, song.name])
 
   return (
-    <Container>
+    <SongItemFrame>
       <CheckStatus as="label" isInteractive value={isChecked}>
         <InvisibleHTMLCheckbox
           value={isChecked}
@@ -54,6 +44,6 @@ export const SongItem = ({ song, topic }: SongItemProps) => {
         />
       </CheckStatus>
       <Text>{text}</Text>
-    </Container>
+    </SongItemFrame>
   )
 }
