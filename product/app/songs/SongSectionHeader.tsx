@@ -19,6 +19,7 @@ import { hStack } from '@lib/ui/css/stack'
 import { without } from '@lib/utils/array/without'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { CollapsableStateIndicator } from '@lib/ui/layout/CollapsableStateIndicator'
+import { ClientOnly } from '@lib/ui/base/ClientOnly'
 
 const CompletionIndicator = styled.div<IsActiveProp>`
   ${round}
@@ -71,13 +72,17 @@ export const SongsSectionHeader = ({ value }: ValueProp<GuitarTheoryTopic>) => {
     >
       <SongItemFrame>
         <Center>
-          <CompletionIndicator isActive={hasCheckedSong} />
+          <ClientOnly>
+            <CompletionIndicator isActive={hasCheckedSong} />
+          </ClientOnly>
         </Center>
         <Text color="contrast" as="h3" weight={700} size={18}>
           {guitarTheoryTopicNames[value]}
         </Text>
       </SongItemFrame>
-      <CollapseIndicator isOpen={isExpanded} />
+      <ClientOnly>
+        <CollapseIndicator isOpen={isExpanded} />
+      </ClientOnly>
     </Container>
   )
 }

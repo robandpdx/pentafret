@@ -8,6 +8,7 @@ import { SongsSectionHeader } from './SongSectionHeader'
 import { useExpandedSongTopics } from './state/expandedSongTopics'
 import styled from 'styled-components'
 import { verticalPadding } from '@lib/ui/css/verticalPadding'
+import { ClientOnly } from '@lib/ui/base/ClientOnly'
 
 const Content = styled.div`
   ${vStack({ gap: 12 })}
@@ -24,17 +25,19 @@ export const SongsSection = ({ value }: ValueProp<GuitarTheoryTopic>) => {
   return (
     <VStack>
       <SongsSectionHeader value={value} />
-      {isExpanded && (
-        <Content>
-          {items.map((song) => (
-            <SongItem
-              key={getGuitarTheorySongId(value, song)}
-              song={song}
-              topic={value}
-            />
-          ))}
-        </Content>
-      )}
+      <ClientOnly>
+        {isExpanded && (
+          <Content>
+            {items.map((song) => (
+              <SongItem
+                key={getGuitarTheorySongId(value, song)}
+                song={song}
+                topic={value}
+              />
+            ))}
+          </Content>
+        )}
+      </ClientOnly>
     </VStack>
   )
 }
