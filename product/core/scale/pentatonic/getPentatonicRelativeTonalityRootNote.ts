@@ -1,4 +1,5 @@
 import { match } from '@lib/utils/match'
+
 import { chromaticNotesNumber } from '../../note'
 import { Scale } from '../Scale'
 import { scalePatterns } from '../ScaleType'

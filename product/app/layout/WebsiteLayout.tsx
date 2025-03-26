@@ -1,28 +1,28 @@
-import { WebsiteNavigation } from '@lib/ui/website/navigation/WebsiteNavigation'
-import styled from 'styled-components'
+import { Button } from '@lib/ui/buttons/Button'
 import { interactive } from '@lib/ui/css/interactive'
-import Link from 'next/link'
 import { HStack, VStack } from '@lib/ui/css/stack'
-import { OverlayNavigationItem } from '@lib/ui/website/navigation/OverlayNavigationItem'
-import { Footer } from '@lib/ui/website/navigation/Footer'
-import { Text } from '@lib/ui/text'
-
-import { InteractiveText } from '@lib/ui/text/InteractiveText'
-import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { SeparatedByLine } from '@lib/ui/layout/SeparatedByLine'
+import { ExternalLink } from '@lib/ui/navigation/Link/ExternalLink'
 import { ChildrenProp } from '@lib/ui/props'
-import { useRouter } from 'next/router'
-import { useEffect, useRef } from 'react'
-import { ProductLogo } from '../product/ProductLogo'
+import { Text } from '@lib/ui/text'
+import { InteractiveText } from '@lib/ui/text/InteractiveText'
+import { Footer } from '@lib/ui/website/navigation/Footer'
+import { OverlayNavigationItem } from '@lib/ui/website/navigation/OverlayNavigationItem'
+import { WebsiteNavigation } from '@lib/ui/website/navigation/WebsiteNavigation'
 import {
   founderTelegramUrl,
   founderXUrl,
   legalEntity,
   supportEmail,
 } from '@product/config'
-import { makeScalePath } from '../scale/state/scale'
-import { Button } from '@lib/ui/buttons/Button'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect, useRef } from 'react'
+import styled from 'styled-components'
+
 import { makeCagedPath } from '../caged/state/caged'
+import { ProductLogo } from '../product/ProductLogo'
+import { makeScalePath } from '../scale/state/scale'
 
 const LogoWrapper = styled(Link)`
   ${interactive};
@@ -46,6 +46,10 @@ const items = [
       type: 'pentatonic',
       tonality: 'minor',
     }),
+  },
+  {
+    name: 'Songs',
+    href: '/songs',
   },
 ] as const
 

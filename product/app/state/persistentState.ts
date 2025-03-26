@@ -1,13 +1,11 @@
-import { TemporaryStorage } from '@lib/ui/state/TemporaryStorage'
-import { LocalStorage } from '@lib/ui/state/LocalStorage'
 import { createPersistentStateHook } from '@lib/ui/state/createPersistentStateHook'
 import { createPersistentStateManager } from '@lib/ui/state/createPersistentStateManager'
+import { LocalStorage } from '@lib/ui/state/LocalStorage'
+import { TemporaryStorage } from '@lib/ui/state/TemporaryStorage'
 
 export enum PersistentStateKey {
-  ThemePreference = 'themePreference',
-  Promotion = 'promotion',
-  ShowOnceEducation = 'showOnceEducation',
-  HabitsEducationWasAt = 'habitsEducationWasAt',
+  CheckedSongs = 'checkedSongs',
+  ExpandedSongTopics = 'expandedSongTopics',
 }
 
 const persistentStorage =

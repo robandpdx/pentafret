@@ -1,7 +1,8 @@
-import { useScale } from './state/scale'
-import { getScaleName } from '@product/core/scale/getScaleName'
-import { getBlueNote } from '@product/core/scale/blues/getBlueNote'
 import { chromaticNotesNames } from '@product/core/note'
+import { getBlueNote } from '@product/core/scale/blues/getBlueNote'
+import { getScaleName } from '@product/core/scale/getScaleName'
+
+import { useScale } from './state/scale'
 
 export const BluesScaleSubtitle = () => {
   const scale = useScale()

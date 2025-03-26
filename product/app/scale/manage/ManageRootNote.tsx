@@ -1,9 +1,10 @@
 import { GroupedRadioInput } from '@lib/ui/inputs/GroupedRadioInput'
-import { chromaticNotesNames, chromaticNotesNumber } from '@product/core/note'
-import { useChangeScale, useScale } from '../state/scale'
-import { range } from '@lib/utils/array/range'
 import { InputContainer } from '@lib/ui/inputs/InputContainer'
 import { InputLabel } from '@lib/ui/inputs/InputLabel'
+import { range } from '@lib/utils/array/range'
+import { chromaticNotesNames, chromaticNotesNumber } from '@product/core/note'
+
+import { useChangeScale, useScale } from '../state/scale'
 
 export const ManageRootNote = () => {
   const { rootNote } = useScale()

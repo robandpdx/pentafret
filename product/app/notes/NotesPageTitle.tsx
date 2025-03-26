@@ -1,4 +1,5 @@
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
+
 import { PageTitle } from '../ui/PageTitle'
 
 export const NotesPageTitle = () => {

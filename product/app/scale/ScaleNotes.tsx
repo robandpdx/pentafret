@@ -1,12 +1,14 @@
 import { range } from '@lib/utils/array/range'
-import { chromaticNotesNumber } from '@product/core/note'
-import { defaultVisibleFrets, Fretboard } from '../guitar/fretboard/Fretboard'
-import { stringsCount, tuning } from '../guitar/config'
-import { getScaleNotes } from '@product/core/scale/getScaleNotes'
-import { useScale } from './state/scale'
-import { scalePatterns } from '@product/core/scale/ScaleType'
-import { ScaleNote } from './ScaleNote'
 import { intervalRange } from '@lib/utils/interval/intervalRange'
+import { chromaticNotesNumber } from '@product/core/note'
+import { getScaleNotes } from '@product/core/scale/getScaleNotes'
+import { scalePatterns } from '@product/core/scale/ScaleType'
+
+import { stringsCount, tuning } from '../guitar/config'
+import { defaultVisibleFrets, Fretboard } from '../guitar/fretboard/Fretboard'
+
+import { ScaleNote } from './ScaleNote'
+import { useScale } from './state/scale'
 
 export const ScaleNotes = () => {
   const { type, tonality, rootNote } = useScale()

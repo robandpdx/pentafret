@@ -1,9 +1,11 @@
-import { VStack } from '@lib/ui/css/stack'
-import { useCaged } from './state/caged'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
+import { VStack } from '@lib/ui/css/stack'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { match } from '@lib/utils/match'
+
 import { PageTitle } from '../ui/PageTitle'
+
+import { useCaged } from './state/caged'
 
 export const CagedPageTitle = () => {
   const { view } = useCaged()

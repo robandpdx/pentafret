@@ -1,11 +1,12 @@
 import { VStack } from '@lib/ui/css/stack'
 import { IndexProp, ValueProp } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
 import { NotePosition } from '@product/core/note/NotePosition'
 import { getScaleName } from '@product/core/scale/getScaleName'
+
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
 import { ScaleNote } from '../ScaleNote'
 import { useScale } from '../state/scale'
-import { Text } from '@lib/ui/text'
 
 export const ScalePattern = ({
   value,

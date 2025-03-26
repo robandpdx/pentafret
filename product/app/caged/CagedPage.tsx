@@ -1,11 +1,13 @@
 import { HStack, VStack } from '@lib/ui/css/stack'
-import { PageContainer } from '../layout/PageContainer'
-import { CagedPageTitle } from './CagedPageTitle'
-import { cagedChords } from '@product/core/chords/caged'
-import { CagedProvider, CagedState } from './state/caged'
 import { ValueProp } from '@lib/ui/props'
+import { cagedChords } from '@product/core/chords/caged'
+
+import { PageContainer } from '../layout/PageContainer'
+
 import { CagedItem } from './CagedItem'
+import { CagedPageTitle } from './CagedPageTitle'
 import { ManageCagedView } from './manage/ManageCagedView'
+import { CagedProvider, CagedState } from './state/caged'
 
 export const CagedPage = ({ value }: ValueProp<CagedState>) => (
   <CagedProvider value={value}>

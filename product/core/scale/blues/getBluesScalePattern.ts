@@ -1,8 +1,9 @@
-import { getPentatonicPattern } from '../pentatonic/getPentatonicPattern'
-import { Scale } from '../Scale'
-import { NotePosition } from '../../note/NotePosition'
 import { getNoteFromPosition } from '../../note/getNoteFromPosition'
 import { normalizeFretPositions } from '../../note/normalizeFretPositions'
+import { NotePosition } from '../../note/NotePosition'
+import { getPentatonicPattern } from '../pentatonic/getPentatonicPattern'
+import { Scale } from '../Scale'
+
 import { getBlueNote } from './getBlueNote'
 
 type Input = {

@@ -13,7 +13,9 @@
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "eslint": "^9.22.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
@@ -24,6 +26,8 @@
     "postinstall": "husky install",
     "format": "eslint --fix && prettier --write",
     "typecheck": "tsc --noEmit",
-    "sync-packages": "syncpack fix-mismatches"
+    "sync-packages": "syncpack fix-mismatches",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   }
 }

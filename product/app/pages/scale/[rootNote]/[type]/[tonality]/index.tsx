@@ -1,12 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { range } from '@lib/utils/array/range'
 import { chromaticNotesNumber } from '@product/core/note'
 import { toUriNote, fromUriNote } from '@product/core/note/uriNote'
-import { range } from '@lib/utils/array/range'
-import { ScalePage } from '../../../../../scale/ScalePage'
 import { scaleTypes } from '@product/core/scale/ScaleType'
-import { tonalities } from '@product/core/tonality'
 import { ScaleType } from '@product/core/scale/ScaleType'
+import { tonalities } from '@product/core/tonality'
 import { Tonality } from '@product/core/tonality'
+import { GetStaticPaths, GetStaticProps } from 'next'
+
+import { ScalePage } from '../../../../../scale/ScalePage'
 
 export default ScalePage
 

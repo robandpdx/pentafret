@@ -1,4 +1,5 @@
 import { Tonality } from '../tonality'
+
 import { ScaleType } from './ScaleType'
 
 export type Scale = {

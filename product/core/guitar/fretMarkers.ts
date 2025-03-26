@@ -1,6 +1,7 @@
-import { chromaticNotesNumber } from '../note'
 import { Interval } from '@lib/utils/interval/Interval'
 import { intervalRange } from '@lib/utils/interval/intervalRange'
+
+import { chromaticNotesNumber } from '../note'
 
 export const fretMarkerTypes = ['single', 'double'] as const
 export type FretMarkerType = (typeof fretMarkerTypes)[number]
