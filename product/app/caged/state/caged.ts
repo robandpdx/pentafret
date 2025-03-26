@@ -1,7 +1,7 @@
 import { getValueProviderSetup } from '@lib/ui/state/getValueProviderSetup'
+import { CagedView } from '@product/core/chords/caged'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
-import { CagedView } from '@product/core/chords/caged'
 
 export type CagedState = {
   view: CagedView

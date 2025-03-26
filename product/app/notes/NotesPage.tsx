@@ -1,7 +1,9 @@
 import { VStack } from '@lib/ui/css/stack'
-import { NotesPageTitle } from './NotesPageTitle'
-import { NotesPageContent } from './NotesPageContent'
+
 import { PageContainer } from '../layout/PageContainer'
+
+import { NotesPageContent } from './NotesPageContent'
+import { NotesPageTitle } from './NotesPageTitle'
 
 export const NotesPage = () => {
   return (

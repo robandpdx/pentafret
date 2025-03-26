@@ -1,4 +1,5 @@
 import path from 'path'
+
 import { generateIcons } from '@lib/ui/metadata/codegen/generateIcons'
 const publicDirectory = path.resolve(__dirname, '../../public')
 

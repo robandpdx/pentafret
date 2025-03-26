@@ -1,18 +1,20 @@
+import { vStack } from '@lib/ui/css/stack'
 import { ValueProp } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
 import {
   cagedArpeggios,
   CagedChord,
   openCagedChords,
 } from '@product/core/chords/caged'
-import { vStack } from '@lib/ui/css/stack'
-import { Text } from '@lib/ui/text'
+import { chromaticNotesNames } from '@product/core/note'
+import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
+import styled from 'styled-components'
+
+import { tuning } from '../guitar/config'
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { Note } from '../guitar/fretboard/Note'
-import styled from 'styled-components'
+
 import { useCaged } from './state/caged'
-import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
-import { tuning } from '../guitar/config'
-import { chromaticNotesNames } from '@product/core/note'
 
 const Container = styled.div`
   ${vStack({

@@ -1,7 +1,8 @@
-import { VStack } from '@lib/ui/css/stack'
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
-import { PageTitle } from '../ui/PageTitle'
+import { VStack } from '@lib/ui/css/stack'
+
 import { PageSubtitle } from '../ui/PageSubtitle'
+import { PageTitle } from '../ui/PageTitle'
 
 export const SongsPageTitle = () => {
   const title = 'Popular Songs by Guitar Theory Elements'

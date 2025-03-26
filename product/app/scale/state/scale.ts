@@ -1,8 +1,8 @@
 import { getValueProviderSetup } from '@lib/ui/state/getValueProviderSetup'
-import { useRouter } from 'next/router'
-import { useCallback } from 'react'
 import { toUriNote } from '@product/core/note/uriNote'
 import { Scale } from '@product/core/scale/Scale'
+import { useRouter } from 'next/router'
+import { useCallback } from 'react'
 
 export const makeScalePath = ({ type, tonality, rootNote }: Scale) =>
   `/scale/${toUriNote(rootNote)}/${type}/${tonality}`

@@ -1,13 +1,13 @@
-import { sum } from '@lib/utils/array/sum'
 import { getLastItem } from '@lib/utils/array/getLastItem'
 import { range } from '@lib/utils/array/range'
+import { sum } from '@lib/utils/array/sum'
 import { getNoteFret } from '@product/core/guitar/getNoteFret'
 import { chromaticNotesNumber } from '@product/core/note'
+import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
 import { NotePosition } from '@product/core/note/NotePosition'
+import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
 import { Scale } from '@product/core/scale/Scale'
 import { scalePatterns } from '@product/core/scale/ScaleType'
-import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
-import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
 
 type Input = {
   index: number

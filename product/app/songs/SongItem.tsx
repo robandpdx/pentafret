@@ -1,13 +1,14 @@
-import { Text } from '@lib/ui/text'
-import { getGuitarTheorySongId, Song } from '@product/core/songs/Song'
-import { useCheckedSongs } from './state/checkedSongs'
-import { without } from '@lib/utils/array/without'
-import { InvisibleHTMLCheckbox } from '@lib/ui/inputs/InvisibleHTMLCheckbox'
 import { CheckStatus } from '@lib/ui/checklist/CheckStatus'
+import { InvisibleHTMLCheckbox } from '@lib/ui/inputs/InvisibleHTMLCheckbox'
+import { Text } from '@lib/ui/text'
+import { CopyText } from '@lib/ui/text/CopyText'
+import { without } from '@lib/utils/array/without'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { GuitarTheoryTopic } from '@product/core/songs/GuitarTheoryTopic'
+import { getGuitarTheorySongId, Song } from '@product/core/songs/Song'
+
 import { SongItemFrame } from './SongItemFrame'
-import { CopyText } from '@lib/ui/text/CopyText'
+import { useCheckedSongs } from './state/checkedSongs'
 
 type SongItemProps = {
   song: Song

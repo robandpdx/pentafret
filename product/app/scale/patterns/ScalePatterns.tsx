@@ -1,15 +1,17 @@
-import { useMemo } from 'react'
-import { useScale } from '../state/scale'
-import { match } from '@lib/utils/match'
-import { scalePatternsNumber } from '@product/core/scale/ScaleType'
-import { range } from '@lib/utils/array/range'
-import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
-import { getBluesScalePattern } from '@product/core/scale/blues/getBluesScalePattern'
-import { stringsCount, tuning } from '../../guitar/config'
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
-import { ScalePattern } from './ScalePattern'
+import { range } from '@lib/utils/array/range'
+import { match } from '@lib/utils/match'
+import { getBluesScalePattern } from '@product/core/scale/blues/getBluesScalePattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
+import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
+import { scalePatternsNumber } from '@product/core/scale/ScaleType'
+import { useMemo } from 'react'
+
+import { stringsCount, tuning } from '../../guitar/config'
+import { useScale } from '../state/scale'
+
+import { ScalePattern } from './ScalePattern'
 
 export const ScalePatterns = () => {
   const scale = useScale()

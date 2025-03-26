@@ -1,4 +1,5 @@
 import { difference } from '@lib/utils/array/difference'
+
 import { getScaleNotes } from '../getScaleNotes'
 import { Scale } from '../Scale'
 import { scalePatterns } from '../ScaleType'

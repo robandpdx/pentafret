@@ -1,8 +1,9 @@
 import { range } from '@lib/utils/array/range'
-import { defaultVisibleFrets, Fretboard } from '../guitar/fretboard/Fretboard'
-import { stringsCount } from '../guitar/config'
-import { Note } from '../guitar/fretboard/Note'
 import { intervalRange } from '@lib/utils/interval/intervalRange'
+
+import { stringsCount } from '../guitar/config'
+import { defaultVisibleFrets, Fretboard } from '../guitar/fretboard/Fretboard'
+import { Note } from '../guitar/fretboard/Note'
 
 export const NotesPageContent = () => {
   return (

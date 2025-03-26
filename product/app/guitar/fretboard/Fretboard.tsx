@@ -1,19 +1,21 @@
+import { hStack } from '@lib/ui/css/stack'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
-import styled from 'styled-components'
-import { fretboardConfig } from './config'
+import { ChildrenProp } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import { range } from '@lib/utils/array/range'
-import { String } from './String'
-import { Fret } from './Fret'
-import { getFretMarkers } from '@product/core/guitar/fretMarkers'
-import { FretMarkerItem } from './FretMarkerItem'
-import { hStack } from '@lib/ui/css/stack'
-import { stringsCount } from '../../guitar/config'
-import { ChildrenProp } from '@lib/ui/props'
-import { Nut } from './Nut'
-import { VisibleFretsProvider } from './state/visibleFrets'
 import { Interval } from '@lib/utils/interval/Interval'
 import { intervalRange } from '@lib/utils/interval/intervalRange'
+import { getFretMarkers } from '@product/core/guitar/fretMarkers'
+import styled from 'styled-components'
+
+import { stringsCount } from '../../guitar/config'
+
+import { fretboardConfig } from './config'
+import { Fret } from './Fret'
+import { FretMarkerItem } from './FretMarkerItem'
+import { Nut } from './Nut'
+import { VisibleFretsProvider } from './state/visibleFrets'
+import { String } from './String'
 
 const Neck = styled.div`
   height: ${toSizeUnit(fretboardConfig.height)};

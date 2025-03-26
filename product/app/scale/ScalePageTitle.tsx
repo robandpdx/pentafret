@@ -1,10 +1,12 @@
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
 import { VStack } from '@lib/ui/css/stack'
-import { ScalePageSubtitle } from './ScalePageSubtitle'
 import { getScaleName } from '@product/core/scale/getScaleName'
-import { useScale } from './state/scale'
-import { PageTitle } from '../ui/PageTitle'
+
 import { PageSubtitle } from '../ui/PageSubtitle'
+import { PageTitle } from '../ui/PageTitle'
+
+import { ScalePageSubtitle } from './ScalePageSubtitle'
+import { useScale } from './state/scale'
 
 export const ScalePageTitle = () => {
   const scale = useScale()

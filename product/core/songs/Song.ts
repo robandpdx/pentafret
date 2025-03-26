@@ -1,4 +1,5 @@
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+
 import { GuitarTheoryTopic } from './GuitarTheoryTopic'
 
 export type Song = {

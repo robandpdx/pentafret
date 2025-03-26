@@ -1,6 +1,7 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { CagedPage } from '../../../caged/CagedPage'
 import { cagedViews } from '@product/core/chords/caged'
+import { GetStaticPaths, GetStaticProps } from 'next'
+
+import { CagedPage } from '../../../caged/CagedPage'
 import { CagedState } from '../../../caged/state/caged'
 
 export default CagedPage

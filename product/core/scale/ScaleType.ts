@@ -1,4 +1,5 @@
 import { Tonality } from '../tonality'
+
 import { ScalePattern } from './ScalePattern'
 
 export const scaleTypes = ['full', 'pentatonic', 'blues'] as const

@@ -1,5 +1,7 @@
 import { getLastItem } from '@lib/utils/array/getLastItem'
+
 import { chromaticNotesNumber } from '../note'
+
 import { ScalePattern } from './ScalePattern'
 
 type Input = {

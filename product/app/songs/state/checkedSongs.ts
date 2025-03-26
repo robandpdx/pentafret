@@ -1,5 +1,4 @@
 import { PersistentStateKey } from '../../state/persistentState'
-
 import { usePersistentState } from '../../state/persistentState'
 
 export const useCheckedSongs = () => {

@@ -1,9 +1,11 @@
-import { useMemo } from 'react'
-import { Note, NoteKind, NoteProps } from '../guitar/fretboard/Note'
-import { useScale } from './state/scale'
-import { getBlueNote } from '@product/core/scale/blues/getBlueNote'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
+import { getBlueNote } from '@product/core/scale/blues/getBlueNote'
+import { useMemo } from 'react'
+
 import { tuning } from '../guitar/config'
+import { Note, NoteKind, NoteProps } from '../guitar/fretboard/Note'
+
+import { useScale } from './state/scale'
 
 type ScaleNoteProps = Omit<NoteProps, 'kind'>
 

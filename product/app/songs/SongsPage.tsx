@@ -1,7 +1,9 @@
 import { VStack } from '@lib/ui/css/stack'
-import { PageContainer } from '../layout/PageContainer'
-import { SongsPageTitle } from './SongsPageTitle'
 import { guitarTheoryTopics } from '@product/core/songs/GuitarTheoryTopic'
+
+import { PageContainer } from '../layout/PageContainer'
+
+import { SongsPageTitle } from './SongsPageTitle'
 import { SongsSection } from './SongsSection'
 
 export const SongsPage = () => {

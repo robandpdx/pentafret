@@ -1,9 +1,10 @@
 import { GroupedRadioInput } from '@lib/ui/inputs/GroupedRadioInput'
-import { useChangeScale, useScale } from '../state/scale'
 import { InputContainer } from '@lib/ui/inputs/InputContainer'
 import { InputLabel } from '@lib/ui/inputs/InputLabel'
-import { scaleTypes } from '@product/core/scale/ScaleType'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { scaleTypes } from '@product/core/scale/ScaleType'
+
+import { useChangeScale, useScale } from '../state/scale'
 
 export const ManageScaleType = () => {
   const { type } = useScale()

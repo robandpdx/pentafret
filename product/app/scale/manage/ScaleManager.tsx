@@ -1,4 +1,5 @@
 import { HStack, VStack } from '@lib/ui/css/stack'
+
 import { ManageRootNote } from './ManageRootNote'
 import { ManageScaleType } from './ManageScaleType'
 import { ManageTonality } from './ManageTonality'

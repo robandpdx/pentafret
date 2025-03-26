@@ -1,8 +1,9 @@
-import { Text } from '@lib/ui/text'
-import { HStack } from '@lib/ui/css/stack'
-import styled from 'styled-components'
-import { getColor } from '@lib/ui/theme/getters'
 import { centerContent } from '@lib/ui/css/centerContent'
+import { HStack } from '@lib/ui/css/stack'
+import { Text } from '@lib/ui/text'
+import { getColor } from '@lib/ui/theme/getters'
+import styled from 'styled-components'
+
 import { Icon } from '../icon/Icon'
 
 const IconWrapper = styled.div`

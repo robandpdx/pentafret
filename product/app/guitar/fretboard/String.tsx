@@ -1,13 +1,15 @@
+import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
+import { PositionAbsolutelyCenterHorizontally } from '@lib/ui/layout/PositionAbsolutelyCenterHorizontally'
 import { IndexProp } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
-import styled, { css } from 'styled-components'
-import { PositionAbsolutelyCenterHorizontally } from '@lib/ui/layout/PositionAbsolutelyCenterHorizontally'
 import { toPercents } from '@lib/utils/toPercents'
-import { getStringPosition } from './utils/getStringPosition'
-import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
-import { fretboardConfig } from './config'
+import styled, { css } from 'styled-components'
+
 import { stringsThickness } from '../../guitar/config'
+
+import { fretboardConfig } from './config'
 import { useVisibleFrets } from './state/visibleFrets'
+import { getStringPosition } from './utils/getStringPosition'
 
 const Container = styled.div<{ isBassString: boolean; showNut: boolean }>`
   background: ${({ isBassString }) =>

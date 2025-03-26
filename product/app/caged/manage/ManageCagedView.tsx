@@ -1,7 +1,8 @@
 import { GroupedRadioInput } from '@lib/ui/inputs/GroupedRadioInput'
-import { useChangeCaged, useCaged } from '../state/caged'
-import { cagedViews } from '@product/core/chords/caged'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+import { cagedViews } from '@product/core/chords/caged'
+
+import { useChangeCaged, useCaged } from '../state/caged'
 
 export const ManageCagedView = () => {
   const { view } = useCaged()

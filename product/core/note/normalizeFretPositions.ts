@@ -1,5 +1,6 @@
-import { chromaticNotesNumber } from '.'
 import { NotePosition } from './NotePosition'
+
+import { chromaticNotesNumber } from '.'
 
 export const normalizeFretPositions = (
   positions: NotePosition[],

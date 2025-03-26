@@ -1,14 +1,15 @@
+import { ClientOnly } from '@lib/ui/base/ClientOnly'
 import { vStack, VStack } from '@lib/ui/css/stack'
+import { verticalPadding } from '@lib/ui/css/verticalPadding'
 import { ValueProp } from '@lib/ui/props'
 import { songs } from '@product/core/songs'
 import { GuitarTheoryTopic } from '@product/core/songs/GuitarTheoryTopic'
 import { getGuitarTheorySongId } from '@product/core/songs/Song'
+import styled from 'styled-components'
+
 import { SongItem } from './SongItem'
 import { SongsSectionHeader } from './SongSectionHeader'
 import { useExpandedSongTopics } from './state/expandedSongTopics'
-import styled from 'styled-components'
-import { verticalPadding } from '@lib/ui/css/verticalPadding'
-import { ClientOnly } from '@lib/ui/base/ClientOnly'
 
 const Content = styled.div`
   ${vStack({ gap: 12 })}

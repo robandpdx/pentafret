@@ -1,25 +1,26 @@
+import { ClientOnly } from '@lib/ui/base/ClientOnly'
+import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
+import { round } from '@lib/ui/css/round'
+import { sameDimensions } from '@lib/ui/css/sameDimensions'
+import { hStack } from '@lib/ui/css/stack'
+import { verticalPadding } from '@lib/ui/css/verticalPadding'
+import { Center } from '@lib/ui/layout/Center'
+import { CollapsableStateIndicator } from '@lib/ui/layout/CollapsableStateIndicator'
 import { IsActiveProp, ValueProp } from '@lib/ui/props'
+import { Text } from '@lib/ui/text'
+import { getColor, matchColor } from '@lib/ui/theme/getters'
+import { without } from '@lib/utils/array/without'
 import { songs } from '@product/core/songs'
 import {
   GuitarTheoryTopic,
   guitarTheoryTopicNames,
 } from '@product/core/songs/GuitarTheoryTopic'
 import { getGuitarTheorySongId } from '@product/core/songs/Song'
-import { Text } from '@lib/ui/text'
-import { useCheckedSongs } from './state/checkedSongs'
-import { SongItemFrame } from './SongItemFrame'
-import { Center } from '@lib/ui/layout/Center'
 import styled from 'styled-components'
-import { round } from '@lib/ui/css/round'
-import { sameDimensions } from '@lib/ui/css/sameDimensions'
-import { getColor, matchColor } from '@lib/ui/theme/getters'
+
+import { SongItemFrame } from './SongItemFrame'
+import { useCheckedSongs } from './state/checkedSongs'
 import { useExpandedSongTopics } from './state/expandedSongTopics'
-import { UnstyledButton } from '@lib/ui/buttons/UnstyledButton'
-import { hStack } from '@lib/ui/css/stack'
-import { without } from '@lib/utils/array/without'
-import { verticalPadding } from '@lib/ui/css/verticalPadding'
-import { CollapsableStateIndicator } from '@lib/ui/layout/CollapsableStateIndicator'
-import { ClientOnly } from '@lib/ui/base/ClientOnly'
 
 const CompletionIndicator = styled.div<IsActiveProp>`
   ${round}

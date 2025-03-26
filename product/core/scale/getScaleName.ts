@@ -1,7 +1,9 @@
 import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
-import { chromaticNotesNames } from '../note'
-import { Scale } from './Scale'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
+
+import { chromaticNotesNames } from '../note'
+
+import { Scale } from './Scale'
 
 export const getScaleName = ({ type, rootNote, tonality }: Scale) => {
   const noteName = chromaticNotesNames[rootNote]
