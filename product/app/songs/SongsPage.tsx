@@ -9,9 +9,11 @@ export const SongsPage = () => {
     <PageContainer contentMaxWidth={640}>
       <VStack gap={60}>
         <SongsPageTitle />
-        {guitarTheoryTopics.map((topic) => (
-          <SongsSection key={topic} value={topic} />
-        ))}
+        <VStack gap={20}>
+          {guitarTheoryTopics.map((topic) => (
+            <SongsSection key={topic} value={topic} />
+          ))}
+        </VStack>
       </VStack>
     </PageContainer>
   )

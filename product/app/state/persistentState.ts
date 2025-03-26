@@ -5,6 +5,7 @@ import { createPersistentStateManager } from '@lib/ui/state/createPersistentStat
 
 export enum PersistentStateKey {
   CheckedSongs = 'checkedSongs',
+  ExpandedSongTopics = 'expandedSongTopics',
 }
 
 const persistentStorage =

@@ -9,8 +9,8 @@ export type Song = {
 
 export const getGuitarTheorySongId = (
   topic: GuitarTheoryTopic,
-  song: Pick<Song, 'artist' | 'details'>,
+  { artist, name }: Pick<Song, 'artist' | 'name'>,
 ) =>
-  withoutUndefined([topic, song.artist, song.details])
+  withoutUndefined([topic, artist, name])
     .map((s) => s.toLowerCase().replace(/ /g, '-'))
     .join('-')
