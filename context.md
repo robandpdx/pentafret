@@ -29,6 +29,10 @@ The CAGED page has two views:
 
 Both views showcase five sections for each of the five basic chord forms: C, A, G, E, and D. Instead of displaying the entire fretboard, we focus on a specific section to illustrate a chord or arpeggio shape.
 
+## Songs (/songs)
+
+The songs page presents a list of songs organized by guitar theory topics. Users can expand or collapse each topic to view the songs and check off the ones they have learned.
+
 # Context
 
 * The fretboard always displays 15 frets, plus open notes on the notes and scales pages.

@@ -28,6 +28,12 @@ The CAGED page offers two views:
 
 Each view showcases five sections focusing on a specific fretboard section to illustrate chord or arpeggio shapes.
 
+#### Songs Page (/songs)
+The songs page provides:
+- A curated list of songs organized by guitar theory topics
+- Expandable/collapsible sections for each topic
+- Ability to track learning progress by checking off learned songs
+
 ### Fretboard Display
 - The app displays a guitar fretboard with 15 frets and 6 strings (plus open notes on the notes and scales pages)
 - Each note in the scale is highlighted with a distinct color and labeled with the note name
@@ -51,6 +57,7 @@ For pentatonic and blues scales, the app displays 5 standard patterns:
   - `/scales/[scaleType]/[rootNote]/[tonality]`
   - Example: `/scales/pentatonic/e/minor` shows the E minor pentatonic scale
   - `/caged/[view]` where view is either `chords` or `arpeggios`
+  - `/songs` for accessing the songs library
 
 ## Tech Stack
 
