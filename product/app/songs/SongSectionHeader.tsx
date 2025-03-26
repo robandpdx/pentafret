@@ -32,6 +32,7 @@ const CompletionIndicator = styled.div<IsActiveProp>`
 
 const CollapseIndicator = styled(CollapsableStateIndicator)`
   font-size: 20px;
+  color: ${getColor('textSupporting')};
 `
 
 const Container = styled(UnstyledButton)`
