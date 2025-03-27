@@ -126,7 +126,8 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
     {
       name: 'All Right Now',
       artist: 'Free',
-      details: 'Guitar Solo 2:28 (A major)',
+      details:
+        'Guitar Solo 2:28 (A major) and Guitar Solo 2:04, 3:14 (A minor)',
     },
     {
       name: 'La Grange',
@@ -147,11 +148,6 @@ export const songs: Record<GuitarTheoryTopic, Song[]> = {
       name: 'Breakdown',
       artist: 'Tom Petty',
       details: 'Guitar 2 Intro (A minor)',
-    },
-    {
-      name: 'All Right Now',
-      artist: 'Free',
-      details: 'Guitar Solo 2:04, 3:14 (A minor)',
     },
     {
       name: 'Upside Down',
