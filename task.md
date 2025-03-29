@@ -2,5 +2,9 @@
 
 The content of this file should be cleared on Pull Request submit.
 
-- [ ] All sections are collapsed by default except for the first one.
-- [ ] Keep "collapse" status in the local storage.
+- [x] A dynamic route for a specific chord template
+- [ ] Navigation to the template page and back
+- [ ] Select a template
+- [ ] Update context
+- [ ] Update readme
+- [ ] Submit new sitemap

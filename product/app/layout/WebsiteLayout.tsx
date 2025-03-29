@@ -12,6 +12,7 @@ import { WebsiteNavigation } from '@lib/ui/website/navigation/WebsiteNavigation'
 import {
   founderTelegramUrl,
   founderXUrl,
+  githubUrl,
   legalEntity,
   supportEmail,
 } from '@product/config'
@@ -124,6 +125,9 @@ export const WebsiteLayout = ({ children }: ChildrenProp) => {
             </ExternalLink>
             <ExternalLink to={founderTelegramUrl}>
               <InteractiveText>Telegram</InteractiveText>
+            </ExternalLink>
+            <ExternalLink to={githubUrl}>
+              <InteractiveText>GitHub</InteractiveText>
             </ExternalLink>
           </HStack>
         </Footer>
