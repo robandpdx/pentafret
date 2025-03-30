@@ -1,11 +1,7 @@
 import { vStack } from '@lib/ui/css/stack'
 import { ValueProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
-import {
-  cagedArpeggios,
-  CagedChord,
-  openCagedChords,
-} from '@product/core/chords/caged'
+import { CagedChord, cagedPositions } from '@product/core/chords/caged'
 import { chromaticNotesNames } from '@product/core/note'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import styled from 'styled-components'
@@ -25,16 +21,11 @@ const Container = styled.div`
   max-width: 400px;
 `
 
-const positionsRecord = {
-  chord: openCagedChords,
-  arpeggio: cagedArpeggios,
-}
-
 const minVisibleFrets = 4
 
 export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
   const { view } = useCaged()
-  const positions = positionsRecord[view][value]
+  const positions = cagedPositions[view][value]
 
   const lowestBassString = Math.max(
     ...positions
