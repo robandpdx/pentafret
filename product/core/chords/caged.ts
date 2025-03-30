@@ -105,3 +105,26 @@ export const cagedPositions: Record<
 }
 
 export const cagedTemplateDistances = [3, 2, 3, 2, 3]
+
+export const cagedTemplateOpenChords: Record<CagedChord, NotePosition[]> = {
+  ...openCagedChords,
+  d: [
+    { string: 0, fret: 1 },
+    { string: 1, fret: 2 },
+    { string: 2, fret: 1 },
+    { string: 3, fret: -1 },
+    { string: 4, fret: -1 },
+    { string: 5, fret: 2 },
+  ],
+}
+
+export const cagedTemplateBarreChords: Record<CagedChord, NotePosition[]> = {
+  ...cagedPositions.chord,
+  d: [
+    { string: 1, fret: 2 },
+    { string: 2, fret: 1 },
+    { string: 3, fret: -1 },
+    { string: 4, fret: -1 },
+    { string: 5, fret: 2 },
+  ],
+}
