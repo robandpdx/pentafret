@@ -2,14 +2,11 @@ import { cagedViews, cagedChords } from '@product/core/chords/caged'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { CagedPage } from '../../../../caged/CagedPage'
-import { CagedState } from '../../../../caged/state/caged'
 import { CagedTemplateState } from '../../../../caged/template/state/cagedTemplate'
 
 export default CagedPage
 
-export const getStaticPaths: GetStaticPaths<
-  CagedTemplateState & CagedState
-> = async () => {
+export const getStaticPaths: GetStaticPaths<CagedTemplateState> = async () => {
   const paths = cagedViews.flatMap((view) =>
     cagedChords.map((chord) => ({
       params: {
@@ -26,7 +23,7 @@ export const getStaticPaths: GetStaticPaths<
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { view, chord } = params as CagedTemplateState & CagedState
+  const { view, chord } = params as CagedTemplateState
 
   return {
     props: {
