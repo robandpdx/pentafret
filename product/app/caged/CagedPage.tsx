@@ -9,6 +9,7 @@ import { CagedPageTitle } from './CagedPageTitle'
 import { ManageCagedChordPresense } from './manage/ManageCagedChordPresense'
 import { ManageCagedView } from './manage/ManageCagedView'
 import { CagedProvider, CagedState } from './state/caged'
+import { CagedTemplate } from './template/CagedTemplate'
 import { CagedTemplatePageTitle } from './template/CagedTemplatePageTitle'
 import { ManageCagedChord } from './template/manage/ManageCagedChord'
 
@@ -25,7 +26,7 @@ export const CagedPage = ({ value }: ValueProp<CagedState>) => (
         </VStack>
         {value.chord ? <CagedTemplatePageTitle /> : <CagedPageTitle />}
         {value.chord ? (
-          <p>Coming soon...</p>
+          <CagedTemplate />
         ) : (
           <HStack
             fullWidth
