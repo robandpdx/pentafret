@@ -1,16 +1,12 @@
 import { vStack } from '@lib/ui/css/stack'
 import { ValueProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
-import {
-  cagedArpeggios,
-  CagedChord,
-  openCagedChords,
-} from '@product/core/chords/caged'
+import { CagedChord, cagedPositions } from '@product/core/chords/caged'
+import { getChordPrimaryPosition } from '@product/core/chords/getChordPrimaryPosition'
 import { chromaticNotesNames } from '@product/core/note'
-import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
+import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
 import styled from 'styled-components'
 
-import { tuning } from '../guitar/config'
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { Note } from '../guitar/fretboard/Note'
 
@@ -25,26 +21,16 @@ const Container = styled.div`
   max-width: 400px;
 `
 
-const positionsRecord = {
-  chord: openCagedChords,
-  arpeggio: cagedArpeggios,
-}
-
 const minVisibleFrets = 4
 
 export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
   const { view } = useCaged()
-  const positions = positionsRecord[view][value]
+  const positions = normalizeFretPositions(cagedPositions[view][value])
 
-  const lowestBassString = Math.max(
-    ...positions
-      .filter(
-        (position) =>
-          getNoteFromPosition({ tuning, position }) ===
-          chromaticNotesNames.indexOf(value.toUpperCase()),
-      )
-      .map((position) => position.string),
-  )
+  const primaryPosition = getChordPrimaryPosition({
+    positions,
+    note: chromaticNotesNames.indexOf(value.toUpperCase()),
+  })
 
   const firstVisibleFret = Math.min(
     ...positions.map((position) => position.fret),
@@ -69,7 +55,7 @@ export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
             key={`${position.string}-${position.fret}`}
             string={position.string}
             fret={position.fret}
-            kind={position.string === lowestBassString ? 'primary' : 'regular'}
+            kind={position === primaryPosition ? 'primary' : 'regular'}
           />
         ))}
       </Fretboard>

@@ -29,6 +29,27 @@ The CAGED page has two views:
 
 Both views showcase five sections for each of the five basic chord forms: C, A, G, E, and D. Instead of displaying the entire fretboard, we focus on a specific section to illustrate a chord or arpeggio shape.
 
+## Caged Templates (/caged/[view]/[chord])
+
+From the CAGED page, the user can navigate to the Caged Templates page. On that page, the user can select one of the CAGED chords and see the templates for that chord. Templates are displayed as a series of 6 fretboards, with each fretboard displaying the next chord in the template. E.g. for "CAGED Template C Major Chords" it would be:
+
+- Open C chord
+- C ("A form" barre chord)
+- C ("G form" barre chord)
+- C ("E form" barre chord)
+- C ("D form" barre chord)
+- C ("C form" barre chord)
+
+The CAGED templates also have an option to view arpeggios. E.g., for "CAGED Template C Major Arpeggios" it would be:
+
+- C arpeggio ("C form")
+- C arpeggio ("A form")
+- C arpeggio ("G form")
+- C arpeggio ("E form")
+- C arpeggio ("D form")
+- C arpeggio ("C form")
+
+
 ## Songs (/songs)
 
 The songs page presents a list of songs organized by guitar theory topics. Users can expand or collapse each topic to view the songs and check off the ones they have learned.

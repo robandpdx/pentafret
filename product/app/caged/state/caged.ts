@@ -1,13 +1,16 @@
 import { getValueProviderSetup } from '@lib/ui/state/getValueProviderSetup'
-import { CagedView } from '@product/core/chords/caged'
+import { withoutUndefined } from '@lib/utils/array/withoutUndefined'
+import { CagedChord, CagedView } from '@product/core/chords/caged'
 import { useRouter } from 'next/router'
 import { useCallback } from 'react'
 
 export type CagedState = {
   view: CagedView
+  chord?: CagedChord
 }
 
-export const makeCagedPath = ({ view }: CagedState) => `/caged/${view}`
+export const makeCagedPath = ({ view, chord }: CagedState) =>
+  `/caged/${withoutUndefined([view, chord]).join('/')}`
 
 export const { useValue: useCaged, provider: CagedProvider } =
   getValueProviderSetup<CagedState>('Caged')

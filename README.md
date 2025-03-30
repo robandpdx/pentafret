@@ -28,6 +28,29 @@ The CAGED page offers two views:
 
 Each view showcases five sections focusing on a specific fretboard section to illustrate chord or arpeggio shapes.
 
+#### CAGED Templates Page (/caged/[view]/[chord])
+The CAGED Templates page allows users to:
+- Select a specific CAGED chord to view its templates
+- View a series of 6 fretboards showing chord progressions
+- See both chord and arpeggio variations
+
+Examples:
+- **CAGED Template C Major Chords**:
+  - Open C chord
+  - C ("A form" barre chord)
+  - C ("G form" barre chord)
+  - C ("E form" barre chord)
+  - C ("D form" barre chord)
+  - C ("C form" barre chord)
+
+- **CAGED Template C Major Arpeggios**:
+  - C arpeggio ("C form")
+  - C arpeggio ("A form")
+  - C arpeggio ("G form")
+  - C arpeggio ("E form")
+  - C arpeggio ("D form")
+  - C arpeggio ("C form")
+
 #### Songs Page (/songs)
 The songs page provides:
 - A curated list of songs organized by guitar theory topics
@@ -57,6 +80,7 @@ For pentatonic and blues scales, the app displays 5 standard patterns:
   - `/scales/[scaleType]/[rootNote]/[tonality]`
   - Example: `/scales/pentatonic/e/minor` shows the E minor pentatonic scale
   - `/caged/[view]` where view is either `chords` or `arpeggios`
+  - `/caged/[view]/[chord]` for CAGED templates
   - `/songs` for accessing the songs library
 
 ## Tech Stack

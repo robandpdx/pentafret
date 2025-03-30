@@ -1,5 +1,4 @@
 import { PageMetaTags } from '@lib/next-ui/metadata/PageMetaTags'
-import { VStack } from '@lib/ui/css/stack'
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 import { match } from '@lib/utils/match'
 
@@ -20,9 +19,9 @@ export const CagedPageTitle = () => {
   )} to navigate the entire fretboard and improve your playing.`
 
   return (
-    <VStack>
+    <>
       <PageMetaTags title={title} description={description} />
       <PageTitle>CAGED {viewTitle}</PageTitle>
-    </VStack>
+    </>
   )
 }
