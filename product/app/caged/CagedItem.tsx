@@ -4,6 +4,7 @@ import { Text } from '@lib/ui/text'
 import { CagedChord, cagedPositions } from '@product/core/chords/caged'
 import { chromaticNotesNames } from '@product/core/note'
 import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
+import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
 import styled from 'styled-components'
 
 import { tuning } from '../guitar/config'
@@ -25,7 +26,7 @@ const minVisibleFrets = 4
 
 export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
   const { view } = useCaged()
-  const positions = cagedPositions[view][value]
+  const positions = normalizeFretPositions(cagedPositions[view][value])
 
   const lowestBassString = Math.max(
     ...positions
