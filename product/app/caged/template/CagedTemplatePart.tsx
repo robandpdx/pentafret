@@ -30,52 +30,72 @@ export const CagedTemplatePart = ({ index }: IndexProp) => {
 
   const form = getFormChord(chord, index)
 
+  const distances = rotateArray(
+    cagedTemplateDistances,
+    cagedChords.indexOf(chord),
+  )
+
   const positions = useMemo(() => {
-    return match(view, {
+    const openPositions = match(view, {
       arpeggio: () => cagedPositions.arpeggio[form],
       chord: () =>
         index === 0
           ? cagedTemplateOpenChords[form]
           : cagedTemplateBarreChords[form],
     })
-  }, [form, index, view])
+
+    const shift = sum(distances.slice(0, index))
+
+    return openPositions.map((position) => ({
+      ...position,
+      fret: position.fret + shift,
+    }))
+  }, [distances, form, index, view])
 
   const lowestBassString = Math.max(
     ...positions
       .filter(
         (position) =>
           getNoteFromPosition({ tuning, position }) ===
-          chromaticNotesNames.indexOf(form.toUpperCase()),
+          chromaticNotesNames.indexOf(chord.toUpperCase()),
       )
       .map((position) => position.string),
   )
 
-  const distances = rotateArray(
-    cagedTemplateDistances,
-    cagedChords.indexOf(chord),
-  )
+  const title = useMemo(() => {
+    return match(view, {
+      arpeggio: () => {
+        const isIncomplete = positions.some((position) => position.fret < -1)
+        if (isIncomplete) {
+          return `Open ${chord.toUpperCase()} chord (incomplete arpeggio)`
+        }
+        return `${chord.toUpperCase()} arpeggio ("${form.toUpperCase()} form")`
+      },
+      chord: () =>
+        index === 0
+          ? `Open ${chord.toUpperCase()} chord`
+          : `${chord.toUpperCase()} ("${form.toUpperCase()} form" barre chord)`,
+    })
+  }, [chord, form, index, positions, view])
 
   return (
     <VStack gap={40}>
       <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
-        {index === 0
-          ? `Open ${chord.toUpperCase()} chord`
-          : `${chord.toUpperCase()} ("${form.toUpperCase()} form" barre chord)`}
+        {title}
       </Text>
       <Fretboard>
-        {positions.map((position) => {
-          const shift = sum(distances.slice(0, index))
-          return (
+        {positions
+          .filter((position) => position.fret >= -1)
+          .map((position) => (
             <Note
               key={`${position.string}-${position.fret}`}
               string={position.string}
-              fret={position.fret + shift}
+              fret={position.fret}
               kind={
                 position.string === lowestBassString ? 'primary' : 'regular'
               }
             />
-          )
-        })}
+          ))}
       </Fretboard>
     </VStack>
   )

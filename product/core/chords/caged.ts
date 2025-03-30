@@ -105,7 +105,7 @@ export const cagedPositions: Record<
   arpeggio: cagedArpeggios,
 }
 
-export const cagedTemplateDistances = [3, 2, 3, 2, 3]
+export const cagedTemplateDistances = [3, 2, 3, 2, 2]
 
 export const cagedTemplateOpenChords: Record<CagedChord, NotePosition[]> = {
   ...openCagedChords,
