@@ -12,11 +12,10 @@ import {
   cagedTemplateDistances,
   cagedTemplateOpenChords,
 } from '@product/core/chords/caged'
+import { getChordPrimaryPosition } from '@product/core/chords/getChordPrimaryPosition'
 import { chromaticNotesNames } from '@product/core/note'
-import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { useMemo } from 'react'
 
-import { tuning } from '../../guitar/config'
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
 import { Note } from '../../guitar/fretboard/Note'
 
@@ -52,15 +51,10 @@ export const CagedTemplatePart = ({ index }: IndexProp) => {
     }))
   }, [distances, form, index, view])
 
-  const lowestBassString = Math.max(
-    ...positions
-      .filter(
-        (position) =>
-          getNoteFromPosition({ tuning, position }) ===
-          chromaticNotesNames.indexOf(chord.toUpperCase()),
-      )
-      .map((position) => position.string),
-  )
+  const primaryPosition = getChordPrimaryPosition({
+    positions,
+    note: chromaticNotesNames.indexOf(chord.toUpperCase()),
+  })
 
   const title = useMemo(() => {
     return match(view, {
@@ -91,9 +85,7 @@ export const CagedTemplatePart = ({ index }: IndexProp) => {
               key={`${position.string}-${position.fret}`}
               string={position.string}
               fret={position.fret}
-              kind={
-                position.string === lowestBassString ? 'primary' : 'regular'
-              }
+              kind={position === primaryPosition ? 'primary' : 'regular'}
             />
           ))}
       </Fretboard>
