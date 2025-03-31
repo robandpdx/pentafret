@@ -1,17 +1,9 @@
 import { VStack } from '@lib/ui/css/stack'
 import { IndexProp } from '@lib/ui/props'
 import { Text } from '@lib/ui/text'
-import { rotateArray } from '@lib/utils/array/rotateArray'
-import { sum } from '@lib/utils/array/sum'
 import { match } from '@lib/utils/match'
-import {
-  CagedChord,
-  cagedChords,
-  cagedPositions,
-  cagedTemplateBarreChords,
-  cagedTemplateDistances,
-  cagedTemplateOpenChords,
-} from '@product/core/chords/caged'
+import { getCagedTemplateForm } from '@product/core/chords/getCagedTemplateForm'
+import { getCagedTemplatePartPositions } from '@product/core/chords/getCagedTemplatePartPositions'
 import { getChordPrimaryPosition } from '@product/core/chords/getChordPrimaryPosition'
 import { chromaticNotesNames } from '@product/core/note'
 import { useMemo } from 'react'
@@ -21,35 +13,18 @@ import { Note } from '../../guitar/fretboard/Note'
 
 import { useCagedTemplate } from './state/cagedTemplate'
 
-const getFormChord = (chord: CagedChord, index: number) =>
-  cagedChords[(cagedChords.indexOf(chord) + index) % cagedChords.length]
-
 export const CagedTemplatePart = ({ index }: IndexProp) => {
   const { chord, view } = useCagedTemplate()
 
-  const form = getFormChord(chord, index)
-
-  const distances = rotateArray(
-    cagedTemplateDistances,
-    cagedChords.indexOf(chord),
-  )
+  const form = getCagedTemplateForm(chord, index)
 
   const positions = useMemo(() => {
-    const openPositions = match(view, {
-      arpeggio: () => cagedPositions.arpeggio[form],
-      chord: () =>
-        index === 0
-          ? cagedTemplateOpenChords[form]
-          : cagedTemplateBarreChords[form],
+    return getCagedTemplatePartPositions({
+      chord,
+      view,
+      index,
     })
-
-    const shift = sum(distances.slice(0, index))
-
-    return openPositions.map((position) => ({
-      ...position,
-      fret: position.fret + shift,
-    }))
-  }, [distances, form, index, view])
+  }, [chord, index, view])
 
   const primaryPosition = getChordPrimaryPosition({
     positions,
