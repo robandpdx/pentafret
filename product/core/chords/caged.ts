@@ -37,7 +37,6 @@ export const openCagedChords: Record<CagedChord, NotePosition[]> = {
     { string: 2, fret: 0 },
     { string: 3, fret: 1 },
     { string: 4, fret: 1 },
-    { string: 4, fret: -2 },
     { string: 5, fret: -1 },
   ],
   d: [
