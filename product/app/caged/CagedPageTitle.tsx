@@ -7,21 +7,24 @@ import { PageTitle } from '../ui/PageTitle'
 import { useCaged } from './state/caged'
 
 export const CagedPageTitle = () => {
-  const { view } = useCaged()
+  const { view, tonality } = useCaged()
   const viewTitle = `${capitalizeFirstLetter(view)}s`
-  const title = `CAGED ${viewTitle} System for Guitar | Master Fretboard Positions`
-  const description = `Interactive guide to the CAGED ${viewTitle.toLowerCase()} system for guitarists. Learn C, A, G, E, D ${match(
+  const tonalityTitle = capitalizeFirstLetter(tonality)
+  const title = `${tonalityTitle} CAGED ${viewTitle} System for Guitar | Master Fretboard Positions`
+  const description = `Interactive guide to the ${tonalityTitle} CAGED ${viewTitle.toLowerCase()} system for guitarists. Learn C, A, G, E, D ${match(
     view,
     {
       chord: () => 'chord shapes',
       arpeggio: () => 'arpeggio patterns',
     },
-  )} to navigate the entire fretboard and improve your playing.`
+  )} in ${tonalityTitle} to navigate the entire fretboard and improve your playing.`
 
   return (
     <>
       <PageMetaTags title={title} description={description} />
-      <PageTitle>CAGED {viewTitle}</PageTitle>
+      <PageTitle>
+        CAGED {tonalityTitle} {viewTitle}
+      </PageTitle>
     </>
   )
 }

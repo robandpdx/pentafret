@@ -24,8 +24,10 @@ const Container = styled.div`
 const minVisibleFrets = 4
 
 export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
-  const { view } = useCaged()
-  const positions = normalizeFretPositions(cagedPositions[view][value])
+  const { view, tonality } = useCaged()
+  const positions = normalizeFretPositions(
+    cagedPositions[view][tonality][value],
+  )
 
   const primaryPosition = getChordPrimaryPosition({
     positions,
@@ -39,7 +41,7 @@ export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
   return (
     <Container>
       <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
-        {value.toUpperCase()} major {view}
+        {value.toUpperCase()} {tonality} {view}
       </Text>
       <Fretboard
         visibleFrets={{

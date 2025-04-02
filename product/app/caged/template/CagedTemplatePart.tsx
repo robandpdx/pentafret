@@ -14,7 +14,7 @@ import { Note } from '../../guitar/fretboard/Note'
 import { useCagedTemplate } from './state/cagedTemplate'
 
 export const CagedTemplatePart = ({ index }: IndexProp) => {
-  const { chord, view } = useCagedTemplate()
+  const { chord, view, tonality } = useCagedTemplate()
 
   const form = getCagedTemplateForm(chord, index)
 
@@ -23,8 +23,9 @@ export const CagedTemplatePart = ({ index }: IndexProp) => {
       chord,
       view,
       index,
+      tonality,
     })
-  }, [chord, index, view])
+  }, [chord, index, tonality, view])
 
   const primaryPosition = getChordPrimaryPosition({
     positions,

@@ -3,6 +3,7 @@ import { sum } from '@lib/utils/array/sum'
 import { match } from '@lib/utils/match'
 
 import { NotePosition } from '../note/NotePosition'
+import { Tonality } from '../tonality'
 
 import {
   CagedChord,
@@ -17,6 +18,7 @@ import { getCagedTemplateForm } from './getCagedTemplateForm'
 
 type GetCagedTemplatePartPositionsInput = {
   chord: CagedChord
+  tonality: Tonality
   view: CagedView
   index: number
 }
@@ -24,22 +26,23 @@ type GetCagedTemplatePartPositionsInput = {
 export const getCagedTemplatePartPositions = ({
   chord,
   view,
+  tonality,
   index,
 }: GetCagedTemplatePartPositionsInput): NotePosition[] => {
   const form = getCagedTemplateForm(chord, index)
 
   const distances = rotateArray(
-    cagedTemplateDistances,
+    cagedTemplateDistances[tonality],
     cagedChords.indexOf(chord),
   )
 
   const openPositions = match(view, {
-    arpeggio: () => cagedPositions.arpeggio[form],
+    arpeggio: () => cagedPositions.arpeggio[tonality][form],
     chord: () => {
       const chords =
         index === 0 ? cagedTemplateOpenChords : cagedTemplateBarreChords
 
-      return chords[form]
+      return chords[tonality][form]
     },
   })
 
