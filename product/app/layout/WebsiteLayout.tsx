@@ -38,7 +38,7 @@ const items = [
   },
   {
     name: 'CAGED',
-    href: makeCagedPath({ view: 'chord' }),
+    href: makeCagedPath({ view: 'chord', tonality: 'major' }),
   },
   {
     name: 'Scales',
