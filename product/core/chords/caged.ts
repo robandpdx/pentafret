@@ -203,7 +203,7 @@ export const cagedPositions: Record<
 
 export const cagedTemplateDistances: Record<Tonality, number[]> = {
   major: [3, 2, 3, 2, 2],
-  minor: [3, 2, 2, 3, 2],
+  minor: [3, 2, 3, 2, 2],
 }
 
 export const cagedTemplateOpenChords: Record<
@@ -250,12 +250,5 @@ export const cagedTemplateBarreChords: Record<
   },
   minor: {
     ...cagedPositions.chord.minor,
-    d: [
-      { string: 1, fret: 2 },
-      { string: 2, fret: 1 },
-      { string: 3, fret: -1 },
-      { string: 4, fret: -1 },
-      { string: 5, fret: 0 },
-    ],
   },
 }
