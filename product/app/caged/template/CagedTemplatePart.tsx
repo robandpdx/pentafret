@@ -14,7 +14,7 @@ import { Note } from '../../guitar/fretboard/Note'
 import { useCagedTemplate } from './state/cagedTemplate'
 
 export const CagedTemplatePart = ({ index }: IndexProp) => {
-  const { chord, view } = useCagedTemplate()
+  const { chord, view, tonality } = useCagedTemplate()
 
   const form = getCagedTemplateForm(chord, index)
 
@@ -23,8 +23,12 @@ export const CagedTemplatePart = ({ index }: IndexProp) => {
       chord,
       view,
       index,
+      tonality,
     })
-  }, [chord, index, view])
+  }, [chord, index, tonality, view])
+
+  const chordName = `${chord.toUpperCase()} ${tonality}`
+  const formName = `"${form.toUpperCase()}${tonality === 'minor' ? 'm' : ''}" form`
 
   const primaryPosition = getChordPrimaryPosition({
     positions,
@@ -36,16 +40,16 @@ export const CagedTemplatePart = ({ index }: IndexProp) => {
       arpeggio: () => {
         const isIncomplete = positions.some((position) => position.fret < -1)
         if (isIncomplete) {
-          return `Open ${chord.toUpperCase()} chord (incomplete arpeggio)`
+          return `Open ${chordName} chord (incomplete arpeggio)`
         }
-        return `${chord.toUpperCase()} arpeggio ("${form.toUpperCase()} form")`
+        return `${chordName} arpeggio (${formName})`
       },
       chord: () =>
         index === 0
-          ? `Open ${chord.toUpperCase()} chord`
-          : `${chord.toUpperCase()} ("${form.toUpperCase()} form" barre chord)`,
+          ? `Open ${chordName} chord`
+          : `${chordName} (${formName} barre chord)`,
     })
-  }, [chord, form, index, positions, view])
+  }, [chordName, formName, index, positions, view])
 
   return (
     <VStack gap={40}>

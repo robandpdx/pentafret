@@ -7,6 +7,7 @@ import { PageContainer } from '../layout/PageContainer'
 import { CagedItem } from './CagedItem'
 import { CagedPageTitle } from './CagedPageTitle'
 import { ManageCagedChordPresense } from './manage/ManageCagedChordPresense'
+import { ManageCagedTonality } from './manage/ManageCagedTonality'
 import { ManageCagedView } from './manage/ManageCagedView'
 import { CagedProvider, CagedState } from './state/caged'
 import { CagedTemplate } from './template/CagedTemplate'
@@ -20,6 +21,7 @@ export const CagedPage = ({ value }: ValueProp<CagedState>) => (
         <VStack gap={20} alignItems="center">
           <HStack wrap="wrap" gap={20}>
             <ManageCagedView />
+            <ManageCagedTonality />
             <ManageCagedChordPresense />
           </HStack>
           {value.chord && <ManageCagedChord />}

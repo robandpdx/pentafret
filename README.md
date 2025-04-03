@@ -2,6 +2,23 @@
 
 This repository contains the code for an app that allows you to visualize scales and pentatonics on a guitar fretboard. It's a handy tool for musicians, guitar enthusiasts, and learners to explore scales and their corresponding pentatonic patterns interactively.
 
+## Tech Stack
+
+This app is built using modern web technologies:
+- **TypeScript**: Ensures type safety and developer productivity
+- **Next.js**: Utilized for its static site generation (SSG) capabilities
+- **Monorepo Structure**: Organizes the codebase for scalability and maintainability
+
+The app is available at https://pentafret.com
+
+## YouTube Series
+
+Follow along with this series of YouTube videos showing the progressive development of this application:
+
+1. [Building a Guitar Scale Visualization App](https://youtu.be/Zox_7loIJsk)
+2. [Interactive Guitar Fretboard for Pentatonic Scales](https://youtu.be/4jtm2Lm4EVA)
+3. [Blues Scale Visualization on Guitar Fretboard](https://youtu.be/3NUnnP6GLZ0)
+
 ## Features
 
 ### Pages
@@ -21,16 +38,20 @@ At the top of the scale page, you'll find controls to customize your view:
 
 Below the controls, the fretboard displays the notes of the selected scale.
 
-#### CAGED Page (/caged/[view])
+#### CAGED Page (/caged/[view]/[tonality])
 The CAGED page offers two views:
 - **Chords**: Displays chord forms for C, A, G, E, and D
 - **Arpeggios**: Shows arpeggio patterns for each form
 
-Each view showcases five sections focusing on a specific fretboard section to illustrate chord or arpeggio shapes.
+And two tonalities:
+- **Major**: Shows major chord forms and arpeggio patterns
+- **Minor**: Shows minor chord forms and arpeggio patterns
 
-#### CAGED Templates Page (/caged/[view]/[chord])
+Each view showcases five sections focusing on a specific fretboard section to illustrate chord or arpeggio shapes. Users can switch between views and tonalities using the controls at the top of the page.
+
+#### CAGED Templates Page (/caged/[view]/[tonality]/[chord])
 The CAGED Templates page allows users to:
-- Select a specific CAGED chord to view its templates
+- Select a specific CAGED chord to view its templates in the selected tonality
 - View a series of 6 fretboards showing chord progressions
 - See both chord and arpeggio variations
 
@@ -50,6 +71,8 @@ Examples:
   - C arpeggio ("E form")
   - C arpeggio ("D form")
   - C arpeggio ("C form")
+
+The same pattern applies to minor tonality, showing the appropriate minor chord and arpeggio forms.
 
 #### Songs Page (/songs)
 The songs page provides:
@@ -79,18 +102,9 @@ For pentatonic and blues scales, the app displays 5 standard patterns:
 - The app supports dynamic URL patterns for easy sharing and navigation:
   - `/scales/[scaleType]/[rootNote]/[tonality]`
   - Example: `/scales/pentatonic/e/minor` shows the E minor pentatonic scale
-  - `/caged/[view]` where view is either `chords` or `arpeggios`
-  - `/caged/[view]/[chord]` for CAGED templates
+  - `/caged/[view]/[tonality]` where view is either `chords` or `arpeggios` and tonality is either `major` or `minor`
+  - `/caged/[view]/[tonality]/[chord]` for CAGED templates
   - `/songs` for accessing the songs library
-
-## Tech Stack
-
-This app is built using modern web technologies:
-- **TypeScript**: Ensures type safety and developer productivity
-- **Next.js**: Utilized for its static site generation (SSG) capabilities
-- **Monorepo Structure**: Organizes the codebase for scalability and maintainability
-
-The app is available at https://pentafret.com
 
 ---
 
