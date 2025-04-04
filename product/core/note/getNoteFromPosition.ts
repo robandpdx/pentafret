@@ -1,15 +1,14 @@
-import { NotePosition } from './NotePosition'
+import { standardTuning } from '@product/core/guitar/tuning'
 
+import { NotePosition } from './NotePosition'
 type GetNoteFromPositionInput = {
-  tuning: number[]
   position: NotePosition
 }
 
 export function getNoteFromPosition({
-  tuning,
   position,
 }: GetNoteFromPositionInput): number {
-  const openStringNote = tuning[position.string]
+  const openStringNote = standardTuning[position.string]
 
   if (position.fret === -1) {
     return openStringNote

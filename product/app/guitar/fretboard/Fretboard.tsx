@@ -6,9 +6,8 @@ import { range } from '@lib/utils/array/range'
 import { Interval } from '@lib/utils/interval/Interval'
 import { intervalRange } from '@lib/utils/interval/intervalRange'
 import { getFretMarkers } from '@product/core/guitar/fretMarkers'
+import { standardTuning } from '@product/core/guitar/tuning'
 import styled from 'styled-components'
-
-import { stringsCount } from '../../guitar/config'
 
 import { fretboardConfig } from './config'
 import { Fret } from './Fret'
@@ -68,7 +67,7 @@ export const Fretboard = ({
             <FretMarkerItem key={value.index} value={value} />
           ))}
 
-          {range(stringsCount).map((index) => (
+          {range(standardTuning.length).map((index) => (
             <String key={index} index={index} />
           ))}
           {children}

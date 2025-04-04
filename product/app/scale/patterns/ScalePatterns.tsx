@@ -4,11 +4,11 @@ import { range } from '@lib/utils/array/range'
 import { match } from '@lib/utils/match'
 import { getBluesScalePattern } from '@product/core/scale/blues/getBluesScalePattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
+import { getMajorScalePattern } from '@product/core/scale/major/getMajorScalePattern'
 import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
 import { scalePatternsNumber } from '@product/core/scale/ScaleType'
 import { useMemo } from 'react'
 
-import { stringsCount, tuning } from '../../guitar/config'
 import { useScale } from '../state/scale'
 
 import { ScalePattern } from './ScalePattern'
@@ -20,16 +20,15 @@ export const ScalePatterns = () => {
 
   const patterns = useMemo(() => {
     const { type } = scale
-    if (type === 'full') return undefined
+    if (type === 'full' && scale.tonality === 'minor') return undefined
 
     const generate = match(type, {
       pentatonic: () => getPentatonicPattern,
       blues: () => getBluesScalePattern,
+      full: () => getMajorScalePattern,
     })
 
-    return range(scalePatternsNumber).map((index) =>
-      generate({ index, scale, stringsCount, tuning }),
-    )
+    return range(scalePatternsNumber).map((index) => generate({ index, scale }))
   }, [scale])
 
   if (!patterns) return null
