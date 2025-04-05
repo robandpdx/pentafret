@@ -19,7 +19,10 @@ The subtitle is present for the following scale types:
 * Pentatonic: A clickable link to the relative pentatonic scale, e.g., for E minor, it will say "same notes as in G Major Pentatonic Scale" and vice-versa. When clicking on the link, the app will navigate to the relative pentatonic scale.
 * Blues: Says that it has the same notes as pentatonic plus a "blue note", e.g., for E Minor Blues Scale, it will say "E Minor Pentatonic Scale + A# (blue note)".
 
-For pentatonic and blues scales, the app also displays 5 standard patterns. Each pattern is shown on a dedicated fretboard, progressing from the first to the fifth pattern. The first pattern starts from the root note in the case of a minor pentatonic scale, and from the next note of the pentatonic scale in the case of a major pentatonic scale. E.g., G minor pentatonic will have the same shape as an A# major pentatonic and will start from the third fret, but the highlighted root note will be different.
+For the following scale types, the app displays 5 standard patterns:
+* Pentatonic: Each pattern is shown on a dedicated fretboard, progressing from the first to the fifth pattern. The first pattern starts from the root note in the case of a minor pentatonic scale, and from the next note of the pentatonic scale in the case of a major pentatonic scale. E.g., G minor pentatonic will have the same shape as an A# major pentatonic and will start from the third fret, but the highlighted root note will be different.
+* Major full scale: Similar to pentatonic patterns, the app displays 5 standard patterns for the major full scale. Each pattern is shown on a dedicated fretboard, progressively covering different positions on the neck.
+* Blues: Follows the same pattern structure as pentatonic scales with the addition of the blue note highlighted in each pattern.
 
 ## Caged (/caged/[view]/[tonality])
 

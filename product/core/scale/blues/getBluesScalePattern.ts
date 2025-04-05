@@ -9,14 +9,12 @@ import { getBlueNote } from './getBlueNote'
 type Input = {
   index: number
   scale: Omit<Scale, 'type'>
-  stringsCount: number
-  tuning: number[]
 }
 
 export const getBluesScalePattern = (input: Input) => {
   const pentatonicPattern = getPentatonicPattern(input)
 
-  const { scale, tuning } = input
+  const { scale } = input
 
   const blueNote = getBlueNote(scale)
 
@@ -25,7 +23,7 @@ export const getBluesScalePattern = (input: Input) => {
   pentatonicPattern.forEach((position, noteIndex) => {
     result.push(position)
 
-    const note = getNoteFromPosition({ position, tuning })
+    const note = getNoteFromPosition({ position })
     if (noteIndex === 0 && note - 1 === blueNote) {
       result.push({
         string: position.string,

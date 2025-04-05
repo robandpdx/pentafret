@@ -13,7 +13,7 @@ import { getNoteFromPosition } from '@product/core/note/getNoteFromPosition'
 import { NotePosition } from '@product/core/note/NotePosition'
 import styled, { css } from 'styled-components'
 
-import { totalFrets, tuning } from '../../guitar/config'
+import { totalFrets } from '../../guitar/config'
 
 import { fretboardConfig } from './config'
 import { useVisibleFrets } from './state/visibleFrets'
@@ -60,7 +60,7 @@ export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
 
   const top = toPercents(getStringPosition(string))
 
-  const value = getNoteFromPosition({ tuning, position: { string, fret } })
+  const value = getNoteFromPosition({ position: { string, fret } })
 
   const left = `calc(${
     fret === -1

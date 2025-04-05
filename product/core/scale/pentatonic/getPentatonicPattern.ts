@@ -9,11 +9,11 @@ import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/penta
 import { Scale } from '@product/core/scale/Scale'
 import { scalePatterns } from '@product/core/scale/ScaleType'
 
+import { standardTuning } from '../../guitar/tuning'
+
 type Input = {
   index: number
   scale: Omit<Scale, 'type'>
-  stringsCount: number
-  tuning: number[]
 }
 
 const notesPerString = 2
@@ -30,7 +30,7 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
     })
   }
 
-  const { index, scale, stringsCount, tuning } = input
+  const { index, scale } = input
   const pattern = scalePatterns.pentatonic[scale.tonality]
 
   const firstNote =
@@ -38,10 +38,11 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
 
   const result: NotePosition[] = []
 
-  range(stringsCount * notesPerString).forEach((noteIndex) => {
-    const string = stringsCount - Math.floor(noteIndex / notesPerString) - 1
+  range(standardTuning.length * notesPerString).forEach((noteIndex) => {
+    const string =
+      standardTuning.length - Math.floor(noteIndex / notesPerString) - 1
 
-    const openNote = tuning[string]
+    const openNote = standardTuning[string]
 
     const previousPosition = getLastItem(result)
 
@@ -63,9 +64,11 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
       return fret
     }
 
+    const fret = getFret()
+
     result.push({
       string,
-      fret: getFret(),
+      fret,
     })
   })
 
