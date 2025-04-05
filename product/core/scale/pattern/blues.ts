@@ -1,17 +1,12 @@
 import { getNoteFromPosition } from '../../note/getNoteFromPosition'
 import { normalizeFretPositions } from '../../note/normalizeFretPositions'
 import { NotePosition } from '../../note/NotePosition'
-import { getPentatonicPattern } from '../pentatonic/getPentatonicPattern'
-import { Scale } from '../Scale'
+import { getBlueNote } from '../blues/getBlueNote'
 
-import { getBlueNote } from './getBlueNote'
+import { PatternResolver } from './PatternResolver'
+import { getPentatonicPattern } from './pentatonic'
 
-type Input = {
-  index: number
-  scale: Omit<Scale, 'type'>
-}
-
-export const getBluesScalePattern = (input: Input) => {
+export const getBluesScalePattern: PatternResolver = (input) => {
   const pentatonicPattern = getPentatonicPattern(input)
 
   const { scale } = input

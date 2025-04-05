@@ -2,24 +2,18 @@ import { getLastItem } from '@lib/utils/array/getLastItem'
 import { rotateArray } from '@lib/utils/array/rotateArray'
 import { sum } from '@lib/utils/array/sum'
 import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
-import { NotePosition } from '@product/core/note/NotePosition'
-import { Scale } from '@product/core/scale/Scale'
 
 import { cagedChords, cagedTemplateDistances } from '../../chords/caged'
 import { standardTuning } from '../../guitar/tuning'
 import { shiftNotePositions } from '../../note/shiftNotePositions'
-
 import {
   firstMajorScalePatternChord,
   majorScalePatterns,
-} from './majorScalePatterns'
+} from '../full/majorScalePatterns'
 
-type Input = {
-  index: number
-  scale: Omit<Scale, 'type'>
-}
+import { PatternResolver } from './PatternResolver'
 
-export const getMajorScalePattern = (input: Input): NotePosition[] => {
+export const getFullScalePattern: PatternResolver = (input) => {
   const pattern = majorScalePatterns[input.index]
 
   const distances = rotateArray(
