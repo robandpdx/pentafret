@@ -1,10 +1,10 @@
 import { VStack } from '@lib/ui/css/stack'
 import { IndexProp, ValueProp } from '@lib/ui/props'
-import { Text } from '@lib/ui/text'
 import { NotePosition } from '@product/core/note/NotePosition'
 import { getScaleName } from '@product/core/scale/getScaleName'
 
 import { Fretboard } from '../../guitar/fretboard/Fretboard'
+import { SectionTitle } from '../../ui/SectionTitle'
 import { ScaleNote } from '../ScaleNote'
 import { useScale } from '../state/scale'
 
@@ -20,9 +20,7 @@ export const ScalePattern = ({
 
   return (
     <VStack gap={40}>
-      <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
-        {title}
-      </Text>
+      <SectionTitle>{title}</SectionTitle>
       <Fretboard>
         {value.map((position) => {
           return (

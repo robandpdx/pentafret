@@ -1,6 +1,5 @@
 import { vStack } from '@lib/ui/css/stack'
 import { ValueProp } from '@lib/ui/props'
-import { Text } from '@lib/ui/text'
 import { CagedChord, cagedPositions } from '@product/core/chords/caged'
 import { getChordPrimaryPosition } from '@product/core/chords/getChordPrimaryPosition'
 import { chromaticNotesNames } from '@product/core/note'
@@ -9,6 +8,7 @@ import styled from 'styled-components'
 
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { Note } from '../guitar/fretboard/Note'
+import { SectionTitle } from '../ui/SectionTitle'
 
 import { useCaged } from './state/caged'
 
@@ -40,9 +40,9 @@ export const CagedItem = ({ value }: ValueProp<CagedChord>) => {
 
   return (
     <Container>
-      <Text centerHorizontally color="contrast" as="h3" weight="700" size={18}>
+      <SectionTitle>
         {value.toUpperCase()} {tonality} {view}
-      </Text>
+      </SectionTitle>
       <Fretboard
         visibleFrets={{
           start: firstVisibleFret,

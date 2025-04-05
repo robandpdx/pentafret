@@ -40,7 +40,7 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
 
   range(standardTuning.length * notesPerString).forEach((noteIndex) => {
     const string =
-      standardTuning.length - Math.floor(noteIndex / notesPerString)
+      standardTuning.length - Math.floor(noteIndex / notesPerString) - 1
 
     const openNote = standardTuning[string]
 
@@ -64,9 +64,11 @@ export const getPentatonicPattern = (input: Input): NotePosition[] => {
       return fret
     }
 
+    const fret = getFret()
+
     result.push({
       string,
-      fret: getFret(),
+      fret,
     })
   })
 
