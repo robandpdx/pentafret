@@ -2,7 +2,7 @@ import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { range } from '@lib/utils/array/range'
 import { getScaleName } from '@product/core/scale/getScaleName'
-import { scalePatternResolvers } from '@product/core/scale/pattern/scalePatternResolvers'
+import { getScalePattern } from '@product/core/scale/getScalePattern'
 import { scalePatternsNumber } from '@product/core/scale/ScaleType'
 import { useMemo } from 'react'
 
@@ -16,9 +16,9 @@ export const ScalePatterns = () => {
   const scaleName = getScaleName(scale)
 
   const patterns = useMemo(() => {
-    const resolver = scalePatternResolvers[scale.type]
-
-    return range(scalePatternsNumber).map((index) => resolver({ index, scale }))
+    return range(scalePatternsNumber).map((index) =>
+      getScalePattern({ index, scale }),
+    )
   }, [scale])
 
   return (

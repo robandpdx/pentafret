@@ -12,9 +12,9 @@ import {
   majorScalePatterns,
 } from '../full/majorScalePatterns'
 
-import { PatternResolver } from './PatternResolver'
+import { ScalePatternResolver } from './ScalePatternResolver'
 
-export const getFullScalePattern: PatternResolver = (input) => {
+export const getFullScalePattern: ScalePatternResolver = (input) => {
   if (input.scale.tonality === 'minor') {
     return getFullScalePattern({
       ...input,

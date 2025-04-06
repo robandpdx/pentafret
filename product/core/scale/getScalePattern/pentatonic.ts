@@ -10,11 +10,11 @@ import { scalePatterns } from '@product/core/scale/ScaleType'
 
 import { standardTuning } from '../../guitar/tuning'
 
-import { PatternResolver } from './PatternResolver'
+import { ScalePatternResolver } from './ScalePatternResolver'
 
 const notesPerString = 2
 
-export const getPentatonicPattern: PatternResolver = (input) => {
+export const getPentatonicPattern: ScalePatternResolver = (input) => {
   if (input.scale.tonality === 'major') {
     return getPentatonicPattern({
       ...input,
