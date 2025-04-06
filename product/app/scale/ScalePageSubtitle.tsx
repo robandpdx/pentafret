@@ -1,6 +1,7 @@
-import { PartialMatch } from '@lib/ui/base/PartialMatch'
+import { Match } from '@lib/ui/base/Match'
 
 import { BluesScaleSubtitle } from './BluesScaleSubtitle'
+import { FullScaleSubtitle } from './FullScaleSubtitle'
 import { PentatonicSubtitle } from './PentatonicSubtitle'
 import { useScale } from './state/scale'
 
@@ -8,12 +9,11 @@ export const ScalePageSubtitle = () => {
   const { type } = useScale()
 
   return (
-    <PartialMatch
+    <Match
       value={type}
-      if={{
-        pentatonic: () => <PentatonicSubtitle />,
-        blues: () => <BluesScaleSubtitle />,
-      }}
+      full={() => <FullScaleSubtitle />}
+      pentatonic={() => <PentatonicSubtitle />}
+      blues={() => <BluesScaleSubtitle />}
     />
   )
 }

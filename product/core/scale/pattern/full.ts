@@ -5,8 +5,8 @@ import { normalizeFretPositions } from '@product/core/note/normalizeFretPosition
 
 import { cagedChords, cagedTemplateDistances } from '../../chords/caged'
 import { standardTuning } from '../../guitar/tuning'
-import { chromaticNotesNumber } from '../../note'
 import { shiftNotePositions } from '../../note/shiftNotePositions'
+import { getFullScaleRelativeTonalityRootNote } from '../full/getFullScaleRelativeTonalityRootNote'
 import {
   firstMajorScalePatternChord,
   majorScalePatterns,
@@ -21,7 +21,7 @@ export const getFullScalePattern: PatternResolver = (input) => {
       scale: {
         ...input.scale,
         tonality: 'major',
-        rootNote: (input.scale.rootNote + 3) % chromaticNotesNumber,
+        rootNote: getFullScaleRelativeTonalityRootNote(input.scale),
       },
     })
   }
