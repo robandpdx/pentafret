@@ -89,12 +89,13 @@ The songs page provides:
 ### Scale Information
 - The page title displays the full name of the scale (e.g., "E Minor Pentatonic Scale")
 - For pentatonic scales, a subtitle shows a clickable link to the relative pentatonic scale
+- For full scales, a subtitle shows a clickable link to the relative full scale
 - For blues scales, the subtitle indicates that it contains the same notes as the pentatonic scale plus a blue note
 
 ### Pentatonic Patterns
 For the following scale types, the app displays 5 standard patterns:
 - **Pentatonic scales**: Each pattern is shown on a dedicated fretboard. Patterns progress from first to fifth. For minor pentatonic scales, the first pattern starts from the root note. For major pentatonic scales, the first pattern starts from the next note of the pentatonic scale.
-- **Major full scales**: Similar to pentatonic patterns, 5 standard patterns are displayed for major full scales, each shown on a dedicated fretboard and progressively covering different positions on the neck.
+- **Full scales**: Similar to pentatonic patterns, 5 standard patterns are displayed for both major and minor full scales, each shown on a dedicated fretboard and progressively covering different positions on the neck.
 - **Blues scales**: Follow the same pattern structure as pentatonic scales with the addition of the blue note highlighted in each pattern.
 
 ### URL Patterns

@@ -1,11 +1,8 @@
 import { VStack } from '@lib/ui/css/stack'
 import { Text } from '@lib/ui/text'
 import { range } from '@lib/utils/array/range'
-import { match } from '@lib/utils/match'
-import { getBluesScalePattern } from '@product/core/scale/blues/getBluesScalePattern'
 import { getScaleName } from '@product/core/scale/getScaleName'
-import { getMajorScalePattern } from '@product/core/scale/major/getMajorScalePattern'
-import { getPentatonicPattern } from '@product/core/scale/pentatonic/getPentatonicPattern'
+import { getScalePattern } from '@product/core/scale/getScalePattern'
 import { scalePatternsNumber } from '@product/core/scale/ScaleType'
 import { useMemo } from 'react'
 
@@ -19,19 +16,10 @@ export const ScalePatterns = () => {
   const scaleName = getScaleName(scale)
 
   const patterns = useMemo(() => {
-    const { type } = scale
-    if (type === 'full' && scale.tonality === 'minor') return undefined
-
-    const generate = match(type, {
-      pentatonic: () => getPentatonicPattern,
-      blues: () => getBluesScalePattern,
-      full: () => getMajorScalePattern,
-    })
-
-    return range(scalePatternsNumber).map((index) => generate({ index, scale }))
+    return range(scalePatternsNumber).map((index) =>
+      getScalePattern({ index, scale }),
+    )
   }, [scale])
-
-  if (!patterns) return null
 
   return (
     <VStack gap={60}>

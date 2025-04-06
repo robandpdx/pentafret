@@ -6,19 +6,15 @@ import { chromaticNotesNumber } from '@product/core/note'
 import { normalizeFretPositions } from '@product/core/note/normalizeFretPositions'
 import { NotePosition } from '@product/core/note/NotePosition'
 import { getPentatonicRelativeTonalityRootNote } from '@product/core/scale/pentatonic/getPentatonicRelativeTonalityRootNote'
-import { Scale } from '@product/core/scale/Scale'
 import { scalePatterns } from '@product/core/scale/ScaleType'
 
 import { standardTuning } from '../../guitar/tuning'
 
-type Input = {
-  index: number
-  scale: Omit<Scale, 'type'>
-}
+import { ScalePatternResolver } from './ScalePatternResolver'
 
 const notesPerString = 2
 
-export const getPentatonicPattern = (input: Input): NotePosition[] => {
+export const getPentatonicPattern: ScalePatternResolver = (input) => {
   if (input.scale.tonality === 'major') {
     return getPentatonicPattern({
       ...input,
