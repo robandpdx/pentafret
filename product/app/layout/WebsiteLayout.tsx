@@ -24,6 +24,7 @@ import styled from 'styled-components'
 import { makeCagedPath } from '../caged/state/caged'
 import { ProductLogo } from '../product/ProductLogo'
 import { makeScalePath } from '../scale/state/scale'
+import { makeTriadPath } from '../triad/state/triad'
 
 const LogoWrapper = styled(Link)`
   ${interactive};
@@ -39,6 +40,10 @@ const items = [
   {
     name: 'CAGED',
     href: makeCagedPath({ view: 'chord', tonality: 'major' }),
+  },
+  {
+    name: 'Triads',
+    href: makeTriadPath({ rootNote: 7, index: 0 }),
   },
   {
     name: 'Scales',
