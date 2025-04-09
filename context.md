@@ -61,6 +61,10 @@ The CAGED templates also have an option to view arpeggios. E.g., for "CAGED Temp
 
 The same pattern applies to minor tonality, showing the appropriate minor chord and arpeggio forms.
 
+## Triads (/triads/[index]/[rootNote])
+
+The triads page presents the triads within the context of a major scale. At the top of the page, users can select the root note of the major scale and one of the seven triads. The content of the page features five scale patterns, with the selected triad highlighted in each pattern.
+
 ## Songs (/songs)
 
 The songs page presents a list of songs organized by guitar theory topics. Users can expand or collapse each topic to view the songs and check off the ones they have learned.

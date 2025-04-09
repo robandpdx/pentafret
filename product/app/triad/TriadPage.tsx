@@ -6,6 +6,7 @@ import { PageContainer } from '../layout/PageContainer'
 import { ManageTriadIndex } from './manage/ManageTriadIndex'
 import { ManageTriadRootNote } from './manage/ManageTriadRootNote'
 import { TriadProvider, TriadState } from './state/triad'
+import { TriadPageTitle } from './TriadPageTitle'
 
 export const TriadPage = ({ value }: ValueProp<TriadState>) => (
   <TriadProvider value={value}>
@@ -17,6 +18,7 @@ export const TriadPage = ({ value }: ValueProp<TriadState>) => (
             <ManageTriadIndex />
           </VStack>
         </VStack>
+        <TriadPageTitle />
         triads on scale patterns
       </VStack>
     </PageContainer>
