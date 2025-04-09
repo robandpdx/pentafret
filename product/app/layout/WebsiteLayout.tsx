@@ -43,7 +43,7 @@ const items = [
   },
   {
     name: 'Triads',
-    href: makeTriadPath({ rootNote: 7, index: 0 }),
+    href: makeTriadPath({ rootNote: 10, index: 0 }),
   },
   {
     name: 'Scales',

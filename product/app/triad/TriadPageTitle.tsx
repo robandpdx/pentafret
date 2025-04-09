@@ -13,14 +13,14 @@ export const TriadPageTitle = () => {
   const triadName = getTriadName(index)
   const romanNumeral = triadRomanNumerals[index]
 
-  const title = `${rootNoteName} Major Scale - ${triadName} Triad | Guitar Fretboard Patterns`
-  const description = `Interactive guide to the ${triadName} triad (${romanNumeral}) in the ${rootNoteName} major scale. Learn how this triad appears across all standard scale patterns on the guitar fretboard.`
+  const title = `${rootNoteName} Major Scale - ${triadName} | Guitar Fretboard Patterns`
+  const description = `Interactive guide to the ${triadName} (${romanNumeral}) in the ${rootNoteName} major scale. Learn how this triad appears across all standard scale patterns on the guitar fretboard.`
 
   return (
     <>
       <PageMetaTags title={title} description={description} />
       <PageTitle>
-        {rootNoteName} Major Scale - {triadName} Triad
+        {rootNoteName} Major Scale - {triadName}
       </PageTitle>
     </>
   )

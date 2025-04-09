@@ -23,5 +23,6 @@ export const getTriadName = (index: number) => {
   return [
     numberal,
     quality === 'major' ? capitalizeFirstLetter(quality) : quality,
+    'Triad',
   ].join(' ')
 }
