@@ -25,7 +25,7 @@ export const TriadPage = ({ value }: ValueProp<TriadState>) => (
           <TriadPageTitle />
         </VStack>
         {range(scalePatternsNumber).map((index) => (
-          <TriadOnMajorScalePattern key={index} index={index} />
+          <TriadOnMajorScalePattern key={index} scalePatternIndex={index} />
         ))}
       </VStack>
     </PageContainer>

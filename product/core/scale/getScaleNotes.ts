@@ -10,10 +10,12 @@ type Input = {
 }
 
 export const getScaleNotes = ({ rootNote, pattern }: Input): number[] =>
-  pattern.reduce(
-    (notes, step) => [
-      ...notes,
-      (getLastItem(notes) + step) % chromaticNotesNumber,
-    ],
-    [rootNote],
-  )
+  pattern
+    .slice(0, pattern.length - 1)
+    .reduce(
+      (notes, step) => [
+        ...notes,
+        (getLastItem(notes) + step) % chromaticNotesNumber,
+      ],
+      [rootNote],
+    )
