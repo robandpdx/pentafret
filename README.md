@@ -75,6 +75,13 @@ Examples:
 
 The same pattern applies to minor tonality, showing the appropriate minor chord and arpeggio forms.
 
+#### Triads Page (/triads/[index]/[rootNote])
+The Triads page offers:
+- Visualization of triads within the context of a major scale
+- Selection of the root note of the major scale
+- Selection of one of the seven triads within the scale
+- Display of five scale patterns with the selected triad highlighted in each pattern
+
 #### Songs Page (/songs)
 The songs page provides:
 - A curated list of songs organized by guitar theory topics
@@ -105,6 +112,7 @@ For the following scale types, the app displays 5 standard patterns:
   - Example: `/scales/pentatonic/e/minor` shows the E minor pentatonic scale
   - `/caged/[view]/[tonality]` where view is either `chords` or `arpeggios` and tonality is either `major` or `minor`
   - `/caged/[view]/[tonality]/[chord]` for CAGED templates
+  - `/triads/[index]/[rootNote]` where index is one of the seven triads and rootNote is the root of the major scale
   - `/songs` for accessing the songs library
 
 ---

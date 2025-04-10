@@ -3,7 +3,7 @@ import { round } from '@lib/ui/css/round'
 import { sameDimensions } from '@lib/ui/css/sameDimensions'
 import { toSizeUnit } from '@lib/ui/css/toSizeUnit'
 import { PositionAbsolutelyByCenter } from '@lib/ui/layout/PositionAbsolutelyByCenter'
-import { KindProp } from '@lib/ui/props'
+import { KindProp, ChildrenProp } from '@lib/ui/props'
 import { getColor } from '@lib/ui/theme/getters'
 import { match } from '@lib/utils/match'
 import { toPercents } from '@lib/utils/toPercents'
@@ -21,7 +21,8 @@ import { getStringPosition } from './utils/getStringPosition'
 
 export type NoteKind = 'regular' | 'primary' | 'blue'
 
-export type NoteProps = Partial<KindProp<NoteKind>> & NotePosition
+export type NoteProps = Partial<KindProp<NoteKind> & ChildrenProp> &
+  NotePosition
 
 const Container = styled.div<KindProp<NoteKind>>`
   ${round}
@@ -55,7 +56,12 @@ const Container = styled.div<KindProp<NoteKind>>`
   }}
 `
 
-export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
+export const Note = ({
+  string,
+  fret,
+  kind = 'regular',
+  children,
+}: NoteProps) => {
   const visibleFrets = useVisibleFrets()
 
   const top = toPercents(getStringPosition(string))
@@ -72,7 +78,9 @@ export const Note = ({ string, fret, kind = 'regular' }: NoteProps) => {
 
   return (
     <PositionAbsolutelyByCenter top={top} left={left}>
-      <Container kind={kind}>{chromaticNotesNames[value]}</Container>
+      <Container kind={kind}>
+        {children ?? chromaticNotesNames[value]}
+      </Container>
     </PositionAbsolutelyByCenter>
   )
 }
