@@ -1,5 +1,7 @@
 import { capitalizeFirstLetter } from '@lib/utils/capitalizeFirstLetter'
 
+export const triadIntervals = [1, 3, 5]
+
 export const triadRomanNumerals = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii°']
 
 type ChordQuality = 'major' | 'minor' | 'diminished'

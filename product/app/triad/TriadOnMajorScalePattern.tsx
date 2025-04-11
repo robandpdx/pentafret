@@ -6,15 +6,13 @@ import { getScaleNotes } from '@product/core/scale/getScaleNotes'
 import { getFullScalePattern } from '@product/core/scale/getScalePattern/full'
 import { Scale } from '@product/core/scale/Scale'
 import { scalePatterns } from '@product/core/scale/ScaleType'
-import { getTriadName } from '@product/core/triads'
+import { getTriadName, triadIntervals } from '@product/core/triads'
 
 import { Fretboard } from '../guitar/fretboard/Fretboard'
 import { Note } from '../guitar/fretboard/Note'
 import { SectionTitle } from '../ui/SectionTitle'
 
 import { useTriad } from './state/triad'
-
-const triadScaleDegrees = [1, 3, 5]
 
 export const TriadOnMajorScalePattern = ({
   scalePatternIndex,
@@ -54,7 +52,7 @@ export const TriadOnMajorScalePattern = ({
           const scaleDegree =
             scaleNotes.indexOf(getNoteFromPosition({ position })) + 1
 
-          const isTriadNote = triadScaleDegrees.includes(scaleDegree)
+          const isTriadNote = triadIntervals.includes(scaleDegree)
 
           return (
             <Note
