@@ -7,23 +7,21 @@ import { PageTitle } from '../../ui/PageTitle'
 import { useCagedTemplate } from './state/cagedTemplate'
 
 export const CagedTemplatePageTitle = () => {
-  const { view, chord } = useCagedTemplate()
+  const { view, chord, tonality } = useCagedTemplate()
   const viewTitle = `${capitalizeFirstLetter(view)}s`
   const chordName = chord.toUpperCase()
-  const title = `CAGED Template ${chordName} Major ${viewTitle}`
+  const title = `CAGED Template ${chordName} ${capitalizeFirstLetter(tonality)} ${viewTitle}`
   const description = match(view, {
     chord: () =>
-      `Learn the CAGED system chord shapes for ${chordName} major across the fretboard using the ${chordName} template.`,
+      `Learn the CAGED system chord shapes for ${chordName} ${tonality} across the fretboard using the ${chordName} template.`,
     arpeggio: () =>
-      `Learn the CAGED system arpeggio patterns for ${chordName} major across the fretboard using the ${chordName} template.`,
+      `Learn the CAGED system arpeggio patterns for ${chordName} ${tonality} across the fretboard using the ${chordName} template.`,
   })
 
   return (
     <>
       <PageMetaTags title={title} description={description} />
-      <PageTitle>
-        CAGED Template {chordName} Major {viewTitle}
-      </PageTitle>
+      <PageTitle>{title}</PageTitle>
     </>
   )
 }
