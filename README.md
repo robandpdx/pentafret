@@ -19,6 +19,7 @@ Follow along with this series of YouTube videos showing the progressive developm
 2. [Interactive Guitar Fretboard for Pentatonic Scales](https://youtu.be/4jtm2Lm4EVA)
 3. [Blues Scale Visualization on Guitar Fretboard](https://youtu.be/3NUnnP6GLZ0)
 4. [Open CAGED Chords](https://youtu.be/mY2HstZeb6U)
+5. [CAGED Arpeggios](https://youtu.be/MZejUV0iSKg)
 
 ## Features
 
