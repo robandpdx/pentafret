@@ -21,6 +21,7 @@ Follow along with this series of YouTube videos showing the progressive developm
 4. [Open CAGED Chords](https://youtu.be/mY2HstZeb6U)
 5. [CAGED Arpeggios](https://youtu.be/MZejUV0iSKg)
 6. [Checklist of Songs to Learn](https://youtu.be/Bf3XjBbm4_M)
+7. [Building a CAGED System Visualizer with React](https://youtu.be/MwbG0j6Re1o)
 
 ## Features
 
