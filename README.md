@@ -22,7 +22,8 @@ Follow along with this series of YouTube videos showing the progressive developm
 5. [CAGED Arpeggios](https://youtu.be/MZejUV0iSKg)
 6. [Checklist of Songs to Learn](https://youtu.be/Bf3XjBbm4_M)
 7. [Building a CAGED System Visualizer with React](https://youtu.be/MwbG0j6Re1o)
-
+8. [Full patterns for Major and Minor scales](https://youtu.be/zIQX8povK9c)
+ 
 ## Features
 
 ### Pages
