@@ -44,7 +44,7 @@ jobs:
         run: yarn build
         working-directory: product/app
         env:
-          NEXT_PUBLIC_BASE_URL: https://riznob.github.io/pentafret/
+          NEXT_PUBLIC_BASE_URL: https://robandpdx.github.io/pentafret/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
