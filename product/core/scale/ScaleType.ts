@@ -12,14 +12,20 @@ export const scalePatterns: Record<
   full: {
     major: [2, 2, 1, 2, 2, 2, 1],
     minor: [2, 1, 2, 2, 1, 2, 2],
+    major7: [2, 2, 1, 2, 2, 2, 1],
+    minor7: [2, 1, 2, 2, 2, 1, 2],
   },
   pentatonic: {
     major: [2, 2, 3, 2, 3],
     minor: [3, 2, 2, 3, 2],
+    major7: [2, 2, 3, 2, 3],
+    minor7: [3, 2, 2, 3, 2],
   },
   blues: {
     major: [2, 1, 1, 3, 2, 3],
     minor: [3, 2, 1, 1, 3, 2],
+    major7: [2, 1, 1, 3, 2, 3],
+    minor7: [3, 2, 1, 1, 3, 2],
   },
 }
 

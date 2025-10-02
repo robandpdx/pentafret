@@ -12,6 +12,8 @@ export const getFullScaleRelativeTonalityRootNote = ({
   const direction = match(tonality, {
     minor: () => 1,
     major: () => -1,
+    minor7: () => 1,
+    major7: () => -1,
   })
 
   return (
