@@ -37,7 +37,7 @@ jobs:
           node-version: 20
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn ci
+        run: yarn install
         working-directory: product/app
 
       - name: Build static content
