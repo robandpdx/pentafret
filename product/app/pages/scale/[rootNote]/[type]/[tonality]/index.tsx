@@ -3,7 +3,7 @@ import { chromaticNotesNumber } from '@product/core/note'
 import { toUriNote, fromUriNote } from '@product/core/note/uriNote'
 import { scaleTypes } from '@product/core/scale/ScaleType'
 import { ScaleType } from '@product/core/scale/ScaleType'
-import { tonalities } from '@product/core/tonality'
+import { basicTonalities } from '@product/core/tonality'
 import { Tonality } from '@product/core/tonality'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
@@ -19,7 +19,7 @@ type Params = {
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const paths = scaleTypes.flatMap((type) =>
-    tonalities.flatMap((tonality) =>
+    basicTonalities.flatMap((tonality) =>
       range(chromaticNotesNumber).map((rootNote) => ({
         params: {
           rootNote: toUriNote(rootNote),
