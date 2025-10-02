@@ -138,7 +138,7 @@ export const openCagedChords: Record<
     a: [
       { string: 0, fret: -1 },
       { string: 1, fret: 0 },
-      { string: 2, fret: 1 },
+      { string: 2, fret: -1 },
       { string: 3, fret: 1 },
       { string: 4, fret: -1 },
     ],
