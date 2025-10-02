@@ -1,7 +1,7 @@
 import { GroupedRadioInput } from '@lib/ui/inputs/GroupedRadioInput'
 import { InputContainer } from '@lib/ui/inputs/InputContainer'
 import { InputLabel } from '@lib/ui/inputs/InputLabel'
-import { tonalityNames, tonalities } from '@product/core/tonality'
+import { tonalityNames, basicTonalities } from '@product/core/tonality'
 
 import { useChangeScale, useScale } from '../state/scale'
 
@@ -15,7 +15,7 @@ export const ManageTonality = () => {
       <GroupedRadioInput
         value={tonality}
         onChange={(tonality) => setValue({ tonality })}
-        options={tonalities}
+        options={basicTonalities}
         renderOption={(tonality) => tonalityNames[tonality]}
       />
     </InputContainer>
