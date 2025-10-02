@@ -129,9 +129,9 @@ export const openCagedChords: Record<
   },
   minor7: {
     c: [
-      { string: 0, fret: -1 },
-      { string: 1, fret: 2 },
-      { string: 2, fret: 0 },
+      { string: 0, fret: 2 },
+      { string: 1, fret: 0 },
+      { string: 2, fret: 2 },
       { string: 3, fret: 0 },
       { string: 4, fret: 2 },
     ],
@@ -317,13 +317,13 @@ export const cagedArpeggios: Record<
   },
   minor7: {
     c: [
-      { string: 0, fret: 1 },
       { string: 0, fret: 2 },
+      { string: 1, fret: 0 },
       { string: 1, fret: 2 },
       { string: 2, fret: 0 },
+      { string: 2, fret: 2 },
       { string: 3, fret: 0 },
       { string: 4, fret: 2 },
-      { string: 5, fret: 2 },
     ],
     a: [
       { string: 0, fret: -1 },
