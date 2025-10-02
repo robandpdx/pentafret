@@ -30,11 +30,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup node
         uses: actions/setup-node@v5
         with:
           node-version: 20
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn ci
+        working-directory: product/app
+
+      - name: Build static content
+        run: yarn build
+        working-directory: product/app
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
