@@ -143,11 +143,9 @@ export const openCagedChords: Record<
       { string: 4, fret: -1 },
     ],
     g: [
-      { string: 0, fret: 2 },
       { string: 1, fret: 2 },
       { string: 2, fret: 2 },
       { string: 3, fret: 2 },
-      { string: 4, fret: 1 },
       { string: 5, fret: 2 },
     ],
     e: [
@@ -160,7 +158,7 @@ export const openCagedChords: Record<
     ],
     d: [
       { string: 0, fret: 0 },
-      { string: 1, fret: 1 },
+      { string: 1, fret: 0 },
       { string: 2, fret: 1 },
       { string: 3, fret: -1 },
     ],
